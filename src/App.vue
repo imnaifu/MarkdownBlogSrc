@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <!-- <img src="./assets/logo.png"> -->
         <appHeader></appHeader> 
         <appNavigator></appNavigator>
         <router-view class='container'></router-view>
