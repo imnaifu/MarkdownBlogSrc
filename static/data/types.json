@@ -1,0 +1,10 @@
+{
+    "types":{
+        "0":"PHP",
+        "1":"JS",
+        "2":"CSS",
+        "3":"Linux",
+        "4":"Network",
+        "5":"Algorithm"
+    }
+}
