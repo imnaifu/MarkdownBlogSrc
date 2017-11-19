@@ -1,51 +1,71 @@
 <template>
     <div id="app">
         <!-- <img src="./assets/logo.png"> -->
-        <div id='content' v-bind:class="contentClass">
-            <appHeader></appHeader> 
+        <div class='contianer-fluid' v-bind:class="contentClass">
+            <appHeader></appHeader>
             <appNav></appNav>
-            <router-view class='container' ></router-view>
+            <div class='row content'>   
+                <router-view></router-view>
+            </div> 
             <appFooter></appFooter>
         </div>
     </div>
 </template>
 
 <script>
-import appHeader from './components/appHeader';
-import appFooter from './components/appFooter';
-import appNav from './components/appNav';
-import store from './vuex/store.js'
+    import appHeader from './components/appHeader';
+    import appFooter from './components/appFooter';
+    import appNav from './components/appNav';
+    import store from './vuex/store.js'
 
-export default {
-    store,
-    name: 'app',
-    components: {   
-        appHeader,
-        appNav,
-        appFooter,    
-    },
-    data(){
-        return {
+    export default {
+        store,
+        name: 'app',
+        components: {   
+            appHeader,
+            appNav,
+            appFooter,    
+        },
+        data(){
+            return {
 
-        }
-    },
-    computed: {
-        contentClass: function (){
-            return this.$store.state.contentClass
+            }
+        },
+        computed: {
+            contentClass: function (){
+                return this.$store.state.contentClass
+            }
+        },
+        mounted: function(){
+            this.$store.commit('fetchAllTypes');
+            this.$store.commit('fetchAllDetailsAndArticles');
         }
     }
-}
-
-
 </script>
 
 <style scoped>
-    #app {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, #4568dc, #b06ab3); 
-    }
-    .container {
-        width: 100%;
-    }
+#app {
+  /*  width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #4568dc, #b06ab3); */
+}
+/* content */   
+.content {
+   /* width: 100%;
+    padding: 40px;
+    min-height: 93%;
+    transition: all 0.3s;
+    position: absolute;
+    top: 7%;
+    right: 0;*/
+    display: flex;
+    display: -webkit-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#content.active {
+    /*width: 100%;*/
+}
+
 </style>

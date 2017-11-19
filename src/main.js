@@ -10,7 +10,7 @@ import router from './router' //import router setting
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
-new Vue({
+const vm = new Vue({
     el: '#app', //mount DOM
     router,
     template: '<App></App>', //this will replace the mounted element totally if has this 'template' string

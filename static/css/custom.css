@@ -1,0 +1,93 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+/* basic */
+* {
+    transition: all 0.3s;  
+}
+html {
+    overflow-y: scroll;
+    display: block;
+}
+html, body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: #fafafa;
+}
+
+p{
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #656565;
+}
+
+a, a:hover, a:focus {
+    color:inherit;
+    text-decoration: none;
+    transition: all 0.3s;  
+}
+
+
+
+.line{
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+
+
+
+a[data-toggle='collapse'] {
+    /* not sure if used */
+    position:relative;
+}
+
+a[aria-expanded='false']::before, a[aria-expanded='true']::before {
+    content: '\f063'; arrow down
+    display: block;
+    position:absolute;
+    right:20px;
+    font-family: 'FontAwesome';
+    font-size: 0.6em;
+}
+
+a[aria-expanded='true']::before {
+    content: '\f062';
+}
+
+ul ul a {
+    /* a inside */
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+
+
+
+
+/* media queries */
+@media (max-width: 768px){
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.disable {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+
+
+
+

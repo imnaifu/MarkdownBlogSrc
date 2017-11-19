@@ -1,13 +1,10 @@
 <template>
-    <div class='wrapper'>
         <!-- sidebar -->
-        <nav id='sidebar' v-bind:class="sidebarClass">
+        <div id='sidebar' class="" v-bind:class="sidebarClass">
             <div class='sidebar-header'>
-                <!-- <div class='full'><h3>{{sidebar.title.text}}</h3></div> -->
                 <div class='full'><h3>sidebar</h3></div>
-
             </div>
-
+            <p><router-link to="/new">New</router-link></p>
             <ul class='list-unstyled components'>
 
 <!--       
@@ -54,8 +51,7 @@
                 </li>
  -->            
             </ul>
-        </nav>
-    </div>
+        </div>
 </template>
 
 <script type="text/javascript">
@@ -63,43 +59,30 @@
     export default {
         data: function(){
             return {
-                types: '',
-                directories: ''
-
             }
         },
         methods: {
-            fetchTypes: function (){
-                axios.get('../../static/data/types.json').then( (response) => {
-                    this.types = Object.values(response.data.types);
-                    // console.log(this.types);
-                }, (error) => {
-                    console.log(error)
-                })
-            },
-            fetchDirectories: function (){
-                axios.get('../../static/data/directories.json').then( (response) => {
-                    this.directories = Object.values(response.data);
-                    // console.log(this.directories);
-                }, (error) => {
-                    console.log(error)
-                })
-            }
+
         },
         computed: {
             type_directory: function (){
                 let final_directory = {}; //whole directory
-                for (let i of this.types){
-                    Object.defineProperty(final_directory, i, {
-                        value: [],
-                        writable: true,
-                        enumerable: true,
-                        configurable: true
-                    });
+
+                // only do this if exist
+                if (this.$store.state.allTypes && this.$store.state.allDetails){
+                    for (let i of this.$store.state.allTypes){
+                        Object.defineProperty(final_directory, i, {
+                            value: [],
+                            writable: true,
+                            enumerable: true,
+                            configurable: true
+                        });
+                    }
+                    for (let val of this.$store.state.allDetails){
+                        final_directory[val.type].push(val);
+                    }
                 }
-                for (let val of this.directories){
-                    final_directory[val.type].push(val);
-                }
+                
                 // console.log(final_directory);
                 return final_directory;
             },
@@ -108,9 +91,62 @@
             }            
         },
         mounted: function(){
-            this.fetchTypes();
-            this.fetchDirectories();
+
         }        
     }
 </script>
 
+<style scoped>
+/* sidebar */
+#sidebar{
+    width:230px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /*viewpoint height*/
+    z-index: 998;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s; 
+    /*position: -webkit-sticky;*/
+    /*position: sticky;*/
+}
+
+#sidebar.disable{
+    margin-left: -230px;
+}
+
+#sidebar .sidebar-header{
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components{
+    padding:20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p{
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    font-weight: 300
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active a[aria-expanded="true"] {
+    /*to replace hover effect for acitve and expanded element*/
+    color: #fff;
+    background: #6d7fcc;
+}
+    
+</style>

@@ -1,10 +1,10 @@
 {
     "types":{
-        "0":"PHP",
-        "1":"JS",
-        "2":"CSS",
-        "3":"Linux",
-        "4":"Network",
-        "5":"Algorithm"
+        "1":"PHP",
+        "2":"JS",
+        "3":"CSS",
+        "4":"Linux",
+        "5":"Network",
+        "6":"Algorithm"
     }
 }
