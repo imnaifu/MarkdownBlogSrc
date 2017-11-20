@@ -3,7 +3,7 @@
         "id": 0,
         "title": "first-article",
         "date": "2017-11-17",
-        "type": "JS",
+        "type": "JavaScript",
         "filename": "first.md"
     },
     "1": {
@@ -21,3 +21,4 @@
         "filename": "third.md"
     }
 }
+

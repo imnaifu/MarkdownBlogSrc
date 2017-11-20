@@ -1,8 +1,10 @@
 <template>
-    <div class='article' v-bind:class="articleStatus">
-        <h6 class='date'>Date: {{getOneDate}}</h6>   
-        <h1 id='title'>{{getOneTitle}}</h1>
-        <p v-html="getOneArticle"></p>
+    <div class='article' v-on:click="sidebarDisable">  
+        <div class='article-inner'>
+            <p class='date'>Date: {{getOneDate}}</p>   
+            <h1 id='title'>{{getOneTitle}}</h1>
+            <p class='article-text' v-html="getOneArticle"></p>
+        </div>
     </div>
 </template>
 
@@ -33,33 +35,38 @@
             getArticleById: function (id){
                 // console.log(this.articles);
                 return this.$store.state.allArticles[id];
+            },
+
+            //control of sidebar [not a good way]
+            sidebarDisable(){
+                if (this.$store.state.sidebarStatus == 'active'){
+                    this.$store.commit('disableSidebar');
+                }
             }
 
         },
         computed: {
             getOneTitle(){
                 if (this.$store.state.allDetails){
-                    // console.log(this.articles);
                     return this.getTitleById(this.blogid);
                 }
             },
             getOneDate(){
                 if (this.$store.state.allDetails){
-                    // console.log(this.articles);
                     return this.getDateById(this.blogid);
                 }
             },
             getOneArticle(){
-                // console.log(this.$store.state.allArticles);
                 if (this.$store.state.allArticles){
-                    // console.log(this.articles);
-                    return converter.makeHtml(this.getArticleById(this.blogid));
+                    let article = converter.makeHtml(this.getArticleById(this.blogid));
+                    console.log(article);
+                    let myRegex = /<img[^>]+src="?([^"\s]+)"?[^\/]*\/>/gm;
+                    let src = myRegex.exec(article);
+                    // let src = article.getElementByTagName('img');
+                    console.log(src);
+                    return article;
                 }
             },
-            articleStatus(){
-                console.log()
-                return (this.$store.state.sidebarClass=='active')?'disable':'active';
-            }
         },
         mounted() {
             // console.log(this.$route.params.id);
@@ -68,22 +75,31 @@
 </script>
 
 <style scoped>
-    .article {
-        margin-left: 230px;
-        padding: 30px 80px
-    }
-
     .active {
         margin-left: 0
     }
 
     .date {
+        font-size: 15px;
         text-align: right;
-        margin:0;
+        margin: 5px 0 ;
         color: #656565;
     }
     h1#title {
         text-align: center;
     }
+
+
+    .article-inner {
+        margin:0 auto;
+        padding:0 25px;
+        max-width: 740px;
+    }
+
+    .article-text {
+        padding: 30px 0 ;
+        min-height: 75vh;
+    }
+
 
 </style>

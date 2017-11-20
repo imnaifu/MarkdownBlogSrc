@@ -1,0 +1,11 @@
+{
+    "article_types": ["PHP", "JavaScript", "CSS", "Linux", "Network", "Algorithm", "blabla"],
+
+    "enable_resume": true,
+
+    "me_img": "avatar.jpg",
+    "me_text": "Hello, I'm Naifu.",
+
+    "nav_text": ["this.me", "this.resume", "this.blog"] 
+
+}

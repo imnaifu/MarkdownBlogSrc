@@ -4,31 +4,55 @@ import axios from 'axios';
 Vue.use(Vuex);
 
 const state = {
-    sidebarClass: 'active',
-    toggleButtonStatus: 'disable',
+    sidebarStatus: '',
     allTypes: null,
     allDetails: null,
     allArticles: [],
-    article_path: '../../static/articles/',
+    articlePath: '../../static/data/articles/',
+    resumeData: '',
+    enableResume: false,
+    meImg: 'avatar.jpg',
+    meText: 'Hello',
+    navText: ['Me', 'Resume', 'Blog'] 
 };
 
 const mutations = {
-    toggleSidebar(state){
-        state.sidebarClass = (state.sidebarClass=='active')?'disable':'active';
+    activeSidebar(state){
+        state.sidebarStatus = 'active';
+    },
+    disableSidebar(state){
+        state.sidebarStatus = 'disable';
     },
 
-    activeTogglButton(state){
-    	state.toggleButtonStatus = '';
-    },
+    fetchConfig(state){
+        axios.get('../../static/config/config.json').then( (response) => {
 
-    disableToggleButton(state){
-    	state.toggleButtonStatus = 'disable';
-    },
+            let enableResume = response.data.enable_resume;
+            if (enableResume === true || enableResume === 'true'){
+                state.enableResume = true;
+            }else{
+                state.enableResume = false;
+            }
 
-    fetchAllTypes(state){
-        axios.get('../../static/data/types.json').then( (response) => {
-            state.allTypes = Object.values(response.data.types);
-            // console.log(state.allTypes);
+            let navText = response.data.nav_text;
+            if (navText.length !== 3){
+                console.log('nav_text must be a length 3 array');
+            }else{
+                state.navText = navText;
+            }
+
+            state.meImg = response.data.me_img;
+            state.meText = response.data.me_text;
+            state.allTypes = response.data.article_types;
+
+            if (state.enableResume){
+                axios.get('../../static/data/resume/resume.md').then( (response1) => {
+                    state.resumeData = response1.data;
+                }, (error) => {
+                    console.log(error)
+                });                
+            }
+
         }, (error) => {
             console.log(error)
         })
@@ -38,7 +62,7 @@ const mutations = {
         axios.get('../../static/data/details.json').then( (response) => {
             state.allDetails = Object.values(response.data);
             for (let article of state.allDetails){
-            	axios.get(state.article_path +　article.filename).then( (response1) => {
+            	axios.get(state.articlePath +　article.filename).then( (response1) => {
             		state.allArticles.push(response1.data)
             	}, (error1) => {
             		console.log(error)
@@ -49,6 +73,7 @@ const mutations = {
         })
     },
     
+
 }
 
 export default new Vuex.Store({

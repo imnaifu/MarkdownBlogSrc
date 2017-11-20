@@ -1,18 +1,18 @@
 <template>
     <ul class="nav justify-content-end">
-        <li class='nav-item '>
-            <a class="nav-link" v-on:click="toggle" v-bind:class="toggleButtonStatus" href='javascript:void(0);' title='toggle'>
+        <li class='nav-item' v-if="showToggleButtonByRoute" id='toggleButton'>
+            <a class="nav-link" v-on:click="sidebarActive" href='javascript:void(0);'>
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
         </li>
         <li class='nav-item'>
-            <router-link to="/me" class='nav-link' title='Me'>Me</router-link>
+            <router-link to="/me" class='nav-link'>{{this.$store.state.navText[0]}}</router-link>
+        </li>
+        <li class='nav-item' v-if="this.$store.state.enableResume">
+            <router-link to="/resume" class='nav-link'>{{this.$store.state.navText[1]}}</router-link>
         </li>
         <li class='nav-item'>
-            <router-link to="/resume" class='nav-link' title='Resume'>Resume</router-link>
-        </li>
-        <li class='nav-item'>
-            <router-link to="/blog" class='nav-link' title='Blog'>Blog</router-link>
+            <router-link to="/blog" class='nav-link'>{{this.$store.state.navText[2]}}</router-link>
         </li>
     </ul>
 </template>
@@ -25,18 +25,24 @@ export default {
         }
     },
     methods: {
-        toggle(){
-            this.$store.commit('toggleSidebar');
+        sidebarActive(){
+            this.$store.commit('activeSidebar');
         }
     },
     computed: {
-        toggleButtonStatus: function(){
-            return this.$store.state.toggleButtonStatus
-        }
+        showToggleButtonByRoute(){
+            let route_name = this.$route.name;
+            if (route_name === 'blog' || route_name === 'blog_id'){
+                //only show button if under blog
+                return true;
+            }else{
+                return false;
+            }
+        },
     },
     mounted(){
         // console.log(this.$store.state.contentClass);
-        // console.log(this.$store.state.sidebarClass);
+        // console.log(this.$route);
     }
 
 }
@@ -44,6 +50,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .nav {
+        margin: 15px 10px;
+    }
     .navbar {
         position: fixed;
         top:0;
@@ -69,4 +78,5 @@ export default {
     .disable {
         display: none;
     }
+
 </style>

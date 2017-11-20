@@ -1,7 +1,7 @@
 <template>
     <div class='avatar'>
-        <img src="../assets/avatar.jpg" alt="Me" id='avatar'>
-        <p>Hi, I'm Naifu.</p>
+        <img v-bind:src="'../../static/data/img/' + getAvatarImg" alt="Wait for it ..." id='avatar'>
+        <p>{{getMeText}}</p>
     </div>
 </template>
 <script>
@@ -11,14 +11,30 @@
 			}
 		},
 		mounted(){
-			this.$store.commit('disableToggleButton');
+
+		},
+		computed: {
+			getAvatarImg(){
+				if (this.$store.state.meImg){
+					return this.$store.state.meImg;
+				}else{
+					return 'avatar.jpg'
+				}
+			},
+			getMeText(){
+				if (this.$store.state.meText){
+					return this.$store.state.meText;
+				}else{
+					return "Hello I'm Blog Man."
+				}
+			}
 		}
 	}
 </script>
 <style scoped>
 	.avatar {
 		max-width: 50%;
-		margin-top: 130px;
+		margin-top: 15vh;
 	}
 	#avatar {
 		width: 200px;

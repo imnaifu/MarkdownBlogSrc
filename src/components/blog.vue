@@ -1,6 +1,6 @@
 <template>
     <div class='blog col-12'>
-        <sidebar></sidebar>
+        <sidebar v-bind:blogid="this.$route.params.id"></sidebar>
         <blogarticle v-bind:blogid="this.$route.params.id"></blogarticle>
     </div>
 </template>
@@ -21,8 +21,7 @@
 
         },
         mounted() {
-            // console.log(this.$route.params.id);
-            this.$store.commit('activeTogglButton');
+            this.$store.commit('disableSidebar'); //alway disable sidebar first
         },
         computed: {
             // get_articles: function (){
@@ -33,8 +32,5 @@
     }
 </script>
 <style scoped>
-    .blog {
-        /*width: 100%;*/
-        /*margin-left: 15%;*/
-    }
+
 </style>

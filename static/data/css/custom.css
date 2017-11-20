@@ -9,6 +9,7 @@ html {
     display: block;
 }
 html, body {
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     background: #fafafa;
@@ -27,6 +28,10 @@ a, a:hover, a:focus {
     transition: all 0.3s;  
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
 
 
 .line{
@@ -57,35 +62,36 @@ a[aria-expanded='true']::before {
     content: '\f062';
 }
 
-ul ul a {
-    /* a inside */
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
+
+#toggleButton {
+    /*hide toggle button */
+    display: none;
 }
 
-
-
+.article {
+    margin-left: 250px;
+    padding: 30px 0;
+}
 
 
 /* media queries */
 @media (max-width: 768px){
     #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.disable {
-        margin-left: 0;
-    }
-    #content {
-        width: 100%;
-    }
-    #content.active {
-        width: calc(100% - 250px);
-    }
-    #sidebarCollapse span {
+        /*hide sidebar*/
         display: none;
     }
-}
+    .article {
+        /*full width for article*/
+        margin-left: 0;
+        width: 100%;
+    }
+    #toggleButton {
+        /*show toggle button*/
+        display: block;
+    }
+} 
+
+    
 
 
 

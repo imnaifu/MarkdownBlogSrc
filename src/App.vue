@@ -26,6 +26,9 @@
             appNav,
             appFooter,    
         },
+        methods: {
+
+        },
         data(){
             return {
 
@@ -37,18 +40,13 @@
             }
         },
         mounted: function(){
-            this.$store.commit('fetchAllTypes');
+            this.$store.commit('fetchConfig');
             this.$store.commit('fetchAllDetailsAndArticles');
         }
     }
 </script>
 
 <style scoped>
-#app {
-  /*  width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #4568dc, #b06ab3); */
-}
 /* content */   
 .content {
    /* width: 100%;
