@@ -138,7 +138,7 @@
     color: #fff;
     transition: all 0.3s; 
     padding: 30px 0 50px 0;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: scroll;
 
 }
@@ -159,7 +159,7 @@
 }
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 1.1em;
     display: block;
     font-weight: 300
