@@ -58,12 +58,19 @@
             },
             getOneArticle(){
                 if (this.$store.state.allArticles){
+
                     let article = converter.makeHtml(this.getArticleById(this.blogid));
-                    console.log(article);
-                    let myRegex = /<img[^>]+src="?([^"\s]+)"?[^\/]*\/>/gm;
-                    let src = myRegex.exec(article);
-                    // let src = article.getElementByTagName('img');
-                    console.log(src);
+
+                    //add path to img using regex
+                    let myRegex = /<img[^>]+src="?([^"\s]+)"?[^\/]*\/>/g;
+                    let src = '';
+                    let imgs = [];
+                    let imgPath = this.$store.state.imgPath;
+                    while ( src = myRegex.exec(article) ){
+                        imgs.push( src[1] );
+                        article = article.replace(src[1], imgPath + src[1]);
+                    }
+
                     return article;
                 }
             },

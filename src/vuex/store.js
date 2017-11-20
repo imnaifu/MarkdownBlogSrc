@@ -9,6 +9,7 @@ const state = {
     allDetails: null,
     allArticles: [],
     articlePath: '../../static/data/articles/',
+    imgPath: 'static/data/img/',
     resumeData: '',
     enableResume: false,
     meImg: 'avatar.jpg',

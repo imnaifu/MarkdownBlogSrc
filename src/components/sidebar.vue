@@ -4,7 +4,7 @@
             <div class='sidebar-header'>
                 <!-- <div class='home'><h3>Home</h3></div> -->
                 <div class='addNew'>
-                    <router-link to="/new" type='button' class='btn btn-outline-dark btn-sm'>
+                    <router-link to="/new">
                         <!-- <i class="fa fa-plus" aria-hidden="true"></i> --> Add New
                     </router-link>
                 </div>
@@ -62,6 +62,10 @@
 
 <script type="text/javascript">
     import axios from 'axios';
+    // $("#sidebar").mCustomScrollbar({
+    //     theme: "minimal"
+    // });
+
     export default {
         data: function(){
             return {
@@ -123,20 +127,25 @@
 <style scoped>
 /* sidebar */
 #sidebar{
-    width: 250px;
+    width: 270px;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh; /*viewpoint height*/
     z-index: 998;
-    background: #404E66;
+    /*background: #404E66;*/
+    background-image: linear-gradient(180deg, #29323c 0%, #485563 100%);
     color: #fff;
     transition: all 0.3s; 
+    padding: 30px 0 50px 0;
+    overflow-x: auto;
+    overflow-y: scroll;
+
 }
 
 #sidebar .sidebar-header{
-    padding: 20px;
-    background: #283550;
+    /*background: #283550;*/
+    padding:0 20px
 }
 
 #sidebar ul.components{
@@ -164,14 +173,14 @@
 #sidebar ul li.active a[aria-expanded="true"] {
     /*to replace hover effect for active and expanded element*/
     color: #fafafa;
-    background: #404E66;
+    /*background: #404E66;*/
 }
 
 ul ul a {
     /* a inside */
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #34425f;
+    /*background: #34425f;*/
 }
 
 .addNew {
@@ -191,4 +200,8 @@ a.active {
     display: block;
 }
    
+div.addNew a:hover {
+    display: inline-block;
+    color: #8EA4BF;
+}   
 </style>

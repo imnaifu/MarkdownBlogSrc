@@ -5,5 +5,5 @@
 - fq
 - ff
 
-![fqwef](static/data/img/avatar.jpg)
-![ffqwefqw](static/data/img/avatar2.jpg)
+![fqwef](avatar.jpg)
+![ffqwefqw](avatar2.jpg)
