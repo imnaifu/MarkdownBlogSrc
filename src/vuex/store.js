@@ -60,7 +60,7 @@ const mutations = {
     },
 
     fetchAllDetailsAndArticles(state){
-        axios.get('../../static/data/details.json').then( (response) => {
+        axios.get('../../static/data/article_info.json').then( (response) => {
             state.allDetails = Object.values(response.data);
             for (let article of state.allDetails){
             	axios.get(state.articlePath +　article.filename).then( (response1) => {

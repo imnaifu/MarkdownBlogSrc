@@ -42,6 +42,7 @@
         mounted: function(){
             this.$store.commit('fetchConfig');
             this.$store.commit('fetchAllDetailsAndArticles');
+
         }
     }
 </script>
