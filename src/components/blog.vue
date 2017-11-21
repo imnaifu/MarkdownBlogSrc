@@ -1,7 +1,7 @@
 <template>
     <div class='blog col-12'>
-        <sidebar v-bind:blogid="this.$route.params.id"></sidebar>
-        <blogarticle v-bind:blogid="this.$route.params.id"></blogarticle>
+        <sidebar v-bind:title="getArticleTitle"></sidebar>
+        <blogarticle v-bind:title="getArticleTitle"></blogarticle>
     </div>
 </template>
 
@@ -24,10 +24,19 @@
             this.$store.commit('disableSidebar'); //alway disable sidebar first
         },
         computed: {
-            // get_articles: function (){
-            //     // console.log(this.articles);
-            //     return this.articles;
-            // }
+            getArticleTitle: function (){
+
+                let title = null;
+                if (this.$route.params.title){
+                    title = this.$route.params.title;
+                }else{
+                    // console.log(this.$store.state.defaultArticleTitle);
+                    if (this.$store.state.defaultArticleTitle){
+                        title = this.$store.state.defaultArticleTitle;
+                    }
+                }
+                return title;
+            }
         }
     }
 </script>

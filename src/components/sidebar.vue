@@ -9,63 +9,22 @@
                     </router-link>
                 </div>
             </div>
-            <ul class='list-unstyled components'>
-
-<!--       
-                 <li v-for="(value, key) in type_directory" v-bind:class="type.active">
-                    <a v-bind:href="value.href"  
-                        v-bind:data-toggle="value.has_sub?'collapse':''" 
-                        v-bind:aria-expanded="value.has_sub?'false':''">
-                        <i v-bind:class="value.icon" aria-hidden="true"></i> {{value.value}}
-                    </a>
- 
-                    <ul v-if="value.sub" class='collapse list-unstyled' v-bind:id="value.sub_id">
-                        <li v-for="(value2, key2) in value.sub" v-bind:class:="value2.active">
-                            <a v-bind:href="value2.href">{{value2.value}}</a>
-                        </li>
-                    </ul>                
-                </li>
-
- -->
-
-                <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
-                    <a v-bind:href="(val.length>0)?('#' + key):'javascript:void(0);'" v-bind:data-toggle="(val.length>0)?'collapse':''" v-bind:aria-expanded="(val.length>0)?'false':''">{{key}}</a>
-                    <ul v-if="(val.length>0)" class='list-unstyled collapse' v-bind:id='key' v-bind:class="(key==getActiveType)?'show':''">
-                        <li v-for="(val2, key2) in val" v-bind:class="(val2['id']==getActiveId)?'active':''">
+            <!-- <ul class='list-unstyled components' v-if="getAllTypes"> -->
+                {{getAllTypes}}
+                <!-- <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''"> -->
+                    <!-- <a v-bind:href="(val.length>0)?('#' + key):'javascript:void(0);'" v-bind:data-toggle="(val.length>0)?'collapse':''" v-bind:aria-expanded="(val.length>0)?'false':''">{{key}}</a> -->
+                    <!-- <ul v-if="(val.length>0)" class='list-unstyled collapse' v-bind:id='key' v-bind:class="(key==getActiveType)?'show':''"> -->
+                        <!-- <li v-for="(val2, key2) in val" v-bind:class="(val2['title']==getActiveTitle)?'active':''"> -->
                             <!-- <router-link v-bind:to="'/blog/' + val2.id">{{val2.title}}</router-link> -->
-                            <router-link v-bind:to="{name: 'blog_id', params: {id: val2.id}}">{{val2.title}}</router-link>
-                        </li>
-                    </ul>    
-                </li>
-
-
-<!--                 
-                <li class='active'>
-                    <div><a href='#'><i class="" aria-hidden="true"></i> Home</a></div>
-                </li>
-                <li>
-                    <div>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                            
-                        </a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#"></a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
-                        </ul>
-                    </div>
-                </li>
- -->          
-            </ul>
+                            <!-- <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">{{val2.title}}</router-link> -->
+                        <!-- </li> -->
+                    <!-- </ul>     -->
+                <!-- </li> -->
+            <!-- </ul> -->
         </div>
 </template>
 
 <script type="text/javascript">
-    import axios from 'axios';
-    // $("#sidebar").mCustomScrollbar({
-    //     theme: "minimal"
-    // });
-
     export default {
         data: function(){
             return {
@@ -74,40 +33,53 @@
         methods: {
         },
         props:[
-            'blogid'
+            'title'
         ],
         computed: {
             getAllTypes: function (){
                 let final_directory = {}; //whole directory
+                console.log('af', this.$store.state.allTypes);
+                console.log('af', this.$store.state.allDetails);
 
                 // only do this if exist
-                if (this.$store.state.allTypes && this.$store.state.allDetails){
+                if (this.$store.state.allTypes && this.$store.state.allArticleTitle && this.$store.state.allArticles){
                     for (let i of this.$store.state.allTypes){
-                        Object.defineProperty(final_directory, i, {
-                            value: [],
-                            writable: true,
-                            enumerable: true,
-                            configurable: true
-                        });
+                        if (!final_directory[i]){
+                            Object.defineProperty(final_directory, i, {
+                                value: [],
+                                writable: true,
+                                enumerable: true,
+                                configurable: true
+                            });                            
+                        }
                     }
-                    for (let val of this.$store.state.allDetails){
-                        final_directory[val.type].push(val);
+                    console.log('fasd',this.$store.state.allArticleTitle);
+                    for (let val of this.$store.state.allArticleTitle){
+                        // if (this.$store.state.allArticles[val]['type'])
+                        console.log(val);
+                        console.log(this.$store.state.allArticles);
+                        console.log(this.$store.state.allArticles['third-article']);
+
+                        console.log('111',this.$store.state.allArticles[val]['type']);
+
+                        final_directory[this.$store.state.allArticles[val]['type']].push(this.$store.state.allArticles[val]);
                     }
                 }
-                
+                console.log('af', final_directory);
                 return final_directory;
             },
             sidebarStatus: function (){
                 return this.$store.state.sidebarStatus;
             },
-            getActiveId(){
-                let blogid = this.blogid;
-                return blogid;
+            getActiveTitle(){
+                if (this.title){
+                    return this.title;
+                }
             },
             getActiveType(){
                 let type = '';
-                if (this.$store.state.allDetails){
-                    type = this.$store.state.allDetails[this.blogid]['type'];
+                if (this.$store.state.allDetails && this.title){
+                    type = this.$store.state.allDetails[this.title]['type'];
                 }
                 return type;
             },       
@@ -139,7 +111,7 @@
     transition: all 0.3s; 
     padding: 30px 0 50px 0;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 
 }
 

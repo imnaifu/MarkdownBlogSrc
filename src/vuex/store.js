@@ -5,9 +5,10 @@ Vue.use(Vuex);
 
 const state = {
     sidebarStatus: '',
-    allTypes: null,
-    allDetails: null,
-    allArticles: [],
+    allTypes: [],
+    allDetails: {},
+    allArticles: {},
+    allArticleTitle: [],
     articlePath: '../../static/data/articles/',
     imgPath: 'static/data/img/',
     resumeData: '',
@@ -44,7 +45,7 @@ const mutations = {
 
             state.meImg = response.data.me_img;
             state.meText = response.data.me_text;
-            state.allTypes = response.data.article_types;
+            // state.allTypes = response.data.article_types;
 
             if (state.enableResume){
                 axios.get('../../static/data/resume/resume.md').then( (response1) => {
@@ -61,14 +62,19 @@ const mutations = {
 
     fetchAllDetailsAndArticles(state){
         axios.get('../../static/data/article_info.json').then( (response) => {
-            state.allDetails = Object.values(response.data);
-            for (let article of state.allDetails){
+            let articles = Object.values(response.data.articles);
+            for (let article of articles){
+                state.allDetails[encodeURI(article.title)] = article;
+                state.allTypes.push(article.type);
+                state.allArticleTitle.push(encodeURI(article.title));
             	axios.get(state.articlePath +　article.filename).then( (response1) => {
-            		state.allArticles.push(response1.data)
+            		state.allArticles[encodeURI(article.title)] = response1.data
             	}, (error1) => {
             		console.log(error)
             	});
             }
+            console.log(state.allArticles);
+            // console.log(state.allDetails);
         }, (error) => {
             console.log(error)
         })

@@ -1,6 +1,6 @@
 <template>
     <div class='article' v-on:click="sidebarDisable">  
-        <div class='article-inner'>
+        <div class='article-inner' v-if="getOneTitle">
             <p class='date'>Date: {{getOneDate}}</p>   
             <h1 id='title'>{{getOneTitle}}</h1>
             <p class='article-text' v-html="getOneArticle"></p>
@@ -14,7 +14,7 @@
 
     export default {
         props: [
-            'blogid',
+            'title',
         ],
         data: function (){
             return {
@@ -23,20 +23,6 @@
             }
         },
         methods: {
-            getTitleById: function (id){
-                // console.log(this.articles);
-                return this.$store.state.allDetails[id]['title'];
-            },
-            getDateById: function (id){
-                // console.log(this.articles);
-                let date = this.$store.state.allDetails[id]['date'];
-                return date
-            },
-            getArticleById: function (id){
-                // console.log(this.articles);
-                return this.$store.state.allArticles[id];
-            },
-
             //control of sidebar [not a good way]
             sidebarDisable(){
                 if (this.$store.state.sidebarStatus == 'active'){
@@ -47,19 +33,21 @@
         },
         computed: {
             getOneTitle(){
-                if (this.$store.state.allDetails){
-                    return this.getTitleById(this.blogid);
+                if (this.title){
+                    return this.title;
                 }
             },
             getOneDate(){
-                if (this.$store.state.allDetails){
-                    return this.getDateById(this.blogid);
+                if (this.$store.state.allDetails && this.title){
+                    console.log(this.$store.state.allDetails);
+                    console.log(this.title);
+                    return this.$store.state.allDetails[this.title].date;
                 }
             },
             getOneArticle(){
-                if (this.$store.state.allArticles){
+                if (this.$store.state.allArticles && this.title){
 
-                    let article = converter.makeHtml(this.getArticleById(this.blogid));
+                    let article = converter.makeHtml(this.$store.state.allArticles[this.title]);
 
                     //add path to img using regex
                     let myRegex = /<img[^>]+src="?([^"\s]+)"?[^\/]*\/>/g;

@@ -6,15 +6,15 @@ import resume from '../components/resume';
 import blog from '../components/blog';
 import newBlog from '../components/newBlog';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
     routes: [
         { path: '/', name: 'home', redirect: '/me'},
         { path: '/me', name: 'me', component: me },
         { path: '/resume', name: 'resume', component: resume },
-        { path: '/blog', name: 'blog', redirect: '/blog/0'},
-        { path: '/blog/:id', name: 'blog_id', component: blog},        
+        { path: '/blog', name: 'blog', component: blog},
+        { path: '/blog/:title', name: 'blog_title', component: blog},        
         { path: '/new', name: 'newBlog', component: newBlog},  
     ]
 })

@@ -12,7 +12,7 @@
             <router-link to="/resume" class='nav-link'>{{this.$store.state.navText[1]}}</router-link>
         </li>
         <li class='nav-item'>
-            <router-link to="/blog" class='nav-link'>{{this.$store.state.navText[2]}}</router-link>
+            <router-link to="/blog/" class='nav-link'>{{this.$store.state.navText[2]}}</router-link>
         </li>
     </ul>
 </template>

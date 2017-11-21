@@ -50,13 +50,6 @@
 <style scoped>
 /* content */   
 .content {
-   /* width: 100%;
-    padding: 40px;
-    min-height: 93%;
-    transition: all 0.3s;
-    position: absolute;
-    top: 7%;
-    right: 0;*/
     display: flex;
     display: -webkit-flex;
     align-items:center;

@@ -1,11 +1,4 @@
 {
-    "article_types": [
-    	"PHP", "JavaScript", 
-    	"CSS", "Linux", "Network",
-    	"Algorithm", "blabla", "fsaf", "fads",
-    	"asdf", "fasd", "few", "fq", "fw", 
-        "fasd", "fasd", "fasd ", "fas", "fsad "
-    ],
 
     "enable_resume": true,
 
