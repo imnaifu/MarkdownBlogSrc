@@ -18,7 +18,7 @@
         ],
         data: function (){
             return {
-
+                allArticles: this.$store.state.allArticles
             }
         },
         methods: {
@@ -37,15 +37,13 @@
                 }
             },
             getOneDate(){
-                if (this.$store.state.allDetails && this.title){
+                if (this.$store.state.allArticlesFetched){
                     return this.$store.state.allDetails[this.title].date;
                 }
             },
             getOneArticle(){
-                if (this.$store.state.allArticles && this.title){
-
+                if (this.$store.state.allArticlesFetched){
                     let article = converter.makeHtml(this.$store.state.allArticles[this.title]);
-
                     //add path to img using regex
                     let myRegex = /<img[^>]+src="?([^"\s]+)"?[^\/]*\/>/g;
                     let src = '';
@@ -58,7 +56,7 @@
 
                     return article;
                 }
-            },
+            }
         },
         mounted() {
 

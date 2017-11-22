@@ -20,15 +20,16 @@ const state = {
     navText: ['Me', 'Resume', 'Blog'] 
 };
 
+const getters = {
+    getAllArticles: (state) => {
+        return state.allArticles;
+    }
+};
+
 const mutations = {
     setSidebar(state, value){
         state.sidebarStatus = value;
     },
-    
-    // disableSidebar(state){
-    //     state.sidebarStatus = 'disable';
-    // },
-
     setResume (state, value){
         state.enableResume = value;
     },
@@ -105,7 +106,10 @@ const actions = {
 
         axios.get('../../static/data/article_info.json').then( (response) => {
             let articles = Object.values(response.data.articles);
-            for (let article of articles){
+            let len = articles.length;
+
+            for (let i=0; i<len; i++){
+                let article = articles[i]
                 store.commit('setAllDetails', article);
                 store.commit('setAllTypes', article.type);
                 store.commit('setAllArticleTitle', article.title);
@@ -115,12 +119,14 @@ const actions = {
                         "title": article.title,    
                         "content":response1.data
                     });
-                
+                    if (i == len-1){
+                        //set it true when complete getting the last one
+                        store.commit('setAllArticlesFetched', true);
+                    }
                 }, (error1) => {
                     console.log(error);
                 });
             }
-            store.commit('setAllArticlesFetched', true);
         }, (error) => {
             console.log(error)
         });
@@ -130,6 +136,7 @@ const actions = {
 
 export default new Vuex.Store({
     state: state,
+    getters: getters,
     mutations: mutations,
     actions: actions
 })
