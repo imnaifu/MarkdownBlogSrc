@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         sidebarActive(){
-            this.$store.commit('activeSidebar');
+            this.$store.commit('setSidebar', 'active');
         }
     },
     computed: {
@@ -41,8 +41,7 @@ export default {
         },
     },
     mounted(){
-        // console.log(this.$store.state.contentClass);
-        // console.log(this.$route);
+
     }
 
 }

@@ -18,15 +18,14 @@
         ],
         data: function (){
             return {
-                // articles: this.$store.state.allArticles
-                // details: this.$store.state.allDetails
+
             }
         },
         methods: {
             //control of sidebar [not a good way]
             sidebarDisable(){
                 if (this.$store.state.sidebarStatus == 'active'){
-                    this.$store.commit('disableSidebar');
+                    this.$store.commit('setSidebar', 'disable');
                 }
             }
 
@@ -39,8 +38,6 @@
             },
             getOneDate(){
                 if (this.$store.state.allDetails && this.title){
-                    console.log(this.$store.state.allDetails);
-                    console.log(this.title);
                     return this.$store.state.allDetails[this.title].date;
                 }
             },
@@ -64,7 +61,7 @@
             },
         },
         mounted() {
-            // console.log(this.$route.params.id);
+
         }
     }
 </script>

@@ -9,18 +9,21 @@
                     </router-link>
                 </div>
             </div>
-            <!-- <ul class='list-unstyled components' v-if="getAllTypes"> -->
-                {{getAllTypes}}
-                <!-- <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''"> -->
-                    <!-- <a v-bind:href="(val.length>0)?('#' + key):'javascript:void(0);'" v-bind:data-toggle="(val.length>0)?'collapse':''" v-bind:aria-expanded="(val.length>0)?'false':''">{{key}}</a> -->
-                    <!-- <ul v-if="(val.length>0)" class='list-unstyled collapse' v-bind:id='key' v-bind:class="(key==getActiveType)?'show':''"> -->
-                        <!-- <li v-for="(val2, key2) in val" v-bind:class="(val2['title']==getActiveTitle)?'active':''"> -->
+
+
+            <ul class='list-unstyled components' v-if="getAllTypes">
+                <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
+                    <a v-bind:href="(val.length>0)?('#' + key):'javascript:void(0);'" v-bind:data-toggle="(val.length>0)?'collapse':''" v-bind:aria-expanded="(val.length>0)?'false':''">{{key}}</a>
+                    <ul v-if="(val.length>0)" class='list-unstyled collapse' v-bind:id='key' v-bind:class="(key==getActiveType)?'show':''">
+                        <li v-for="(val2, key2) in val" v-bind:class="(val2['title']==getActiveTitle)?'active':''">
                             <!-- <router-link v-bind:to="'/blog/' + val2.id">{{val2.title}}</router-link> -->
-                            <!-- <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">{{val2.title}}</router-link> -->
-                        <!-- </li> -->
-                    <!-- </ul>     -->
-                <!-- </li> -->
-            <!-- </ul> -->
+                            <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">{{val2.title}}</router-link>
+                        </li>
+                    </ul>    
+                </li>
+            </ul>
+            <!-- fromat here {"css": [{}, {}]} -->
+
         </div>
 </template>
 
@@ -31,18 +34,23 @@
             }
         },
         methods: {
+        
         },
         props:[
             'title'
         ],
+        watch: {
+            allArticles: function (val){
+                console.log('123');
+                this.getAllTypes();
+            }
+        },
         computed: {
-            getAllTypes: function (){
+             getAllTypes: function (){
                 let final_directory = {}; //whole directory
-                console.log('af', this.$store.state.allTypes);
-                console.log('af', this.$store.state.allDetails);
 
                 // only do this if exist
-                if (this.$store.state.allTypes && this.$store.state.allArticleTitle && this.$store.state.allArticles){
+                if (this.$store.state.allArticlesFetched){
                     for (let i of this.$store.state.allTypes){
                         if (!final_directory[i]){
                             Object.defineProperty(final_directory, i, {
@@ -53,21 +61,14 @@
                             });                            
                         }
                     }
-                    console.log('fasd',this.$store.state.allArticleTitle);
+
                     for (let val of this.$store.state.allArticleTitle){
-                        // if (this.$store.state.allArticles[val]['type'])
-                        console.log(val);
-                        console.log(this.$store.state.allArticles);
-                        console.log(this.$store.state.allArticles['third-article']);
-
-                        console.log('111',this.$store.state.allArticles[val]['type']);
-
-                        final_directory[this.$store.state.allArticles[val]['type']].push(this.$store.state.allArticles[val]);
+                        let articleDetails = this.$store.state.allDetails[val];
+                        final_directory[articleDetails['type']].push(articleDetails); 
                     }
                 }
-                console.log('af', final_directory);
                 return final_directory;
-            },
+            },   
             sidebarStatus: function (){
                 return this.$store.state.sidebarStatus;
             },

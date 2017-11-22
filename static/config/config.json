@@ -5,6 +5,6 @@
     "me_img": "avatar.jpg",
     "me_text": "Hello, I'm Naifu.",
 
-    "nav_text": ["this.me", "this.resume", "this.blog"] 
+    "nav_text": ["this->me", "this.resume", "self.blog"] 
 
 }

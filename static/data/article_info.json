@@ -19,6 +19,13 @@
             "title": "third-article",
             "date": "2016-12-05",
             "type": "CSS"
+        },
+
+        {
+            "filename": "fourth.md",
+            "title": "article4",
+            "date": "2016-12-05",
+            "type": "CSS"
         }
     ] 
 }

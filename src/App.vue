@@ -16,10 +16,9 @@
     import appHeader from './components/appHeader';
     import appFooter from './components/appFooter';
     import appNav from './components/appNav';
-    import store from './vuex/store.js'
+
 
     export default {
-        store,
         name: 'app',
         components: {   
             appHeader,
@@ -40,8 +39,6 @@
             }
         },
         mounted: function(){
-            this.$store.commit('fetchConfig');
-            this.$store.commit('fetchAllDetailsAndArticles');
 
         }
     }

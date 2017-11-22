@@ -21,19 +21,21 @@
 
         },
         mounted() {
-            this.$store.commit('disableSidebar'); //alway disable sidebar first
+            this.$store.commit('setSidebar', 'disable'); //alway disable sidebar first
         },
         computed: {
             getArticleTitle: function (){
 
                 let title = null;
+                console.log(this.$route.params.title);
                 if (this.$route.params.title){
                     title = this.$route.params.title;
                 }else{
-                    // console.log(this.$store.state.defaultArticleTitle);
-                    if (this.$store.state.defaultArticleTitle){
-                        title = this.$store.state.defaultArticleTitle;
-                    }
+                    let allArticleTitle = this.$store.state.allArticleTitle
+                    if (allArticleTitle){
+                        title = allArticleTitle[Math.floor(Math.random() * allArticleTitle.length)]; //random get one
+                        this.$route.params.title = title;
+                    }   
                 }
                 return title;
             }
