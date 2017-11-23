@@ -4,8 +4,8 @@
     "enable_add_new": false,
 
     "me_img": "avatar.jpg",
-    "me_text": "Hello!",
+    "me_text": "Hello, I'm Naifu",
 
-    "nav_text": ["Me", "Resume", "Blog"] 
+    "nav_text": ["this->me", "this.resume", "self.blog"] 
 
 }

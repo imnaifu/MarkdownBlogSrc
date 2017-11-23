@@ -78,4 +78,9 @@ export default {
         display: none;
     }
 
+    a, a:hover, a:focus {
+        color:inherit;
+        text-decoration: none;
+        transition: all 0.3s;  
+    }
 </style>

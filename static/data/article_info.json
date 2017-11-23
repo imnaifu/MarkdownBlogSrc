@@ -1,10 +1,82 @@
 { 
     "articles": [
         {
-            "filename": "first_blog.md",
-            "title": "My First Blog",
-            "type" : "Articles",
-            "date": "1970-01-01"
+            "filename": "vue_basic.md",
+            "title": "Vue Basic",
+            "type" : "Vue",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "markdown.md",
+            "title": "Markdown Basic",
+            "type" : "Markdown",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "algorithm/sorting_algorithm.md",
+            "title": "Sorting Algorithm Intro",
+            "type" : "Algorithm",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "algorithm/sorting_code.md",
+            "title": "Sorting Algorithm Code",
+            "type" : "Algorithm",
+            "date": "2017-11-23"
+        },        
+        {
+            "filename": "php/recursively_traverse_path.md",
+            "title": "PHP Recursively Traverse Path",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "algorithm/np_complete.md",
+            "title": "What is NP Complete",
+            "type" : "Algorithm",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "algorithm/map_reduce.md",
+            "title": "What is Map-reduce",
+            "type" : "Algorithm",
+            "date": "2017-11-23"
+        }, 
+        {
+            "filename": "algorithm/leetcode_643.md",
+            "title": "Javascript answer for leetcode No.643",
+            "type" : "Algorithm",
+            "date": "2017-11-23"
+        }, 
+        {
+            "filename": "algorithm/dynamic_programming.md",
+            "title": "Dynamic Programming",
+            "type" : "Algorithm",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "algorithm/big_o.md",
+            "title": "Big O",
+            "type" : "Algorithm",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "cache/backend_cache.md",
+            "title": "Cache method",
+            "type" : "Cache",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "cache/memcache.md",
+            "title": "Memcache",
+            "type" : "Cache",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "cache/redis.md",
+            "title": "Redis",
+            "type" : "Cache",
+            "date": "2017-11-23"
         }
     ] 
 }

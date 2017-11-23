@@ -3,7 +3,7 @@
         <div class='article-inner' v-if="getOneTitle">
             <p class='date'>Date: {{getOneDate}}</p>   
             <h1 id='title'>{{getOneTitle}}</h1>
-            <div class='box shadow-effect'>
+            <div>
                 <p class='article-text' v-html="getOneArticle"></p>
             </div>
         </div>
@@ -12,7 +12,22 @@
 
 <script type="text/javascript">
     import showdown from 'showdown';
-    const converter = new showdown.Converter();
+
+    showdown.setFlavor('github'); //set global falvor
+    const converter = new showdown.Converter({
+        headerLevelStart: 2, //start with h2
+        // literalMidWordUnderscores: true, 
+        // literalMidWordAsterisks: true,
+        strikethrough: true, //allow ~~a~~
+        tables: true, 
+        tasklists: true,
+        smartIndentationFix: true,
+        simpleLineBreaks: true,
+        requireSpaceBeforeHeadingText: true,
+        openLinksInNewWindow: true,
+        emoji: true
+    
+    });
 
     export default {
         props: [
@@ -49,11 +64,14 @@
                     //add path to img using regex
                     let myRegex = /<img[^>]+src="?([^"\s]+)"?[^\/]*\/>/g;
                     let src = '';
-                    let imgs = [];
                     let imgPath = this.$store.state.imgPath;
+
                     while ( src = myRegex.exec(article) ){
-                        imgs.push( src[1] );
-                        article = article.replace(src[1], imgPath + src[1]);
+                        let img = src[1];
+                        //escape outside image
+                        if (!img.startsWith('http') && !img.startsWith('https')){
+                            article = article.replace(src[1], imgPath + src[1]);
+                        }
                     }
 
                     return article;
@@ -92,5 +110,9 @@
         padding: 30px 0 ;
         min-height: 75vh;
     }
-
+    
+    .article a, a:hover {
+        color: black;
+        font-weight:500;
+    }
 </style>

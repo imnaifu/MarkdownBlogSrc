@@ -176,4 +176,28 @@ div.addNew a:hover {
     display: inline-block;
     color: #8EA4BF;
 }   
+
+a[data-toggle='collapse'] {
+    /* not sure if used */
+    position:relative;
+}
+
+a[aria-expanded='false']::before, a[aria-expanded='true']::before {
+    content: '\f063'; arrow down
+    display: block;
+    position:absolute;
+    right:20px;
+    font-family: 'FontAwesome';
+    font-size: 0.6em;
+}
+
+a[aria-expanded='true']::before {
+    content: '\f062';
+}
+
+a, a:hover, a:focus {
+    color:inherit;
+    text-decoration: none;
+    transition: all 0.3s;  
+}
 </style>
