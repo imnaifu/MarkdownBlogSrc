@@ -32,13 +32,13 @@
         },
         {
             "filename": "algorithm/np_complete.md",
-            "title": "What is NP Complete",
+            "title": "NP Complete",
             "type" : "Algorithm",
             "date": "2017-11-23"
         },
         {
             "filename": "algorithm/map_reduce.md",
-            "title": "What is Map-reduce",
+            "title": "Map-reduce",
             "type" : "Algorithm",
             "date": "2017-11-23"
         }, 
@@ -76,6 +76,210 @@
             "filename": "cache/redis.md",
             "title": "Redis",
             "type" : "Cache",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/datastructure_basic.md",
+            "title": "Datastructure basic",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/binary_search_tree.md",
+            "title": "Binary search tree",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/binary_tree.md",
+            "title": "Binary tree",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/bst_implementation.md",
+            "title": "BST implementation",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/doubly_linked_list.md",
+            "title": "Doubly Linked List",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/graph.md",
+            "title": "Graph",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/hash_table.md",
+            "title": "Hash table",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/heap.md",
+            "title": "Heap",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/linked_list.md",
+            "title": "Linked list",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/queue.md",
+            "title": "Queue",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/stack.md",
+            "title": "Stack",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "datastructure/time_space.md",
+            "title": "Time & space efficency",
+            "type" : "Datastructure",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "design_pattern/design_pattern_basic.md",
+            "title": "Design Pattern Basic",
+            "type" : "Design Pattern",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "design_pattern/patterns.md",
+            "title": "Patterns",
+            "type" : "Design Pattern",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "concept/distribution_cluster.md",
+            "title": "Distribution and cluster",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "jquery/jquery_note.md",
+            "title": "JQuery note",
+            "type" : "Jquery",
+            "date": "2017-11-23"
+        },        
+        {
+            "filename": "concept/sync_async.md",
+            "title": "Synchronize and asynchronize",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },        
+        {
+            "filename": "concept/callback.md",
+            "title": "Callback",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },        
+        {
+            "filename": "concept/compile_interpreter.md",
+            "title": "Compile and interpreter",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },        
+        {
+            "filename": "concept/processor.md",
+            "title": "Processor",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },        
+        {
+            "filename": "concept/publickey.md",
+            "title": "Public & private key",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },        
+        {
+            "filename": "concept/turing_completeness.md",
+            "title": "Turing Completeness",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "javascript/array.md",
+            "title": "JS array",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "javascript/number.md",
+            "title": "JS number",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "javascript/string.md",
+            "title": "JS string",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/basic_command.md",
+            "title": "Linux basic command",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "Linux basic knowledge",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "JS string",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "JS string",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "JS string",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "JS string",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "JS string",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "JS string",
+            "type" : "Linux",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "linux/string.md",
+            "title": "JS string",
+            "type" : "Linux",
             "date": "2017-11-23"
         }
     ] 
