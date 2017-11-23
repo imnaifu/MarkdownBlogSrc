@@ -3,7 +3,9 @@
         <div class='article-inner' v-if="getOneTitle">
             <p class='date'>Date: {{getOneDate}}</p>   
             <h1 id='title'>{{getOneTitle}}</h1>
-            <p class='article-text' v-html="getOneArticle"></p>
+            <div class='box shadow-effect'>
+                <p class='article-text' v-html="getOneArticle"></p>
+            </div>
         </div>
     </div>
 </template>
@@ -90,6 +92,5 @@
         padding: 30px 0 ;
         min-height: 75vh;
     }
-
 
 </style>

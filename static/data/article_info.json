@@ -1,31 +1,10 @@
 { 
     "articles": [
         {
-            "filename": "first.md",
-            "title": "first article",
-            "type" : "JavaScript",
-            "date": "2017-11-21"
-        },
-
-        {
-            "filename": "second.md",
-            "title": "second-article",
-            "date": "2016-12-05",
-            "type": "CSS"
-        },
-
-        {
-            "filename": "third.md",
-            "title": "third-article",
-            "date": "2016-12-05",
-            "type": "CSS"
-        },
-
-        {
-            "filename": "fourth.md",
-            "title": "article4",
-            "date": "2016-12-05",
-            "type": "CSS"
+            "filename": "first_blog.md",
+            "title": "My First Blog",
+            "type" : "Articles",
+            "date": "1970-01-01"
         }
     ] 
 }

@@ -25,9 +25,7 @@
         },
         computed: {
             getArticleTitle: function (){
-
                 let title = null;
-                console.log(this.$route.params.title);
                 if (this.$route.params.title){
                     title = this.$route.params.title;
                 }else{

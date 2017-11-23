@@ -2,8 +2,7 @@
         <!-- sidebar -->
         <div id='sidebar' v-bind:class="sidebarStatus">
             <div class='sidebar-header'>
-                <!-- <div class='home'><h3>Home</h3></div> -->
-                <div class='addNew'>
+                <div class='addNew' v-if="this.$store.state.enableAddNew">
                     <router-link to="/new">
                         <!-- <i class="fa fa-plus" aria-hidden="true"></i> --> Add New
                     </router-link>

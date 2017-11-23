@@ -15,6 +15,7 @@ const state = {
     imgPath: 'static/data/img/',
     resumeData: '',
     enableResume: false,
+    enableAddNew: false,
     meImg: 'avatar.jpg',
     meText: 'Hello',
     navText: ['Me', 'Resume', 'Blog'] 
@@ -32,6 +33,9 @@ const mutations = {
     },
     setResume (state, value){
         state.enableResume = value;
+    },
+    setAddNew (state, value){
+        state.enableAddNew = value;
     },
 
     setNavText (state, value){
@@ -77,10 +81,16 @@ const actions = {
         axios.get('../../static/config/config.json').then( (response) => {
 
             let enableResume = response.data.enable_resume;
+            let enableAddNew = response.data.enable_add_new;
             if (enableResume === true || enableResume === 'true'){
                 store.commit('setResume', true);
             }else{
                 store.commit('setResume', false);
+            }
+            if (enableAddNew === true || enableAddNew === 'true'){
+                store.commit('setAddNew', true);
+            }else{
+                store.commit('setAddNew', false);
             }
 
             let navText = response.data.nav_text;

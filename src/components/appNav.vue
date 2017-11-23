@@ -21,7 +21,7 @@
 export default {
     data () {
         return {
-            // toggleButtonStatus: this.$store.state.toggleButtonStatus
+
         }
     },
     methods: {
