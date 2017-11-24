@@ -18,7 +18,10 @@ const state = {
     enableAddNew: false,
     meImg: 'avatar.jpg',
     meText: 'Hello',
-    navText: ['Me', 'Resume', 'Blog'] 
+    navText: ['Me', 'Resume', 'Blog'],
+
+    search:'',
+    searchResults:{}
 };
 
 const getters = {
@@ -28,6 +31,12 @@ const getters = {
 };
 
 const mutations = {
+    setSearch(state, value){
+        state.search = value.value;
+    },
+    setSearchResults(state, value){
+        state.searchResults = value;
+    },
     setSidebar(state, value){
         state.sidebarStatus = value;
     },
@@ -142,6 +151,29 @@ const actions = {
         });
     },
 
+    actionSetSearch(store, value){
+        store.commit('setSearch', value);
+        // console.log(store.state.allArticles);
+        let allArticles = store.state.allArticles;
+        let search = store.state.search;
+        let searchResults = {
+            hasResult:false,
+            results:{}, 
+        };
+        for (let title in allArticles){
+            if (allArticles[title].indexOf(search) !== -1){
+                searchResults['results'][title] = allArticles[title];
+            }
+        }
+
+        //has results
+        if (Object.keys(searchResults['results']).length !== 0){
+            searchResults['hasResult'] = true;
+        }
+
+        store.commit('setSearchResults', searchResults);
+        console.log(searchResults);
+    }
 }
 
 export default new Vuex.Store({

@@ -2,6 +2,11 @@
         <!-- sidebar -->
         <div id='sidebar' v-bind:class="sidebarStatus">
             <div class='sidebar-header'>
+                <div class='search'>
+                    <!-- [TODO] -->
+                    <input type='text' placeholder='Type to search' v-model="search">
+                    {{search}}
+                </div>
                 <div class='addNew' v-if="this.$store.state.enableAddNew">
                     <router-link to="/new">
                         <!-- <i class="fa fa-plus" aria-hidden="true"></i> --> Add New
@@ -12,12 +17,24 @@
 
             <ul class='list-unstyled components' v-if="getAllTypes">
                 <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
-                    <a v-bind:href="(val.length>0)?('#' + key):'javascript:void(0);'" v-bind:data-toggle="(val.length>0)?'collapse':''" v-bind:aria-expanded="(val.length>0)?'false':''">{{key}}</a>
-                    <ul v-if="(val.length>0)" class='list-unstyled collapse' v-bind:id='key' v-bind:class="(key==getActiveType)?'show':''">
-                        <li v-for="(val2, key2) in val" v-bind:class="(val2['title']==getActiveTitle)?'active':''">
+                    <a v-bind:href="(val.length>0)?('#' + key.trim().replace(' ','')):'javascript:void(0);'" 
+                       v-bind:data-toggle="(val.length>0)?'collapse':''" 
+                       v-bind:aria-expanded="(val.length>0)?'false':''">
+                       {{key}}
+                    </a>
+
+                    <ul v-if="(val.length>0)" 
+                        class='list-unstyled collapse' 
+                        v-bind:id="key.trim().replace(' ','')" 
+                        v-bind:class="(key==getActiveType)?'show':''">
+
+                        <li v-for="(val2, key2) in val" 
+                            v-bind:class="(val2['title']==getActiveTitle)?'active':''"
+                            v-on:click="goToTop()">
                             <!-- <router-link v-bind:to="'/blog/' + val2.id">{{val2.title}}</router-link> -->
                             <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">{{val2.title}}</router-link>
                         </li>
+
                     </ul>    
                 </li>
             </ul>
@@ -30,10 +47,14 @@
     export default {
         data: function(){
             return {
+                // search:''
             }
         },
         methods: {
-        
+            goToTop(){
+                //make sure every time load a new article, go to the top of article
+                window.scrollTo(0, 0);
+            }
         },
         props:[
             'title'
@@ -83,6 +104,18 @@
                 }
                 return type;
             },       
+            search: {
+                get() {
+                    return this.$store.state.search;
+                },
+                set(value) {
+                    this.$store.dispatch('actionSetSearch', {
+                        value:value
+                    });
+                }
+
+
+            }
         },
         mounted: function(){
             $(window).on('resize', function(){
@@ -99,7 +132,7 @@
 <style scoped>
 /* sidebar */
 #sidebar{
-    width: 270px;
+    width: 300px;
     position: fixed;
     top: 0;
     left: 0;
@@ -131,7 +164,7 @@
 }
 
 #sidebar ul li a {
-    padding: 10px 15px;
+    padding: 13px 15px;
     font-size: 1.1em;
     display: block;
     font-weight: 300
@@ -199,5 +232,9 @@ a, a:hover, a:focus {
     color:inherit;
     text-decoration: none;
     transition: all 0.3s;  
+}
+
+.search {
+    padding-bottom: 10px;
 }
 </style>

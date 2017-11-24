@@ -20,6 +20,13 @@ const vm = new Vue({
     mounted: function() {
        this.$store.dispatch('actionFetch');
     }
-})
+});
 
+Vue.filter('encodeURI', function(value){
+    return encodeURI(value);
+});
+
+Vue.filter('decodeURI', function(value){
+    return decodeURI(value);
+});
 

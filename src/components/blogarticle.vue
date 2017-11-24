@@ -79,7 +79,6 @@
             }
         },
         mounted() {
-
         }
     }
 </script>

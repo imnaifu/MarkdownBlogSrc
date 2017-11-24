@@ -12,9 +12,9 @@
 - only allow create link for the same file system
 - 硬链接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬链接到重要文件，起到防止“误删”的功能
 
-### symbolic link
+### symbolic link  
 - `ln -s exist_file linked_file`
-- 
+
 
 
 ### general

@@ -4,4 +4,3 @@
 
 > stripslashes(string): remove backslashes; 
 
-> 

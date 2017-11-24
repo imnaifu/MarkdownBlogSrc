@@ -11,7 +11,13 @@
 
 #### 3.Get last value from array
 - using end function which can return the last value 
-  ~~~
-  $arr = array('a','b','c');
-  print_r(end($arr));
-  ~~~
+    ```
+    $arr = array('a','b','c');
+    print_r(end($arr));
+    ```
+
+#### 4.Type hint (fucntion reference)   
+Can be used to specify the input type for the funtion
+e.g function foo(array $bar){}
+
+[official doc](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration)

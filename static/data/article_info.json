@@ -1,13 +1,13 @@
 { 
     "articles": [
         {
-            "filename": "vue_basic.md",
+            "filename": "vuejs/vue_basic.md",
             "title": "Vue Basic",
             "type" : "Vue",
             "date": "2017-11-23"
         },
         {
-            "filename": "markdown.md",
+            "filename": "markdown/markdown.md",
             "title": "Markdown Basic",
             "type" : "Markdown",
             "date": "2017-11-23"
@@ -229,58 +229,391 @@
             "date": "2017-11-23"
         },
                 {
-            "filename": "linux/basic_command.md",
+            "filename": "system/basic_command.md",
             "title": "Linux basic command",
-            "type" : "Linux",
+            "type" : "System",
             "date": "2017-11-23"
         },
                 {
-            "filename": "linux/string.md",
+            "filename": "system/basic_knowledge.md",
             "title": "Linux basic knowledge",
-            "type" : "Linux",
+            "type" : "System",
             "date": "2017-11-23"
         },
                 {
-            "filename": "linux/string.md",
-            "title": "JS string",
-            "type" : "Linux",
+            "filename": "system/deadlock.md",
+            "title": "Deadlock",
+            "type" : "System",
             "date": "2017-11-23"
         },
-                {
-            "filename": "linux/string.md",
-            "title": "JS string",
-            "type" : "Linux",
+        {
+            "filename": "system/file_system.md",
+            "title": "File system",
+            "type" : "System",
             "date": "2017-11-23"
         },
-                {
-            "filename": "linux/string.md",
-            "title": "JS string",
-            "type" : "Linux",
+        {
+            "filename": "system/symbolic_link.md",
+            "title": "Symbolic link",
+            "type" : "System",
             "date": "2017-11-23"
         },
-                {
-            "filename": "linux/string.md",
-            "title": "JS string",
-            "type" : "Linux",
+        {
+            "filename": "system/memory_management.md",
+            "title": "Memory management",
+            "type" : "System",
             "date": "2017-11-23"
         },
-                {
-            "filename": "linux/string.md",
-            "title": "JS string",
-            "type" : "Linux",
+        {
+            "filename": "system/linux_network.md",
+            "title": "Linux network",
+            "type" : "System",
             "date": "2017-11-23"
         },
-                {
-            "filename": "linux/string.md",
-            "title": "JS string",
-            "type" : "Linux",
+        {
+            "filename": "system/operating_system.md",
+            "title": "Operating system",
+            "type" : "System",
             "date": "2017-11-23"
         },
-                {
-            "filename": "linux/string.md",
-            "title": "JS string",
-            "type" : "Linux",
+        {
+            "filename": "system/process_thread.md",
+            "title": "Process and thread",
+            "type" : "System",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "system/vim.md",
+            "title": "Vim",
+            "type" : "System",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "system/zip.md",
+            "title": "Zip",
+            "type" : "System",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "cache/browser_cache.md",
+            "title": "Browser cache",
+            "type" : "Cache",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/cdn.md",
+            "title": "CDN",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/common_port.md",
+            "title": "Common port",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/dns.md",
+            "title": "DNS",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/gateway.md",
+            "title": "Gateway",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/icmp.md",
+            "title": "ICMP",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/network_basic.md",
+            "title": "Network Basic",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/osi.md",
+            "title": "OSI",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/proxy.md",
+            "title": "Proxy",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/switch.md",
+            "title": "Switch",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "network/tcp_ip.md",
+            "title": "TCP/IP",
+            "type" : "Network",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/php_optimization.md",
+            "title": "PHP Optimization",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "regex/perl_regex.md",
+            "title": "Perl regex",
+            "type" : "regex",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "security/security_basic.md",
+            "title": "Security Basic",
+            "type" : "Security",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "security/sql_injection.md",
+            "title": "SQL Injection",
+            "type" : "Security",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "security/xss.md",
+            "title": "XSS",
+            "type" : "Security",
+            "date": "2017-11-23"
+        },
+
+        {
+            "filename": "database/data_type.md",
+            "title": "Data type",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/db_design_principle.md",
+            "title": "DB design principle",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },{
+            "filename": "database/db_engine.md",
+            "title": "DB engine",
+            "type" : "Database",
             "date": "2017-11-23"
         }
+        ,{
+            "filename": "database/db_optimization.md",
+            "title": "DB optimization",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/db_process.md",
+            "title": "DB process",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/index.md",
+            "title": "Index",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/interview_question.md",
+            "title": "Interview question",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/mysql_basic.md",
+            "title": "MySQL basic",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/note.md",
+            "title": "Note",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/procedure_function.md",
+            "title": "Procedure & funtion",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "database/unique_key.md",
+            "title": "Unique key",
+            "type" : "Database",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "sublime/sublime_intruction.md",
+            "title": "Sublime Instruction",
+            "type" : "Sublime",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "version_control/git.md",
+            "title": "Git",
+            "type" : "Version Control",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "version_control/svn.md",
+            "title": "SVN",
+            "type" : "Version Control",
+            "date": "2017-11-23"
+        },
+
+
+        {
+            "filename": "php/$argv.md",
+            "title": "PHP $argv",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/$this.md",
+            "title": "PHP $this",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/array_func.md",
+            "title": "PHH Array FunctionS",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/class.md",
+            "title": "PHP Class",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/code_optimization.md",
+            "title": "PHP code optimization",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/composer.md",
+            "title": "Composer",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/define_const.md",
+            "title": "Define and const",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/encrypt.md",
+            "title": "PHP encrypt",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/escape.md",
+            "title": "PHP escape",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/file_func.md",
+            "title": "PHP file functions",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/header_func.md",
+            "title": "PHP header functions",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/interface.md",
+            "title": "PHP interface",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/magic_method.md",
+            "title": "Magic method",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/modern_php_note.md",
+            "title": "Modern PHP note",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/output_buffer.md",
+            "title": "Output buffering",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/php_basic.md",
+            "title": "PHP basic",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/php_crawler.md",
+            "title": "PHP crawler",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/php_http.md",
+            "title": "PHP with HTTP",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/session_cookie.md",
+            "title": "Session & Cookie",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/static.md",
+            "title": "PHP static",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/stream.md",
+            "title": "PHP stream",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/string_func.md",
+            "title": "PHP string functions",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "php/time_func.md",
+            "title": "PHP time functions",
+            "type" : "PHP",
+            "date": "2017-11-23"
+        }
+     
     ] 
 }

@@ -15,10 +15,12 @@ Because _**self**_ is not a object, so have use like _**self::member**_.
 有一些value是class value， 有一些value是instance的value.   
 eg. 有一个class named人类   
 
-> class human{   
+```php
+class human{   
      public static human_history = '1000,000 years'; //value belongs to the human class not each human   
      public human_age = '100 years'; //value belongs to one person but not the whole human   
 }      
+```
 
 So I can use $this->human_age to access each human age.   
 And use self::human_history to access the human history

@@ -17,12 +17,12 @@
     - $match[0] is the whole 
     - $match[1] is the first subgroup depends on bracket ()
 - preg_replace($pattern, $replacement, $matches)
-~~~ php
+```php
 $string = 'April 15, 2014';
 $pattern = '/(\w+) (\d+), (\d+)/i';
 $replacement = '$3, ${1} $2';
 echo preg_replace($pattern, $replacement, $string); //结果为：2014, April 15
-~~~
+```
     
 
 ---

@@ -1,3 +1,10 @@
+### PHP call HTTP request
+- `file_get_contents()` && `fopen`
+- curl
+    - `curl_init()`
+    - `curl_setopt()`
+    
+
 ## curl
 
 - allows you to connect and communicate to many different types of servers with many different types of protocols.
@@ -27,3 +34,8 @@ echo $result;
 ?>
 ```
 - useful in 爬虫
+
+
+- socket
+    - `fsockopen()`
+    - `fwrite()
