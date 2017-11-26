@@ -20,8 +20,12 @@ const state = {
     meText: 'Hello',
     navText: ['Me', 'Resume', 'Blog'],
 
-    search:'',
-    searchResults:{}
+    //search
+    maxReturnLength: 200,
+    search: null,
+    searchResults: {
+        showSearch: false
+    }
 };
 
 const getters = {
@@ -31,12 +35,18 @@ const getters = {
 };
 
 const mutations = {
+
+    //search
     setSearch(state, value){
-        state.search = value.value;
+        state.search = value;
     },
     setSearchResults(state, value){
         state.searchResults = value;
     },
+    setShowSearch(state, value){
+        state.searchResults.showSearch = value;
+    },
+
     setSidebar(state, value){
         state.sidebarStatus = value;
     },
@@ -152,28 +162,117 @@ const actions = {
     },
 
     actionSetSearch(store, value){
-        store.commit('setSearch', value);
-        // console.log(store.state.allArticles);
-        let allArticles = store.state.allArticles;
-        let search = store.state.search;
-        let searchResults = {
-            hasResult:false,
-            results:{}, 
-        };
-        for (let title in allArticles){
-            if (allArticles[title].indexOf(search) !== -1){
-                searchResults['results'][title] = allArticles[title];
+        store.commit('setSearch', value.value);
+        console.log(value);
+        let searchResults = {};
+        if (value.value.trim().length > 0){
+            //only search when string not empty
+            
+            // console.log(store.state.allArticles);
+            let allArticles = store.state.allArticles;
+            let search = store.state.search;
+            searchResults = {
+                'showSearch': true,
+                'hasResult': false,
+                'results':{}
+            };
+            for (let title in allArticles){
+                if (allArticles[title].indexOf(search) !== -1){
+                    let article = {};
+                    let result = getSubstring(
+                            allArticles[title], 
+                            store.state.maxReturnLength, 
+                            allArticles[title].indexOf(search),
+                            search.length
+                        );
+
+                    //add span to target string for color control
+                    let spanOpen = "<span class='search_value'>";
+                    let spanClose = "</span>";
+                    let content = result['text'];
+                    content = content.slice(0, result['targetStart']) 
+                                + spanOpen 
+                                + content.slice(
+                                    result['targetStart'] 
+                                );
+                    content = content.slice(0, result['targetStart'] + spanOpen.length + result['targetLength'])
+                                + spanClose
+                                + content.slice(
+                                    result['targetStart'] 
+                                    + spanOpen.length 
+                                    + result['targetLength']
+                                );
+
+
+                    article['content'] = content;
+                    article['resultStart'] = result['targetStart'];
+                    article['resultLength'] = result['targetLength'];
+                    searchResults['results'][title] = article;
+                }
             }
-        }
 
-        //has results
-        if (Object.keys(searchResults['results']).length !== 0){
-            searchResults['hasResult'] = true;
-        }
+            //has results
+            if (Object.keys(searchResults['results']).length !== 0){
+                searchResults['hasResult'] = true;
+            }else{
+                searchResults['hasResult'] = false;
+            }
 
-        store.commit('setSearchResults', searchResults);
-        console.log(searchResults);
+        }else{
+            searchResults = {
+                'showSearch': false
+            };
+        }
+        store.commit('setSearchResults', searchResults);       
     }
+}
+
+/*
+*   naifu
+*   返回一个指定长度的以目标string为中心的左右等长的substring
+*   
+*   input:
+*       fullString: string
+*       returnLength: int
+*       targetStringStart: int
+*       targetStringLength: int
+*   return object
+*/
+function getSubstring(fullString, returnLength, targetStringStart, targetStringLength){
+    let result = {
+        text: null,
+        targetStart: null,
+        targetLength: targetStringLength
+    };
+
+    let fullStringLength = fullString.length;
+    if (fullString.length <= returnLength || targetStringLength >= returnLength){
+        //rare situation
+        result['text'] = fullString;
+        result['targetStart'] = targetStringStart;
+    }else{
+        //normal situation
+        let singleSideLength = Math.ceil((returnLength - targetStringLength)/2);
+
+        //hadle border issue
+        let leftSide = targetStringStart - singleSideLength;
+        leftSide = (leftSide>0)?leftSide:0;
+        let rightSide = targetStringStart + targetStringLength + singleSideLength;
+        rightSide = (rightSide>(fullStringLength-1))?(fullStringLength-1):rightSide;
+
+        let targetStart = 0
+        if (leftSide === 0){
+            targetStart = targetStringStart;
+        }else{
+            targetStart = singleSideLength;
+        }
+
+        result['text'] = fullString.substring(leftSide, rightSide);
+        result['targetStart'] = targetStart;
+    }
+
+    return result;
+
 }
 
 export default new Vuex.Store({

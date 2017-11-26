@@ -1,6 +1,18 @@
 <template>
-    <div class='article' v-on:click="sidebarDisable">  
-        <div class='article-inner' v-if="getOneTitle">
+    <div class='article' v-on:click="sidebarDisable">
+        <div class='article-inner' v-if="showSearch"><!-- search result -->
+            <ul v-if="hasSearchResult">
+                <li v-for="(val, key) in getSearchResult" v-on:click="clear()">
+                    <router-link v-bind:to="encodeURI('/blog/' + key)">{{key}}</router-link>
+                    <p v-html="val.content"></p>
+                    <!-- <p>{{val.content}}</p> -->
+                </li>
+            </ul>
+            <h2 v-else>
+                No result found for '{{this.$store.state.search}}'
+            </h2>
+        </div>  
+        <div class='article-inner' v-else-if="getOneTitle"><!-- normal article -->
             <p class='date'>Date: {{getOneDate}}</p>   
             <h1 id='title'>{{getOneTitle}}</h1>
             <div>
@@ -44,6 +56,14 @@
                 if (this.$store.state.sidebarStatus == 'active'){
                     this.$store.commit('setSidebar', 'disable');
                 }
+            },
+            clear(){
+                //make sure every time load a new article, go to the top of article
+                window.scrollTo(0, 0);
+
+                //clear search
+                this.$store.commit('setSearch', null);
+                this.$store.commit('setShowSearch', false);
             }
 
         },
@@ -76,6 +96,15 @@
 
                     return article;
                 }
+            },
+            showSearch(){
+                return this.$store.state.searchResults.showSearch;
+            },
+            hasSearchResult(){
+                return this.$store.state.searchResults.hasResult;
+            },
+            getSearchResult(){
+                return this.$store.state.searchResults.results
             }
         },
         mounted() {
@@ -114,4 +143,5 @@
         color: black;
         font-weight:500;
     }
+
 </style>

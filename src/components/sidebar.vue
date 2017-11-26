@@ -3,9 +3,7 @@
         <div id='sidebar' v-bind:class="sidebarStatus">
             <div class='sidebar-header'>
                 <div class='search'>
-                    <!-- [TODO] -->
                     <input type='text' placeholder='Type to search' v-model="search">
-                    {{search}}
                 </div>
                 <div class='addNew' v-if="this.$store.state.enableAddNew">
                     <router-link to="/new">
@@ -13,7 +11,7 @@
                     </router-link>
                 </div>
             </div>
-
+            <hr>
 
             <ul class='list-unstyled components' v-if="getAllTypes">
                 <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
@@ -30,9 +28,11 @@
 
                         <li v-for="(val2, key2) in val" 
                             v-bind:class="(val2['title']==getActiveTitle)?'active':''"
-                            v-on:click="goToTop()">
+                            v-on:click="clear()">
                             <!-- <router-link v-bind:to="'/blog/' + val2.id">{{val2.title}}</router-link> -->
-                            <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">{{val2.title}}</router-link>
+                            <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">
+                                {{val2.title}}
+                            </router-link>
                         </li>
 
                     </ul>    
@@ -51,9 +51,13 @@
             }
         },
         methods: {
-            goToTop(){
+            clear(){
                 //make sure every time load a new article, go to the top of article
                 window.scrollTo(0, 0);
+
+                //clear search
+                this.$store.commit('setSearch', null);
+                this.$store.commit('setShowSearch', false);
             }
         },
         props:[
@@ -111,9 +115,8 @@
                 set(value) {
                     this.$store.dispatch('actionSetSearch', {
                         value:value
-                    });
+                    });                                
                 }
-
 
             }
         },
