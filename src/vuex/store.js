@@ -163,12 +163,11 @@ const actions = {
 
     actionSetSearch(store, value){
         store.commit('setSearch', value.value);
-        console.log(value);
         let searchResults = {};
+
         if (value.value.trim().length > 0){
             //only search when string not empty
             
-            // console.log(store.state.allArticles);
             let allArticles = store.state.allArticles;
             let search = store.state.search.toLowerCase(); //to lowercase for search
             searchResults = {
@@ -178,9 +177,19 @@ const actions = {
             };
             for (let title in allArticles){
                 //search here
-                allArticles[title] = allArticles[title].toLowerCase(); //to lowercase for search
-                if (allArticles[title].indexOf(search) !== -1){
-                    let article = {};
+
+                //to lowercase for search
+                let lowCaseTitle = title.toLowerCase();        
+                allArticles[title] = allArticles[title].toLowerCase(); 
+
+                let article = {};
+                //search by title higher priority than content
+                if (lowCaseTitle.indexOf(search) !== -1){  
+                    article['content'] = allArticles[title].slice(0, store.state.maxReturnLength);
+                    searchResults['results'][title] = article;
+                }
+                //search by content
+                else if (allArticles[title].indexOf(search) !== -1){
                     let result = getSubstring(
                             allArticles[title], 
                             store.state.maxReturnLength, 
@@ -207,8 +216,8 @@ const actions = {
 
 
                     article['content'] = content;
-                    article['resultStart'] = result['targetStart'];
-                    article['resultLength'] = result['targetLength'];
+                    // article['resultStart'] = result['targetStart'];
+                    // article['resultLength'] = result['targetLength'];
                     searchResults['results'][title] = article;
                 }
             }
