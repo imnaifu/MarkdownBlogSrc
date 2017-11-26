@@ -170,13 +170,15 @@ const actions = {
             
             // console.log(store.state.allArticles);
             let allArticles = store.state.allArticles;
-            let search = store.state.search;
+            let search = store.state.search.toLowerCase(); //to lowercase for search
             searchResults = {
                 'showSearch': true,
                 'hasResult': false,
                 'results':{}
             };
             for (let title in allArticles){
+                //search here
+                allArticles[title] = allArticles[title].toLowerCase(); //to lowercase for search
                 if (allArticles[title].indexOf(search) !== -1){
                     let article = {};
                     let result = getSubstring(
