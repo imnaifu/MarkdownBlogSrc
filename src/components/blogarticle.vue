@@ -2,8 +2,10 @@
     <div class='article' v-on:click="sidebarDisable">
         <div class='article-inner' v-if="showSearch"><!-- search result -->
             <ul v-if="hasSearchResult">
-                <li v-for="(val, key) in getSearchResult" v-on:click="clear()">
-                    <router-link v-bind:to="encodeURI('/blog/' + key)">{{key}}</router-link>
+                <li v-for="(val, key) in getSearchResult">
+                    <p v-on:click="clear()">
+                        <router-link v-bind:to="encodeURI('/blog/' + key)">{{key}}</router-link>    
+                    </p>
                     <p v-html="val.content"></p>
                     <!-- <p>{{val.content}}</p> -->
                 </li>
