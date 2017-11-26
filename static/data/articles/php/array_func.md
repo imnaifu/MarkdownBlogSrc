@@ -31,7 +31,7 @@
 - **arsort/krsort**: sort associative array in ascending/descending by key
 
 ---
-- **array_fill(start, number, value)**:fills an array with values
+- **array_fill(start, number, value)**: fills an array with values
 - **range(start, end, step)**: create an array containing a range of elements
 
 ---

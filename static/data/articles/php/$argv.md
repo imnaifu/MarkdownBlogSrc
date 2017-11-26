@@ -4,7 +4,7 @@
 - the rest is the parameter
 - can be used to call a function is php script
 
-``` php
+```php
    <?php
   5 function return_max($a, $b){
   6   if ($a>$b){return $a;}

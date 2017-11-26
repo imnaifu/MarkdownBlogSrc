@@ -1,0 +1,39 @@
+- 每个js函数都是Function对象的一个实例
+- 函数创建时
+	- 其中一个不可访问的内部属性[[scope]],称为作用域链
+- 作用域链(scope chain)
+	- 创建时插入一个Object变量
+- 函数执行时
+	- 创建一个执行环境(excute enviroment)的内部对象
+	- 每次执行时的执行环境都不一样
+	- 多次执行调用同一个函数会导致创建多个执行环境
+	- 执行完毕环境销毁
+	- 活动对象(activation object)创建
+	- 如果两个相同的变量存在于scope chain的不同部分，先找到的第一个变量覆盖shadow第二个
+	- indentifier查询从局部到全局
+	- identifier(variable)的位置越深，读写速度越慢
+		- 所以局部变量优于global, 
+		- 所以多次调用同一个global时，可以将global保存成local
+	- with语句(deprecated)
+		- 当代码执行with时，执行环境的作用域链接临时改变了，一个新的变量对象被创建，包含参数指定的对象的所有属性。这个对象被推倒作用域链的首位，意味着函数所有的局部变量处于第二个scope chain的对象里，因此访问代价更高
+		- 结论避免使用with
+	- eval
+		- 动态作用域
+		- eval(string) 将string转换为code
+- 闭包(closure)
+- 原型(prototype)
+- 原型链(prototype chain)
+===========================================================================
+- HTML集合： 包含DOM节点引用的类数组对象， e.g. document.getElementByName()的返回值就是
+	- 并不是真正的数组，只有一个length属性，并且可以通过下标访问
+	- use toArray()缓存集合到数组会更快
+	- 如果只是很小的集合，那么缓存length就足够
+
+- DOM Tree & Render Tree
+	- DOM Tree 的每一个需要显示的节点在渲染树中至少存在一个对应的节点（隐藏的DOM元素在渲染树中没有节点）
+	- Once 两个树构建完成，浏览器变开始paint页面元素
+	- 重排(reflow) 重绘(repaint)
+
+- Event
+	- click a tag, 点击事件首先被a元素收到，接着向DOM树上层冒泡，被li收到，然后是ul，一直到document乃至windows
+	

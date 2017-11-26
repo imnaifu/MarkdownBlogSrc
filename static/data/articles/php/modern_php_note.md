@@ -16,7 +16,7 @@ The detail about namespace can be seen [here](http://www.runoob.com/php/php-name
 - An interface is a contract between two PHP component that lets one object depend not on what another object is but, instead, on what 
 another object can do. An inter face decouples our code from its dependencies, and it allows our code to depend on any third-party code
 that implements the expected interface.
-~~~
+```php
 public function add_document(Document $document){
     $id = $document->get_id();
     $content = $document->get_content();
@@ -26,7 +26,7 @@ interface Document{
     public function get_id();
     public function get_content();
 }
-~~~
+```
 
 ### Traits
 - Trait is a mix of class and interface
@@ -43,25 +43,27 @@ immediate parent's implementation.
 - Generator are simple iterators.
 - Like Python iterator, it use yield to return value
 - Most of the time, it deals with large number of values to save memory. Because it only use 1 value memory each time.
-~~~ 
+
+```php 
 <?php
 function make_range($length){
     for($i=0; $i<$length; $i++){
         yield $i;
     }
 }
-~~~
+```  
 
 ### Closures & Anonymous function
 - A closure is a function that encapsulates its surrounding state at the time it is crated.
 - The encapsulated state exists inside the closure even when the closure lives after its original enviroment ceases to exist.
 - Closure is like the javascript closure which can remain state;
-~~~
+
+```php
 $closure = function($name){
     return echo 'Hello. '.$name;
 };
 echo $closure('naifu');
-~~~ 
+```
 
 ### Zend OPcache
 - Zend OPcache is a PHP built-in bytecode cache.
@@ -132,7 +134,8 @@ is disguise`
 ### Errors and Exceptions
 - An exception is an object of class Exception that is thrown when you encounter an irreparable situation from which you can not recover
 - A component flip/whoops
-~~~
+
+```php
 throw new Exception('Something Wrong');
 try{
 
@@ -141,8 +144,7 @@ try{
 }finally{
 
 }
-~~~
-
+```
 
 
 ### Hosting

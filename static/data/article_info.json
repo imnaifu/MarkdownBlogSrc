@@ -490,7 +490,7 @@
         },
         {
             "filename": "php/array_func.md",
-            "title": "PHH Array FunctionS",
+            "title": "PHP Array Functions",
             "type" : "PHP",
             "date": "2017-11-23"
         },
@@ -612,6 +612,36 @@
             "filename": "php/time_func.md",
             "title": "PHP time functions",
             "type" : "PHP",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "css/css_basic.md",
+            "title": "CSS basic",
+            "type" : "CSS",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "css/font.md",
+            "title": "Font",
+            "type" : "CSS",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "css/line_height.md",
+            "title": "Line-height",
+            "type" : "CSS",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "css/transition.md",
+            "title": "Transition",
+            "type" : "CSS",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "css/优先级.md",
+            "title": "优先级",
+            "type" : "CSS",
             "date": "2017-11-23"
         }
      

@@ -17,8 +17,11 @@ eg. 有一个class named人类
 
 ```php
 class human{   
-     public static human_history = '1000,000 years'; //value belongs to the human class not each human   
-     public human_age = '100 years'; //value belongs to one person but not the whole human   
+     public static human_history = '1000,000 years'; 
+     //value belongs to the human class not each human
+        
+     public human_age = '100 years'; 
+     //value belongs to one person but not the whole human   
 }      
 ```
 

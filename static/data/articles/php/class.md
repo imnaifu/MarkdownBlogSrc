@@ -25,7 +25,8 @@
 Class darling {
     var $variable = 'abc'; //this is called property
     function love(){
-        echo $this->variable; //you can call the class property inside the class by using '$this'
+        echo $this->variable; 
+        //you can call the class property inside the class by using '$this'
     }
 }
 ~~~

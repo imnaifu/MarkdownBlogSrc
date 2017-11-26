@@ -18,8 +18,8 @@ And define() is used **outside of the the class or within the function** to defi
 4. Condition:
   * const cannot used by conditionally because has to be used in the outermost scope
   * define() can be used like
-  ~~~~
+```php
   if(!define('FOO'){
       define('FOO','bar')
   }
-  ~~~~
+```
