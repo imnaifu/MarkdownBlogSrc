@@ -1,6 +1,6 @@
-1. use local variable to replace global
+- use local variable to replace global
 	- var doc = document
-2. big O
+- big O
 	- 访问数组元素O(1)
 	- 访问属性O(n)
-	- 
+	

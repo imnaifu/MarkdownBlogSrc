@@ -146,7 +146,7 @@
         },
         {
             "filename": "datastructure/time_space.md",
-            "title": "Time & space efficency",
+            "title": "Time & space efficiency",
             "type" : "Datastructure",
             "date": "2017-11-23"
         },
@@ -211,36 +211,18 @@
             "date": "2017-11-23"
         },
         {
-            "filename": "javascript/array.md",
-            "title": "JS array",
-            "type" : "Javascript",
-            "date": "2017-11-23"
-        },
-        {
-            "filename": "javascript/number.md",
-            "title": "JS number",
-            "type" : "Javascript",
-            "date": "2017-11-23"
-        },
-        {
-            "filename": "javascript/string.md",
-            "title": "JS string",
-            "type" : "Javascript",
-            "date": "2017-11-23"
-        },
-                {
             "filename": "system/basic_command.md",
             "title": "Linux basic command",
             "type" : "System",
             "date": "2017-11-23"
         },
-                {
+        {
             "filename": "system/basic_knowledge.md",
             "title": "Linux basic knowledge",
             "type" : "System",
             "date": "2017-11-23"
         },
-                {
+        {
             "filename": "system/deadlock.md",
             "title": "Deadlock",
             "type" : "System",
@@ -642,6 +624,132 @@
             "filename": "css/优先级.md",
             "title": "优先级",
             "type" : "CSS",
+            "date": "2017-11-23"
+        },       
+        {
+            "filename": "javascript/js_often_used.md",
+            "title": "JavaScript常用方法",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "javascript/es6.md",
+            "title": "ECMAScript 6 syntax",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_模拟块级作用域.md",
+            "title": "函数模拟块级作用域",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_basic.md",
+            "title": "JS Basic",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_bom.md",
+            "title": "JS BOM",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_browser_detect.md",
+            "title": "JS browser detect",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_construct_function.md",
+            "title": "JS Construct function",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_dom性能.md",
+            "title": "JS DOM 性能",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_dom.md",
+            "title": "JS DOM",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_efficiency.md",
+            "title": "JS Efficiency",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_error.md",
+            "title": "JS error handle",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_event.md",
+            "title": "JS event",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                {
+            "filename": "javascript/js_form.md",
+            "title": "JS Form",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/js_function.md",
+            "title": "JS Funtion",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/js_json.md",
+            "title": "JS JSON",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/js_non_writable.md",
+            "title": "JS Non-writable",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/js_oop.md",
+            "title": "JS OOP",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/js_scope.md",
+            "title": "JS Scope",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/js_this.md",
+            "title": "JS this",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/jsonp.md",
+            "title": "JSONP",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+                        {
+            "filename": "javascript/storage.md",
+            "title": "Storage",
+            "type" : "Javascript",
             "date": "2017-11-23"
         }
      

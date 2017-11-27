@@ -3,7 +3,7 @@
         <div class='article-inner' v-if="showSearch"><!-- search result -->
             <ul v-if="hasSearchResult">
                 <li v-for="(val, key) in getSearchResult">
-                    <p v-on:click="clear()">
+                    <p v-on:click="clearResult()">
                         <router-link v-bind:to="encodeURI('/blog/' + key)">{{key}}</router-link>    
                     </p>
                     <p v-html="val.content"></p>
@@ -26,8 +26,9 @@
 
 <script type="text/javascript">
     import showdown from 'showdown';
+    import showdownHighlight from 'showdown-highlight';
 
-    showdown.setFlavor('github'); //set global falvor
+    // showdown.setFlavor('github'); //set global falvor
     const converter = new showdown.Converter({
         headerLevelStart: 2, //start with h2
         // literalMidWordUnderscores: true, 
@@ -36,10 +37,11 @@
         tables: true, 
         tasklists: true,
         smartIndentationFix: true,
-        simpleLineBreaks: true,
+        // simpleLineBreaks: true,
         requireSpaceBeforeHeadingText: true,
         openLinksInNewWindow: true,
-        emoji: true
+        emoji: true,
+        extensions: [showdownHighlight]
     
     });
 
@@ -59,7 +61,7 @@
                     this.$store.commit('setSidebar', 'disable');
                 }
             },
-            clear(){
+            clearResult(){
                 //make sure every time load a new article, go to the top of article
                 window.scrollTo(0, 0);
 

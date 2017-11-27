@@ -15,6 +15,5 @@ export default new Router({
         { path: '/resume', name: 'resume', component: resume },
         { path: '/blog', name: 'blog', component: blog},
         { path: '/blog/:title', name: 'blog_title', component: blog},        
-        { path: '/new', name: 'newBlog', component: newBlog},  
     ]
 })

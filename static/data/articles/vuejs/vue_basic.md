@@ -63,3 +63,11 @@ But, let me make a brief version of it's basic usage.
                 <input v-model="msg" name="name">` 
             ~~~~
     
+3. 只有实例被创建时data中存在的属性是响应式的，如果在晚些时候需要一个属性，但是一开始它为空或不存在，那么需要设置初始值
+- Vue expose some attribute and method with appendix '$'
+- Vue instance在创建过程会执行一些lifecycle hooks的函数
+    - created
+    - mounted
+    - updated
+    - destroyed
+    

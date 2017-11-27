@@ -5,11 +5,6 @@
                 <div class='search'>
                     <input type='text' placeholder='Type to search' v-model="search">
                 </div>
-                <div class='addNew' v-if="this.$store.state.enableAddNew">
-                    <router-link to="/new">
-                        <!-- <i class="fa fa-plus" aria-hidden="true"></i> --> Add New
-                    </router-link>
-                </div>
             </div>
             <hr>
 
@@ -28,7 +23,7 @@
 
                         <li v-for="(val2, key2) in val" 
                             v-bind:class="(val2['title']==getActiveTitle)?'active':''"
-                            v-on:click="clear()">
+                            v-on:click="clearResult()">
                             <!-- <router-link v-bind:to="'/blog/' + val2.id">{{val2.title}}</router-link> -->
                             <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">
                                 {{val2.title}}
@@ -51,7 +46,7 @@
             }
         },
         methods: {
-            clear(){
+            clearResult(){
                 //make sure every time load a new article, go to the top of article
                 window.scrollTo(0, 0);
 
@@ -191,9 +186,6 @@ ul ul a {
     /*background: #34425f;*/
 }
 
-.addNew {
-    text-align: right;
-}
 
 li.active li.active a {
     color: black;
@@ -207,11 +199,7 @@ a.active {
 #sidebar.active {
     display: block;
 }
-   
-div.addNew a:hover {
-    display: inline-block;
-    color: #8EA4BF;
-}   
+    
 
 a[data-toggle='collapse'] {
     /* not sure if used */

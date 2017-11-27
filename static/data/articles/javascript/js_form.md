@@ -1,4 +1,4 @@
-form submit
+## form submit
 - general: <!-- <input type='submit' value='submit'> -->
 - customize: <!-- <button type='submit'>Submit</button> -->
 - image: <!-- <input type='image' src='blabla.png'> -->
@@ -7,12 +7,12 @@ form submit
 - 以form.submit()的方式提交表单，不会触发submit事件
 - 如果要在提交后禁用提交按钮，需要在onsubmit()禁用，而不能在onclick，因为不同浏览器onsubmit/onclick事件处理顺序不一样
 
-form reset
+## form reset
 - general: <!-- <input type='reset' value='reset form'> -->
 - customize: <!-- <button type='reset'>reset form</button> --> 
 - unlike form.submit(), call form.reset() is like trigger reset event
 
-form element 
+## form element 
 - method 
     - focus()
     - blur()
@@ -24,18 +24,18 @@ form element
     - focus： when get focus
 
 
-form text
+## form text
 - input
 - textarea
 - 建议使用.value读取和设置文本框的值，不建议使用dom方法
 - select(): 选择文本框的所有文本
 
-HTML5
+## HTML5
 - required: for input, textarea, select
 - input type: email, url...
 - novalidate/formnovalidate: do not validate when submit
 
-select
+## select
 - multiple: allow multiple select
 - size: number of line can be seen
 - if value attribute exist then value=option.value, if not value=option.text in between of option

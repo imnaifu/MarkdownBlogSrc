@@ -1,4 +1,4 @@
-Error(基类，其他类型均继承此类)
+## Error(基类，其他类型均继承此类)
 - evalError: when using eval()
 - rangeError: when 超出范围
 - referenceError: 找不到对象

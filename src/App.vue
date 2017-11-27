@@ -7,7 +7,7 @@
             <div class='row content'>   
                 <router-view></router-view>
             </div> 
-            <appFooter></appFooter>
+            <appFooter>{{addhighlight}}</appFooter>
         </div>
     </div>
 </template>
@@ -36,6 +36,15 @@
         computed: {
             contentClass: function (){
                 return this.$store.state.contentClass
+            },
+            addhighlight: function (){
+                if (this.$store.state.allArticlesFetched){
+                    $('pre code').each(function(i, block) {
+                        console.log(i);
+                        console.log(block);
+                        hljs.highlightBlock(block);
+                    });                    
+                }
             }
         },
         mounted: function(){

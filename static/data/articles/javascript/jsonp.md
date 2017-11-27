@@ -1,4 +1,4 @@
-JSONP(JSON with Padding)
+## JSONP(JSON with Padding)
 - It's a method get data without worrying cross-domain issues
 ```php
     <?php 

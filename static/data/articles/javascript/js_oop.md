@@ -1,5 +1,5 @@
-对象
-属性类型
+## 对象
+## 属性类型
 - Object.defineProperty()
 - Object.defineProperties() 
 - Object.getOwnPropertyDescriptor() //读取属性的特性
@@ -15,4 +15,4 @@
 	- [[get]]
 	- [[set]]
 
-https://segmentfault.com/a/1190000009886713#articleHeader10
+[https://segmentfault.com/a/1190000009886713#articleHeader10](https://segmentfault.com/a/1190000009886713#articleHeader10)

@@ -14,8 +14,9 @@
     - lucida console 
 
 if the name of font-family if more than one word, must using quote
-e.g  font-family {"Times New Roman", serif}
-
+```css
+font-family {"Times New Roman", serif}
+```
 
 ### font-style:
 used to specify italic text
