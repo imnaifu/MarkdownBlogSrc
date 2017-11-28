@@ -25,8 +25,17 @@ Dog.prototype.toString = function(){
 }
 ```
 
+---
 
 ## Array method
+
+#### Array.isArray()
+- return true if the object is an array, otherwise false
+
+```
+Array.isArray([1,2]); //true
+Array.isArray('1,2'); //false
+```
 
 #### Array.prototype.pop()
 - return and **remove** last element of array
@@ -73,6 +82,8 @@ let b = [4,5,6];
 console.log(a.concat(b));
 ```
 
+---
+
 ## Number method
 
 #### Number.protype.toFixed([digits])
@@ -94,6 +105,8 @@ let num2 = 0.03;
 console.log(num1.toPrecision(2)); //1.3
 console.log(num2.toPrecision(2)); //0.030
 ```
+
+---
 
 ## String Method
 #### String.prototype.search(regexp)
@@ -124,3 +137,29 @@ let arr2 = str.split(); //['12,34,56'];
 let arr3 = str.split(''); //['1','2',',','3','4',',','5','6']
 let arr4 = str.split(',', 2) //['12','34']
 ```
+
+---
+
+## Date method
+```
+//count run time
+var start = Date.now();
+doSomething();
+var end = Date.now();
+var result = end - start
+```
+
+---
+
+# 内置对象
+- Global: 不属于任何其他对象的属性和方法，都是它的属性和方法
+    - isNaN()
+    - encodeURI(), encodeURIComponent, decodeURI(), decodeURIComponent
+    - eval(): 解释器函数
+
+- Math
+    - Math.min(), Math.max()
+        - Math.max.apply(Math, array)
+    - ceil(), floor(), round()
+    - random()
+    

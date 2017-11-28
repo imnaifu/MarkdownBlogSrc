@@ -23,7 +23,9 @@ p{
     color: #3e3e3e;
 }
 
-
+hr {
+  margin: 20px 0;
+}
 
 img {
     width: 100%;
@@ -37,10 +39,6 @@ img {
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
 }
-
-
-
-
 
 #toggleButton {
     /*hide toggle button */

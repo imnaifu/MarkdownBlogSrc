@@ -1,3 +1,19 @@
+## Function 类型
+- 函数是对象，每个函数都是Function类型的实例
+- 和其他引用类型一样有属性和方法
+- 函数名仅仅是指向对象的指针
+- 代码执行前，解释器已经通过一个函数声明提升(function declaration hoisting)的过程，读取并将函数声明添加到执行环境
+- 函数内部有两个特殊对象
+    - arguments
+        - arguments.callee: 一个指针，指向拥有这个argument对象的函数，可用于递归函数消除耦合[pg.114 高级程序设计]
+        - arguments.callee.caller: 指向调用当前函数的函数
+    - this
+        - 引用的是函数执行的环境对象
+        - 当在global调用的时候，指向window对象
+
+## 函数属性&方法
+- length: 希望接受的命名参数的个数
+- prototype: 
 ## 两种方法定义函数
 1. 函数声明 
     - function abc(){}
@@ -7,6 +23,24 @@
 
 argument.callee： 指向正在执行的函数的指针，用以实现递归
 
+
+## js函数参数
+- js的参数在内部是通过一个数组表示的，函数接收的永远是那个数组，可以通过arguments对象访问
+
+```
+function f(a, b){
+    console.log(arguments);    
+}
+f(3,4); 
+// [object Arguments] {
+//   0: 3,
+//   1: 4
+// }
+
+```
+
+## expression context(表达式上下文)： e.g 变量定义
+## statement context(语句上下文): e.g if 语句
 
 
 ## 词法(lexical)作用域(静态作用域)

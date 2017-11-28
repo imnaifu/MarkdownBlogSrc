@@ -645,8 +645,8 @@
             "date": "2017-11-23"
         },
                 {
-            "filename": "javascript/js_basic.md",
-            "title": "JS Basic",
+            "filename": "javascript/js_primitive.md",
+            "title": "JS Primitive",
             "type" : "Javascript",
             "date": "2017-11-23"
         },
@@ -657,14 +657,8 @@
             "date": "2017-11-23"
         },
                 {
-            "filename": "javascript/js_browser_detect.md",
-            "title": "JS browser detect",
-            "type" : "Javascript",
-            "date": "2017-11-23"
-        },
-                {
             "filename": "javascript/js_construct_function.md",
-            "title": "JS Construct function",
+            "title": "Construct function & Prototype",
             "type" : "Javascript",
             "date": "2017-11-23"
         },
