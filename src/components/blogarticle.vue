@@ -135,7 +135,7 @@
     .article-inner {
         margin:0 auto;
         padding:0 25px;
-        max-width: 740px;
+        max-width: 800px;
     }
 
     .article-text {

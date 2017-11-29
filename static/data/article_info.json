@@ -176,16 +176,10 @@
         },        
         {
             "filename": "concept/sync_async.md",
-            "title": "Synchronize and asynchronize",
+            "title": "Asynchronous",
             "type" : "Concept",
-            "date": "2017-11-23"
-        },        
-        {
-            "filename": "concept/callback.md",
-            "title": "Callback",
-            "type" : "Concept",
-            "date": "2017-11-23"
-        },        
+            "date": "2017-11-29"
+        },                
         {
             "filename": "concept/compile_interpreter.md",
             "title": "Compile and interpreter",
@@ -740,12 +734,23 @@
             "type" : "Javascript",
             "date": "2017-11-23"
         },
-                        {
+        {
             "filename": "javascript/storage.md",
             "title": "Storage",
             "type" : "Javascript",
             "date": "2017-11-23"
+        },
+        {
+            "filename": "concept/rest.md",
+            "title": "REST API",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },
+        {
+           "filename": "javascript/event_loop.md",
+            "title": "Event Loop",
+            "type" : "Javascript",
+            "date": "2017-11-29"
         }
-     
     ] 
 }
