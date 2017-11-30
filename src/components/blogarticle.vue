@@ -41,7 +41,8 @@
         requireSpaceBeforeHeadingText: true,
         openLinksInNewWindow: true,
         emoji: true,
-        extensions: [showdownHighlight]
+        extensions: [showdownHighlight],
+        parseImgDimensions: true
     
     });
 

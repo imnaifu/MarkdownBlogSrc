@@ -23,7 +23,7 @@
 - 闭包(closure)
 - 原型(prototype)
 - 原型链(prototype chain)
-<hr>
+---
 - HTML集合： 包含DOM节点引用的类数组对象， e.g. document.getElementByName()的返回值就是
 	- 并不是真正的数组，只有一个length属性，并且可以通过下标访问
 	- use toArray()缓存集合到数组会更快
