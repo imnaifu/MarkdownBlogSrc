@@ -79,7 +79,21 @@ bar(); // 3
 ## 好的我们正式开始讲this....
 没办法啊，因为this扯到的东西真是太多了，背景太强大。
 
+### 1. this在全局
+this在全局作用域指向的是window对象（浏览器）
+```
+console.log(this); //[Object Window]
+console.log(this instanceof Object); //true
 
+var a = 1;
+console.log(this.a); //1
+
+//below are the same
+console.log(this.Math.random());
+console.log(Math.random()); 
+```
+
+### 2. this
 
 
 # 每个语言都有自己的this，又特么都不一样尼玛

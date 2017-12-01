@@ -751,6 +751,30 @@
             "title": "Event Loop",
             "type" : "Javascript",
             "date": "2017-11-29"
+        },
+        {
+           "filename": "javascript/hoisting.md",
+            "title": "JavaScript Hoisting",
+            "type" : "Javascript",
+            "date": "2017-12-01"
+        },
+        {
+           "filename": "javascript/prototype_chain.md",
+            "title": "原型链与继承",
+            "type" : "Javascript",
+            "date": "2017-12-01"
+        },
+        {
+           "filename": "javascript/prototype_constructor_instance.md",
+            "title": "原型，实例，构造函数",
+            "type" : "Javascript",
+            "date": "2017-12-01"
+        },
+        {
+           "filename": "javascript/js_execution.md",
+            "title": "JavsScript 执行",
+            "type" : "Javascript",
+            "date": "2017-12-01"
         }
     ] 
 }
