@@ -93,13 +93,39 @@ console.log(this.Math.random());
 console.log(Math.random()); 
 ```
 
-### 2. this
+### 2. 作为函数调用
+同上也是绑定到全局对象，也就是window
+```
+var x = 1;
+function a(){
+	console.log(this.x);
+}
+a(); //1
+```
 
+### 3.作为对象方法调用
+this 绑定到该对象
+```
+var a = {
+	x: 1,
+	f: function (x){
+		this.x = this.x + x;
+		console.log(this.x);
+	}
+}
+a.f(2); //3
+```
 
-# 每个语言都有自己的this，又特么都不一样尼玛
-好吧今天让我们来说说JS的this  
-虽说每个语言的this都不一样，但其实也是大同小异，细节不一样而已，
-一般指的都是当前对象
+### 4. 作为构造函数调用
+this 绑定到新创建的对象
+```
+function A(a){
+	this.a = a;
+}
+let aa = new A(2);
+console.log(aa.a); //2
+```
+
 
 ## 先来谈谈作用域(scope)
 JS有一个全局作用域(global excution context)，或者叫上下文，
@@ -133,3 +159,4 @@ this
 - [http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html](http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)
 - [https://github.com/mqyqingfeng/Blog/issues/7](https://github.com/mqyqingfeng/Blog/issues/7)
 - [https://www.zhihu.com/question/19636194](https://www.zhihu.com/question/19636194)
+- [https://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html](https://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html)
