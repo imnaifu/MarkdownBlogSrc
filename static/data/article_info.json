@@ -90,6 +90,12 @@
             "title": "Apply & Call",
             "type" : "Javascript",
             "date": "2017-12-04"
+        },
+        {
+            "filename": "js_basic/js_closure.md",
+            "title": "JavaScript 闭包",
+            "type" : "Javascript Basic",
+            "date": "2017-12-04"
         }
     ] 
 }
