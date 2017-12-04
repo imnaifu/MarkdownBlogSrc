@@ -126,34 +126,6 @@ let aa = new A(2);
 console.log(aa.a); //2
 ```
 
-
-## 先来谈谈作用域(scope)
-JS有一个全局作用域(global excution context)，或者叫上下文，
-在浏览器环境这个全局等同于window对象
-```
-console.log(this === window); //true
-a = 12;
-console.log(this.a); //12
-```
-每个函数有自己的局部作用域，比如用let定义的变量
-所以全局作用域里的this指的就是window (nodejs 里面 this===global)
-
-## 函数里的this
-这特么就是复杂的地方了
-
-
-
-
-this 
-- 函数运行时自动生成的对象
-- 只能在函数内部使用
-- 指的是调用函数的对象
-
-1. 全局函数: this -> window
-2. 函数作为对象方法： this -> 对象
-3. 函数作为构造函数: this -> 用这个构造函数生成的对象
-
-
 ## reference
 - [https://sdk.cn/news/7237](https://sdk.cn/news/7237)
 - [http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html](http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)

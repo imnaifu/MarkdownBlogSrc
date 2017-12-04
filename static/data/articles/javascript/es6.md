@@ -125,10 +125,6 @@ let a = {
 console.log(myName, age); //'aa', 30
 ```
 
-## gulp & babel
-- 打包编译成es2015
-
-
 # Promise
 - It's an API rule
 ```
