@@ -40,8 +40,6 @@
             addhighlight: function (){
                 if (this.$store.state.allArticlesFetched){
                     $('pre code').each(function(i, block) {
-                        console.log(i);
-                        console.log(block);
                         hljs.highlightBlock(block);
                     });                    
                 }
@@ -60,6 +58,7 @@
     display: -webkit-flex;
     align-items:center;
     justify-content:center;
+    padding-bottom: 40px;
 }
 
 #content.active {
