@@ -15,8 +15,9 @@ const state = {
     imgPath: 'static/data/img/',
     resumeData: '',
     enableResume: false,
-    meImg: 'avatar.jpg',
-    meText: 'Hello',
+    meAnimation: false,
+    meImg: undefined,
+    meText: undefined,
     navText: ['Me', 'Resume', 'Blog'],
 
     //search
@@ -59,6 +60,10 @@ const mutations = {
 
     setMeImg (state, value){
         state.meImg = value;
+    },
+
+    setMeAnimation (state, value){
+        state.meAnimation = value;
     },
 
     setMeText (state, value){
@@ -109,6 +114,7 @@ const actions = {
                 store.commit('setNavText', navText);
             }
 
+            store.commit('setMeAnimation', response.data.me_animation); 
             store.commit('setMeImg', response.data.me_img);
             store.commit('setMeText', response.data.me_text);
 

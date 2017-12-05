@@ -2,6 +2,7 @@
 
     "enable_resume": true,
 
+    "me_animation": true,
     "me_img": "avatar.jpg",
     "me_text": "Hello, I'm Naifu",
 
