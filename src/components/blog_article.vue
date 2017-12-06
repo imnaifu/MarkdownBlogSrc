@@ -1,5 +1,5 @@
 <template>
-    <div class='article' v-on:click="sidebarDisable">
+    <div id="blog_article" v-on:click="sidebarDisable">
         <div class='article-inner' v-if="showSearch"><!-- search result -->
             <ul v-if="hasSearchResult">
                 <li v-for="(val, key) in getSearchResult">
@@ -116,37 +116,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .active {
-        margin-left: 0
-    }
-
-    .date {
-        font-size: 15px;
-        text-align: right;
-        margin: 5px 0 ;
-        color: #656565;
-    }
-    h1#title {
-        text-align: center;
-    }
-
-
-    .article-inner {
-        margin:0 auto;
-        padding:0 25px;
-        max-width: 800px;
-    }
-
-    .article-text {
-        padding: 30px 0 ;
-        min-height: 75vh;
-    }
-    
-    .article a, a:hover {
-        color: black;
-        font-weight:500;
-    }
-
-</style>

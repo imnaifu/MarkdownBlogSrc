@@ -1,7 +1,5 @@
 <template>
-    <div class='resume' v-if="this.$store.state.enableResume" v-html="getResume">
-
-    </div>
+    <div id="resume" v-if="this.$store.state.enableResume" v-html="getResume"></div>
 </template>
 <script>
     import showdown from 'showdown';
@@ -25,10 +23,3 @@
 
 	}
 </script>
-<style scoped>
-.resume {
-    margin:0 auto;
-    padding:50px 25px 25px 25px;
-    max-width: 740px;
-}
-</style>

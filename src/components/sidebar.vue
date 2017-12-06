@@ -1,41 +1,40 @@
 <template>
-        <!-- sidebar -->
-        <div id='sidebar' v-bind:class="sidebarStatus">
-            <div class='sidebar-header'>
-                <div class='search'>
-                    <input type='text' placeholder='Type to search' v-model="search">
-                </div>
+    <div id="sidebar" v-bind:class="sidebarStatus">
+        <div class='sidebar-header'>
+            <div class='search'>
+                <input type='text' placeholder='Type to search' v-model="search">
             </div>
-            <hr>
-
-            <ul class='list-unstyled components' v-if="getAllTypes">
-                <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
-                    <a v-bind:href="(val.length>0)?('#' + key.trim().replace(' ','')):'javascript:void(0);'" 
-                       v-bind:data-toggle="(val.length>0)?'collapse':''" 
-                       v-bind:aria-expanded="(val.length>0)?'false':''">
-                       {{key}}
-                    </a>
-
-                    <ul v-if="(val.length>0)" 
-                        class='list-unstyled collapse' 
-                        v-bind:id="key.trim().replace(' ','')" 
-                        v-bind:class="(key==getActiveType)?'show':''">
-
-                        <li v-for="(val2, key2) in val" 
-                            v-bind:class="(val2['title']==getActiveTitle)?'active':''"
-                            v-on:click="clearResult()">
-                            <!-- <router-link v-bind:to="'/blog/' + val2.id">{{val2.title}}</router-link> -->
-                            <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">
-                                {{val2.title}}
-                            </router-link>
-                        </li>
-
-                    </ul>    
-                </li>
-            </ul>
-            <!-- fromat here {"css": [{}, {}]} -->
-
         </div>
+        <hr>
+
+        <ul class='list-unstyled components' v-if="getAllTypes">
+            <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
+                <a v-bind:href="(val.length>0)?('#' + key.trim().replace(' ','')):'javascript:void(0);'" 
+                   v-bind:data-toggle="(val.length>0)?'collapse':''" 
+                   v-bind:aria-expanded="(val.length>0)?'false':''">
+                   {{key}}
+                </a>
+
+                <ul v-if="(val.length>0)" 
+                    class='list-unstyled collapse' 
+                    v-bind:id="key.trim().replace(' ','')" 
+                    v-bind:class="(key==getActiveType)?'show':''">
+
+                    <li v-for="(val2, key2) in val" 
+                        v-bind:class="(val2['title']==getActiveTitle)?'active':''"
+                        v-on:click="clearResult()">
+                        <!-- <router-link v-bind:to="'/blog/' + val2.id">{{val2.title}}</router-link> -->
+                        <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">
+                            {{val2.title}}
+                        </router-link>
+                    </li>
+
+                </ul>    
+            </li>
+        </ul>
+        <!-- fromat here {"css": [{}, {}]} -->
+
+    </div>
 </template>
 
 <script type="text/javascript">
@@ -127,105 +126,3 @@
     }
 </script>
 
-<style scoped>
-/* sidebar */
-#sidebar{
-    width: 300px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh; /*viewpoint height*/
-    z-index: 998;
-    /*background: #404E66;*/
-    background-image: linear-gradient(180deg, #29323c 0%, #485563 100%);
-    color: #fff;
-    transition: all 0.3s; 
-    padding: 30px 0 50px 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-
-}
-
-#sidebar .sidebar-header{
-    /*background: #283550;*/
-    padding:0 20px
-}
-
-#sidebar ul.components{
-    padding:20px 0;
-    border-bottom: 1px solid #404E66;
-}
-
-#sidebar ul p{
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 13px 15px;
-    font-size: 1.1em;
-    display: block;
-    font-weight: 300
-}
-
-#sidebar ul li a:hover {
-    color: black;
-    background: #8EA4BF;
-}
-
-#sidebar ul li.active a[aria-expanded="true"] {
-    /*to replace hover effect for active and expanded element*/
-    color: #fafafa;
-    /*background: #404E66;*/
-}
-
-ul ul a {
-    /* a inside */
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    /*background: #34425f;*/
-}
-
-
-li.active li.active a {
-    color: black;
-    background: #8EA4BF;
-}
-
-a.active {
-    background: #D7DCE3;
-}
-
-#sidebar.active {
-    display: block;
-}
-    
-
-a[data-toggle='collapse'] {
-    /* not sure if used */
-    position:relative;
-}
-
-a[aria-expanded='false']::before, a[aria-expanded='true']::before {
-    content: '\f063'; arrow down
-    display: block;
-    position:absolute;
-    right:20px;
-    font-family: 'FontAwesome';
-    font-size: 0.6em;
-}
-
-a[aria-expanded='true']::before {
-    content: '\f062';
-}
-
-a, a:hover, a:focus {
-    color:inherit;
-    text-decoration: none;
-    transition: all 0.3s;  
-}
-
-.search {
-    padding-bottom: 10px;
-}
-</style>

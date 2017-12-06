@@ -13,9 +13,9 @@
 </template>
 
 <script>
-    import appHeader from './components/appHeader';
-    import appFooter from './components/appFooter';
-    import appNav from './components/appNav';
+    import appHeader from './components/app_header';
+    import appFooter from './components/app_footer';
+    import appNav from './components/app_nav';
 
 
     export default {
@@ -50,19 +50,3 @@
         }
     }
 </script>
-
-<style scoped>
-/* content */   
-.content {
-    display: flex;
-    display: -webkit-flex;
-    align-items:center;
-    justify-content:center;
-    padding-bottom: 40px;
-}
-
-#content.active {
-    /*width: 100%;*/
-}
-
-</style>

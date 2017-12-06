@@ -4,7 +4,6 @@ import Router from 'vue-router';
 import me from '../components/me';
 import resume from '../components/resume';
 import blog from '../components/blog';
-import newBlog from '../components/newBlog';
 
 Vue.use(Router);
 

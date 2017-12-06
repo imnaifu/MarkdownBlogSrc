@@ -1,5 +1,5 @@
 <template>
-    <div class='blog col-12'>
+    <div id="blog" class='col-12'>
         <sidebar v-bind:title="getArticleTitle"></sidebar>
         <blogarticle v-bind:title="getArticleTitle"></blogarticle>
     </div>
@@ -7,7 +7,7 @@
 
 <script type="text/javascript">
     import sidebar from './sidebar';
-    import blogarticle from './blogarticle';
+    import blogarticle from './blog_article';
     export default {
         data: function (){
             return {
@@ -40,6 +40,3 @@
         }
     }
 </script>
-<style scoped>
-
-</style>
