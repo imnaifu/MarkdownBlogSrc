@@ -13,6 +13,11 @@
 </template>
 
 <script>
+    import $ from "jquery";
+    import Popper from "popper.js";
+    window.Popper = Popper;
+    window.$ = $;
+    require('bootstrap');
     import appHeader from './components/app_header';
     import appFooter from './components/app_footer';
     import appNav from './components/app_nav';

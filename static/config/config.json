@@ -1,12 +1,8 @@
 {
-    "page_title": "Naifu",
-
+	"page_title": "Title",
     "enable_resume": true,
-
     "me_animation": true,
     "me_img": "avatar.jpg",
-    "me_text": "Hello, I'm Naifu",
-
-    "nav_text": ["this->me", "this.resume", "self.blog"] 
-
+    "me_text": "Hello",
+    "nav_text": ["Me", "Resume", "Blog", 3] 
 }

@@ -57,12 +57,7 @@
         props:[
             'title'
         ],
-        watch: {
-            allArticles: function (val){
-                console.log('123');
-                this.getAllTypes();
-            }
-        },
+        watch: {},
         computed: {
              getAllTypes: function (){
                 let final_directory = {}; //whole directory
@@ -115,13 +110,7 @@
             }
         },
         mounted: function(){
-            $(window).on('resize', function(){
-                let win = $(this);
-                if (win.width() < 768){
-                    $('#sidebar').addClass('disable');
-                    $('#sidebar').removeClass('active');
-                }
-            });
+
         }        
     }
 </script>

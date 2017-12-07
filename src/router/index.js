@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-// import HelloWorld from '@/components/HelloWorld';
 import me from '../components/me';
 import resume from '../components/resume';
 import blog from '../components/blog';

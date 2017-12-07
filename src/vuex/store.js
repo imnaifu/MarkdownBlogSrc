@@ -109,6 +109,7 @@ const actions = {
     actionFetch (store){
         axios.get('../../static/config/config.json').then( (response) => {
 
+            //resume
             let enableResume = response.data.enable_resume;
             if (enableResume === true || enableResume === 'true'){
                 store.commit('setResume', true);
@@ -116,9 +117,10 @@ const actions = {
                 store.commit('setResume', false);
             }
 
+            //navbar
             let navText = response.data.nav_text;
             if (navText.length !== 3){
-                console.log('nav_text must be a length 3 array');
+                alert("'nav_text' in config.json must be a legnth 3 array, please modify.");
             }else{
                 store.commit('setNavText', navText);
             }
