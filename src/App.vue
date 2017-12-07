@@ -30,10 +30,10 @@
         },
         data(){
             return {
-
             }
         },
         computed: {
+            //actually this is also point to a data, with the get function set as below
             contentClass: function (){
                 return this.$store.state.contentClass
             },
@@ -45,8 +45,6 @@
                 }
             }
         },
-        mounted: function(){
-
-        }
+        mounted: function(){},
     }
 </script>

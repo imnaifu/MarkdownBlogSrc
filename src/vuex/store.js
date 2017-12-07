@@ -14,7 +14,11 @@ const state = {
     allArticlesFetched: false,
     imgPath: 'static/data/img/',
     resumeData: '',
+        
+    pageTitle:'',
+
     enableResume: false,
+
     meAnimation: false,
     meImg: undefined,
     meText: undefined,
@@ -56,6 +60,11 @@ const mutations = {
 
     setNavText (state, value){
         state.navText = value;
+    },
+
+    setPageTitle(state, value){
+        state.pageTitle = value;
+        document.title = value;
     },
 
     setMeImg (state, value){
@@ -114,6 +123,7 @@ const actions = {
                 store.commit('setNavText', navText);
             }
 
+            store.commit('setPageTitle', response.data.page_title);
             store.commit('setMeAnimation', response.data.me_animation); 
             store.commit('setMeImg', response.data.me_img);
             store.commit('setMeText', response.data.me_text);
