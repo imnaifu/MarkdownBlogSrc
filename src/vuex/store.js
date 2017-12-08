@@ -20,6 +20,7 @@ const state = {
     enableResume: false,
 
     meAnimation: false,
+    showImg: false,
     meImg: undefined,
     meText: undefined,
     navText: ['Me', 'Resume', 'Blog'],
@@ -64,14 +65,18 @@ const mutations = {
 
     setPageTitle(state, value){
         state.pageTitle = value;
-        document.title = value;
+        document.title = value; //set title
     },
 
-    setMeImg (state, value){
+    setShowImg(state, value){
+        state.showImg = value;
+    },
+
+    setMeImg(state, value){
         state.meImg = value;
     },
 
-    setMeAnimation (state, value){
+    setMeAnimation(state, value){
         state.meAnimation = value;
     },
 
@@ -107,31 +112,72 @@ const mutations = {
 
 const actions = {
     actionFetch (store){
+
+        //getting all settings
         axios.get('../../static/config/config.json').then( (response) => {
 
+            console.log(response);  
+            let error_info = '';
+
             //resume
-            let enableResume = response.data.enable_resume;
-            if (enableResume === true || enableResume === 'true'){
-                store.commit('setResume', true);
+            let enable_resume = response.data.enable_resume;
+            if ($.type(enable_resume)!=='boolean'){
+                error_info += "'enable_resume' must be a boolean (without quote) in config.json\n";
             }else{
-                store.commit('setResume', false);
+                store.commit('setResume', enable_resume);
             }
 
             //navbar
-            let navText = response.data.nav_text;
-            if (navText.length !== 3){
-                alert("'nav_text' in config.json must be a legnth 3 array, please modify.");
+            let nav_text = response.data.nav_text;            
+            if ($.type(nav_text)!=='array' || nav_text.length !== 3){
+                error_info += "'nav_text' must be a legnth 3 array in config.json\n";
             }else{
-                store.commit('setNavText', navText);
+                store.commit('setNavText', nav_text);
             }
 
-            store.commit('setPageTitle', response.data.page_title);
-            store.commit('setMeAnimation', response.data.me_animation); 
-            store.commit('setMeImg', response.data.me_img);
-            store.commit('setMeText', response.data.me_text);
+            //title
+            let page_title = response.data.page_title;
+            if ($.type(page_title)!=='string'){
+                error_info += "'page_title' must be a string in config.json\n";
+            }else{
+                store.commit('setPageTitle', page_title);
+            }
+
+            //animation
+            let me_animation = response.data.me_animation;
+            console.log($.type(me_animation));
+            if ($.type(me_animation)!=='boolean'){
+                error_info += "'me_animation' must be a boolean (without quote) in config.json\n";                
+            }else{
+                store.commit('setShowImg', !me_animation);
+                store.commit('setMeAnimation', me_animation); 
+            }
+
+            //text
+            let me_text = response.data.me_text;
+            console.log($.type(me_text));
+            if ($.type(me_text)!=='string'){
+                error_info += "'me_text' must be a string in config.json\n";                
+            }else{
+                store.commit('setMeText', me_text); 
+            }
+
+            //image
+            let me_img = response.data.me_img;
+            console.log($.type(me_img));
+            if ($.type(me_img)!=='string'){
+                error_info += "'me_img' must be a string in config.json\n";                
+            }else{
+                store.commit('setMeImg', me_img); 
+            }
+
+            //show error
+            if (error_info.length >0){
+                alert(error_info);
+            }
 
             if (store.state.enableResume){
-                axios.get('../../static/data/resume/resume.md').then( (response1) => {
+                axios.get('../../static/data/resume/resume.md').then((response1) => {
                     store.commit('setResumeData', response1.data);
                 }, (error) => {
                     console.log(error)
@@ -141,7 +187,8 @@ const actions = {
             console.log(error)
         });
 
-        axios.get('../../static/data/article_info.json').then( (response) => {
+        //getting all articles
+        axios.get('../../static/data/article_info.json').then((response) => {
             let articles = Object.values(response.data.articles);
             let len = articles.length;
 
@@ -151,7 +198,7 @@ const actions = {
                 store.commit('setAllTypes', article.type);
                 store.commit('setAllArticleTitle', article.title);
 
-                axios.get(state.articlePath +　article.filename).then( (response1) => {
+                axios.get(state.articlePath +　article.filename).then((response1) => {
                     store.commit('setAllArticles',  {
                         "title": article.title,    
                         "content":response1.data
@@ -161,7 +208,9 @@ const actions = {
                         store.commit('setAllArticlesFetched', true);
                     }
                 }, (error1) => {
-                    console.log(error);
+                    alert("Error getting " + article.filename 
+                          + "\nPlease check article_info.json" );
+                    console.log(error1);
                 });
             }
         }, (error) => {

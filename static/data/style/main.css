@@ -143,7 +143,8 @@ body {
     border-radius: 50%; }
   #me p {
     font-size: 50px;
-    text-align: center; }
+    text-align: center;
+    padding-top: 20px; }
   #me .scene {
     position: relative;
     display: block;

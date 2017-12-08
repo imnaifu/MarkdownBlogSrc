@@ -1,8 +1,9 @@
 {
-	"page_title": "Title",
-    "enable_resume": true,
+	"page_title": "Naifu",
+    "enable_resume": false,
+    "nav_text": ["Me", "Resume", "Blog"],
+
     "me_animation": true,
     "me_img": "avatar.jpg",
-    "me_text": "Hello",
-    "nav_text": ["Me", "Resume", "Blog", 3] 
+    "me_text": "Hello, world"
 }

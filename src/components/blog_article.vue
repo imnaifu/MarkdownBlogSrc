@@ -15,7 +15,7 @@
             </h2>
         </div>  
         <div class='article-inner' v-else-if="getOneTitle"><!-- normal article -->
-            <p class='date'>Date: {{getOneDate}}</p>   
+            <p class='date'>{{getOneDate}}</p>   
             <h1 id='title'>{{getOneTitle}}</h1>
             <div>
                 <p class='article-text' v-html="getOneArticle"></p>
