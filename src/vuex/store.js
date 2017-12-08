@@ -116,7 +116,6 @@ const actions = {
         //getting all settings
         axios.get('../../static/config/config.json').then( (response) => {
 
-            console.log(response);  
             let error_info = '';
 
             //resume
@@ -145,7 +144,6 @@ const actions = {
 
             //animation
             let me_animation = response.data.me_animation;
-            console.log($.type(me_animation));
             if ($.type(me_animation)!=='boolean'){
                 error_info += "'me_animation' must be a boolean (without quote) in config.json\n";                
             }else{
@@ -155,7 +153,6 @@ const actions = {
 
             //text
             let me_text = response.data.me_text;
-            console.log($.type(me_text));
             if ($.type(me_text)!=='string'){
                 error_info += "'me_text' must be a string in config.json\n";                
             }else{
@@ -164,7 +161,6 @@ const actions = {
 
             //image
             let me_img = response.data.me_img;
-            console.log($.type(me_img));
             if ($.type(me_img)!=='string'){
                 error_info += "'me_img' must be a string in config.json\n";                
             }else{
