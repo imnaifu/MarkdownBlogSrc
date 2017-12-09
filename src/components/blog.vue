@@ -1,5 +1,5 @@
 <template>
-    <div id="blog" class='col-12'>
+    <div id="blog">
         <sidebar v-bind:title="getArticleTitle"></sidebar>
         <blogarticle v-bind:title="getArticleTitle"></blogarticle>
     </div>

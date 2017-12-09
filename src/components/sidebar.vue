@@ -2,7 +2,7 @@
     <div id="sidebar" v-bind:class="sidebarStatus">
         <div class='sidebar-header'>
             <div class='search'>
-                <input type='text' placeholder='Type to search' v-model="search">
+                <input type='text' placeholder='Type to search' v-model="search" id='serarch_input'>
             </div>
         </div>
         <hr>

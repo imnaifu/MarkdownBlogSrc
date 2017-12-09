@@ -1,8 +1,5 @@
 @charset "UTF-8";
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-@import url(external/bootstrap.min.css);
-@import url(external/font-awesome-4.7.0/css/font-awesome.min.css);
-@import url(external/monokai-sublime.min.css);
 /* basic */
 * {
   transition: all 0.3s; }
@@ -34,7 +31,9 @@ body {
     line-height: 1.5em;
     color: #3e3e3e; }
   #app hr {
-    margin: 20px 0; }
+    margin: 20px 0;
+    border: 0;
+    border-bottom: 1px black solid; }
   #app h2 {
     border-bottom: 1px solid #dadada; }
   #app h1, #app h2, #app h3, #app h4, #app h5, #app h6 {
@@ -49,12 +48,8 @@ body {
     margin: 25px 0;
     padding-left: 15px;
     border-left: 5px solid #9a9a9a; }
-  #app .line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0; }
   #app pre {
+    overflow: auto;
     color: white;
     background: #1b1818;
     padding: 15px;
@@ -123,17 +118,15 @@ body {
   text-align: center; }
 #blog_article .article-inner {
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 30px;
   max-width: 800px; }
 #blog_article .article-text {
   padding: 25px 0;
   min-height: 75vh; }
 #blog_article a, #blog_article a:hover {
-  color: black;
-  font-weight: 500; }
+  color: black; }
 
 #me {
-  max-width: 80%;
   margin-top: 15vh; }
   #me #avatar {
     width: 200px;
@@ -144,7 +137,7 @@ body {
   #me p {
     font-size: 50px;
     text-align: center;
-    padding-top: 10px; }
+    margin: 10px 0; }
   #me .scene {
     position: relative;
     display: block;
@@ -230,9 +223,6 @@ body {
   padding: 30px 0 50px 0;
   overflow-x: hidden;
   overflow-y: auto; }
-  #sidebar .sidebar-header {
-    /*background: #283550;*/
-    padding: 0 20px; }
   #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #404E66; }
@@ -278,6 +268,8 @@ body {
     text-decoration: none;
     transition: all 0.3s; }
   #sidebar .search {
-    padding-bottom: 10px; }
+    padding: 0 30px 10px 30px; }
+  #sidebar #serarch_input {
+    width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

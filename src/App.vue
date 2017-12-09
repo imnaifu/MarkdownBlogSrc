@@ -1,10 +1,10 @@
 <template>
     <div id="app">
         <!-- <img src="./assets/logo.png"> -->
-        <div class='contianer-fluid' v-bind:class="contentClass">
+        <div>
             <appHeader></appHeader>
             <appNav></appNav>
-            <div class='row content'>   
+            <div>   
                 <router-view></router-view>
             </div> 
             <appFooter>{{addhighlight}}</appFooter>
@@ -38,10 +38,6 @@
             }
         },
         computed: {
-            //actually this is also point to a data, with the get function set as below
-            contentClass: function (){
-                return this.$store.state.contentClass
-            },
             addhighlight: function (){
                 if (this.$store.state.allArticlesFetched){
                     $('pre code').each(function(i, block) {
