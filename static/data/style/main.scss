@@ -46,7 +46,7 @@ body {
     hr {
         margin: 20px 0;
         border: 0;
-        border-bottom: 1px black solid; 
+        border-bottom: 1px #dadada solid; 
     }
 
     h2 {
@@ -65,6 +65,11 @@ body {
         margin: auto;
     }
 
+    code {
+        color: white;
+        background: #1b1818;
+        font-size: 1.1em;
+    }
 
     blockquote{
         margin:$xl 0;

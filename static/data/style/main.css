@@ -33,7 +33,7 @@ body {
   #app hr {
     margin: 20px 0;
     border: 0;
-    border-bottom: 1px black solid; }
+    border-bottom: 1px #dadada solid; }
   #app h2 {
     border-bottom: 1px solid #dadada; }
   #app h1, #app h2, #app h3, #app h4, #app h5, #app h6 {
@@ -44,6 +44,10 @@ body {
     display: block;
     height: auto;
     margin: auto; }
+  #app code {
+    color: white;
+    background: #1b1818;
+    font-size: 1.1em; }
   #app blockquote {
     margin: 25px 0;
     padding-left: 15px;
@@ -270,6 +274,7 @@ body {
   #sidebar .search {
     padding: 0 30px 10px 30px; }
   #sidebar #serarch_input {
+    height: 28px;
     width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

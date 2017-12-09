@@ -11,7 +11,7 @@
                 </li>
             </ul>
             <h2 v-else>
-                No result found for '{{this.$store.state.search}}'
+                No results found for '{{this.$store.state.search}}'
             </h2>
         </div>  
         <div class='article-inner' v-else-if="getOneTitle"><!-- normal article -->
