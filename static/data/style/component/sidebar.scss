@@ -12,7 +12,7 @@
     padding: 30px 0 50px 0;
     overflow-x: hidden;
     overflow-y: auto;
-
+    overflow-wrap: break-word;
     ul.components{
         padding:20px 0;
         border-bottom: 1px solid #404E66;
@@ -67,7 +67,7 @@
     a[aria-expanded='false']::before, a[aria-expanded='true']::before {
         content: '\f063'; //arrow down
         display: block;
-        position:absolute;
+        position: absolute;
         right:20px;
         font-family: 'FontAwesome';
         font-size: 0.6em;
