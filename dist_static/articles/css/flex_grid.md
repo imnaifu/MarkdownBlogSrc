@@ -19,8 +19,9 @@ flex布局适合小规模布局，是一维的，要么水平方向，要么垂�
 
 
 ## Reference
-- [https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes](
-https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
+- [https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 - [https://zhuanlan.zhihu.com/p/25303493](https://zhuanlan.zhihu.com/p/25303493)
 - [http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 - [https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout)
+- [https://www.youtube.com/watch?v=jV8B24rSN5o](https://www.youtube.com/watch?v=jV8B24rSN5o)
+- [https://www.youtube.com/watch?v=JJSoEo8JSnc](https://www.youtube.com/watch?v=JJSoEo8JSnc)
