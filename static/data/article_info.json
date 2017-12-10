@@ -1,113 +1,16 @@
-{ 
+{
     "articles": [
         {
-            "filename": "vuejs/vue_basic.md",
-            "title": "Vue Basic",
-            "type" : "Vue",
-            "date": "2017-11-23"
+            "filename": "class/first article.md",
+            "title": "First article",
+            "type" : "Type 1",
+            "date": "1970-01-01"
         },
         {
-            "filename": "markdown/markdown.md",
-            "title": "Markdown Basic",
-            "type" : "Markdown",
-            "date": "2017-11-23"
-        },     
-        {
-            "filename": "javascript/js_often_used.md",
-            "title": "JavaScript常用方法",
-            "type" : "Javascript",
-            "date": "2017-11-23"
-        },
-        {
-            "filename": "javascript/es6.md",
-            "title": "ECMAScript 6 syntax",
-            "type" : "Javascript",
-            "date": "2017-11-23"
-        },
-        {
-            "filename": "js_basic/js_primitive.md",
-            "title": "JS Primitive",
-            "type" : "Javascript Basic",
-            "date": "2017-11-23"
-        },
-        {
-            "filename": "js_basic/js_construct_function.md",
-            "title": "Construct function & Prototype",
-            "type" : "Javascript Basic",
-            "date": "2017-11-23"
-        },
-
-        {
-            "filename": "js_basic/js_scope.md",
-            "title": "JS Scope",
-            "type" : "Javascript Basic",
-            "date": "2017-11-23"
-        },
-        {
-            "filename": "js_basic/js_this.md",
-            "title": "JS 'this'",
-            "type" : "Javascript Basic",
-            "date": "2017-11-23"
-        },
-        {
-            "filename": "concept/rest.md",
-            "title": "REST API",
-            "type" : "Concept",
-            "date": "2017-11-23"
-        },
-        {
-           "filename": "js_basic/event_loop.md",
-            "title": "Event Loop",
-            "type" : "Javascript Basic",
-            "date": "2017-11-29"
-        },
-        {
-           "filename": "js_basic/hoisting.md",
-            "title": "JavaScript Hoisting",
-            "type" : "Javascript Basic",
-            "date": "2017-12-01"
-        },
-        {
-           "filename": "js_basic/prototype_chain.md",
-            "title": "原型链与继承",
-            "type" : "Javascript Basic",
-            "date": "2017-12-01"
-        },
-        {
-           "filename": "js_basic/prototype_constructor_instance.md",
-            "title": "原型，实例，构造函数",
-            "type" : "Javascript Basic",
-            "date": "2017-12-01"
-        },
-        {
-           "filename": "js_basic/js_execution.md",
-            "title": "JavsScript 执行",
-            "type" : "Javascript Basic",
-            "date": "2017-12-01"
-        },
-        {
-            "filename": "javascript/apply_call.md",
-            "title": "Apply & Call",
-            "type" : "Javascript",
-            "date": "2017-12-04"
-        },
-        {
-            "filename": "js_basic/js_closure.md",
-            "title": "JavaScript 闭包",
-            "type" : "Javascript Basic",
-            "date": "2017-12-04"
-        },
-        {
-            "filename": "front_end/webpack.md",
-            "title": "Webpack是啥",
-            "type" : "Front-end",
-            "date": "2017-12-06"
-        },
-        {
-            "filename": "css/sass.md",
-            "title": "Sass",
-            "type" : "CSS",
-            "date": "2017-12-06"
+            "filename": "class/second article.md",
+            "title": "Second article",
+            "type" : "Type 2",
+            "date": "1970-01-01"
         }
-    ] 
+    ]
 }

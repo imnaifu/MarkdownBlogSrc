@@ -9,7 +9,7 @@
 
         <ul class='list-unstyled components' v-if="getAllTypes">
             <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
-                <a v-bind:href="(val.length>0)?('#' + key.trim().replace(' ','')):'javascript:void(0);'" 
+                <a v-bind:href="(val.length>0)?('#' + key.trim().replace(/ /g,'')):'javascript:void(0);'" 
                    v-bind:data-toggle="(val.length>0)?'collapse':''" 
                    v-bind:aria-expanded="(val.length>0)?'false':''">
                    {{key}}
@@ -17,7 +17,7 @@
 
                 <ul v-if="(val.length>0)" 
                     class='list-unstyled collapse' 
-                    v-bind:id="key.trim().replace(' ','')" 
+                    v-bind:id="key.trim().replace(/ /g,'')" 
                     v-bind:class="(key==getActiveType)?'show':''">
 
                     <li v-for="(val2, key2) in val" 
