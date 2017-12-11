@@ -34,8 +34,30 @@ const state = {
 };
 
 const getters = {
-    getAllArticles: (state) => {
-        return state.allArticles;
+    getAllArticleInfos: (state)=>{
+        let final_directory = {}; //whole directory
+        if (state.allArticlesFetched){
+            for (let i of state.allTypes){
+                if (!final_directory[i]){
+                    Object.defineProperty(
+                        final_directory, 
+                        i, 
+                        {
+                            value: [],
+                            writable: true,
+                            enumerable: true,
+                            configurable: true
+                        }
+                    );                            
+                }
+            }
+
+            for (let val of state.allArticleTitle){
+                let articleDetails = state.allDetails[val];
+                final_directory[articleDetails['type']].push(articleDetails); 
+            }
+        }
+        return final_directory;
     }
 };
 

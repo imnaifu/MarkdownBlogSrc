@@ -1,0 +1,10 @@
+#blog {
+
+    // grid system
+    display: grid;
+    //sidebar, content
+    grid-template-columns: 290px auto;
+    //navbar, content
+    grid-template-rows: 70px auto;
+
+}

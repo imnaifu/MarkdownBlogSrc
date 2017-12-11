@@ -7,8 +7,8 @@
         </div>
         <hr>
 
-        <ul class='list-unstyled components' v-if="getAllTypes">
-            <li v-for="(val, key) in getAllTypes" v-bind:class="(key==getActiveType)?'active':''">
+        <ul class='list-unstyled components' v-if="getAllArticleInfos">
+            <li v-for="(val, key) in getAllArticleInfos" v-bind:class="(key==getActiveType)?'active':''">
                 <a v-bind:href="(val.length>0)?('#' + key.trim().replace(/ /g,'')):'javascript:void(0);'" 
                    v-bind:data-toggle="(val.length>0)?'collapse':''" 
                    v-bind:aria-expanded="(val.length>0)?'false':''">
@@ -59,28 +59,8 @@
         ],
         watch: {},
         computed: {
-             getAllTypes: function (){
-                let final_directory = {}; //whole directory
-
-                // only do this if exist
-                if (this.$store.state.allArticlesFetched){
-                    for (let i of this.$store.state.allTypes){
-                        if (!final_directory[i]){
-                            Object.defineProperty(final_directory, i, {
-                                value: [],
-                                writable: true,
-                                enumerable: true,
-                                configurable: true
-                            });                            
-                        }
-                    }
-
-                    for (let val of this.$store.state.allArticleTitle){
-                        let articleDetails = this.$store.state.allDetails[val];
-                        final_directory[articleDetails['type']].push(articleDetails); 
-                    }
-                }
-                return final_directory;
+            getAllArticleInfos: function (){
+                return this.$store.getters.getAllArticleInfos;
             },   
             sidebarStatus: function (){
                 return this.$store.state.sidebarStatus;

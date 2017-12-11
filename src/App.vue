@@ -1,14 +1,10 @@
 <template>
     <div id="app">
-        <!-- <img src="./assets/logo.png"> -->
-        <div>
-            <appHeader></appHeader>
-            <appNav></appNav>
-            <div>   
-                <router-view></router-view>
-            </div> 
-            <appFooter>{{addhighlight}}</appFooter>
-        </div>
+        <appNav></appNav>
+        <div id='without-footer'>   
+            <router-view></router-view>
+        </div> 
+        <appFooter>{{addhighlight}}</appFooter>
     </div>
 </template>
 
@@ -18,7 +14,6 @@
     window.Popper = Popper;
     window.$ = $;
     require('bootstrap');
-    import appHeader from './components/app_header';
     import appFooter from './components/app_footer';
     import appNav from './components/app_nav';
 
@@ -26,7 +21,6 @@
     export default {
         name: 'app',
         components: {   
-            appHeader,
             appNav,
             appFooter,    
         },
