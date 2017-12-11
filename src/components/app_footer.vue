@@ -1,10 +1,5 @@
 <template>
     <div id="app_footer">
-        <p>@copyright naifu</p>
+        <p>© 2017 naifu </p>
     </div>
 </template>
-<style type="text/css">
-    p {
-        text-align: center;
-    }
-</style>

@@ -1,7 +1,11 @@
 #app_footer{
-        //grid system
-    grid-column-start: 1;
-    grid-column-end:3;
-    grid-row-start:3;
-    grid-row-end:4;
+    //grid system
+    grid-column: 1/3;
+    grid-row: 3/4;
+
+    p {
+    	font-size: 0.5rem;
+    	text-align: right;
+    	padding: 0 10px;
+    }
 }

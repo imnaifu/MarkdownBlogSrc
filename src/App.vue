@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <appNav></appNav>
-        <div id='without-footer'>   
+        <div id='container'>   
             <router-view></router-view>
         </div> 
         <appFooter>{{addhighlight}}</appFooter>

@@ -34,7 +34,7 @@ export default {
     computed: {
         showToggleButtonByRoute(){
             let route_name = this.$route.name;
-            if (route_name === 'blog' || route_name === 'blog_title'){
+            if (route_name === 'blog_title'){
                 //only show button if under blog
                 return true;
             }else{

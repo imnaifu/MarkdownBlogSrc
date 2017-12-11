@@ -3,8 +3,8 @@
     // grid system
     display: grid;
     //sidebar, content
-    grid-template-columns: 290px auto;
+    grid-template-columns: $sidebarWidth auto;
     //navbar, content
-    grid-template-rows: 70px auto;
+    grid-template-rows: $navbarHeight auto $footerHeight;
 
 }
