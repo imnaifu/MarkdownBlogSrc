@@ -1,29 +1,26 @@
 <template>
     <div id="blog_article" v-on:click="sidebarDisable">
-        <div>
-            <div class='article-inner' v-if="showSearch"><!-- search result -->
-                <ul v-if="hasSearchResult">
-                    <li v-for="(val, key) in getSearchResult">
-                        <p v-on:click="clearResult()">
-                            <router-link v-bind:to="encodeURI('/blog/' + key)">{{key}}</router-link>    
-                        </p>
-                        <p v-html="val.content"></p>
-                        <!-- <p>{{val.content}}</p> -->
-                    </li>
-                </ul>
-                <h2 v-else>
-                    No results found for '{{this.$store.state.search}}'
-                </h2>
-            </div>  
-            <div class='article-inner' v-else-if="getOneTitle"><!-- normal article -->
-                <p class='date'>{{getOneDate}}</p>   
-                <h1 id='title'>{{getOneTitle}}</h1>
-                <div>
-                    <p class='article-text' v-html="getOneArticle"></p>
-                </div>
-            </div>        
-        </div>
-
+        <div class='article-inner' v-if="showSearch"><!-- search result -->
+            <ul v-if="hasSearchResult">
+                <li v-for="(val, key) in getSearchResult">
+                    <p v-on:click="clearResult()">
+                        <router-link v-bind:to="encodeURI('/blog/' + key)">{{key}}</router-link>    
+                    </p>
+                    <p v-html="val.content"></p>
+                    <!-- <p>{{val.content}}</p> -->
+                </li>
+            </ul>
+            <h2 v-else>
+                No results found for '{{this.$store.state.search}}'
+            </h2>
+        </div>  
+        <div class='article-inner' v-else-if="getOneTitle"><!-- normal article -->
+            <p class='date'>{{getOneDate}}</p>   
+            <h1 id='title'>{{getOneTitle}}</h1>
+            <div>
+                <p class='article-text' v-html="getOneArticle"></p>
+            </div>
+        </div>        
     </div>
 </template>
 

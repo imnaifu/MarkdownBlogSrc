@@ -3,15 +3,6 @@
     justify-content: flex-end!important;
 }
 
-.nav {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-}
 
 dl, ol, ul {
     margin-top: 0;
@@ -22,10 +13,7 @@ dl, ol, ul {
     box-sizing: border-box;
 }
 
-.nav-link {
-    display: block;
-    padding: .5rem 1rem;
-}
+
 
 .list-unstyled {
     padding-left: 0;

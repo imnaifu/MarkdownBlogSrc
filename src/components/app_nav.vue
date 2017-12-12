@@ -1,6 +1,6 @@
 <template>
     <div id="app_nav">
-        <ul class="nav justify-content-end">
+        <ul id='navbar'>
             <li class='nav-item' v-if="showToggleButtonByRoute" id='toggleButton'>
                 <a class="nav-link" v-on:click="sidebarActive" href='javascript:void(0);'>
                     <i class="fa fa-bars" aria-hidden="true"></i>

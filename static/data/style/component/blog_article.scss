@@ -4,6 +4,7 @@
     grid-row: 2/3;
     justify-self: stretch;
     align-self: start;
+    margin-top: 10px;
 
     .date {
         font-size: 15px;
@@ -23,7 +24,7 @@
     }
 
     .article-text {
-        padding: $xl 0 ;
+        padding: $xs 0 ;
     }
 
     .search_value {

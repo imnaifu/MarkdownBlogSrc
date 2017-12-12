@@ -43,10 +43,6 @@ body {
     }
     overflow-wrap: break-word;
 
-    .disable {
-        display:hidden;
-    }
-
     a {
         text-decoration: none;
         color: black;
@@ -111,11 +107,15 @@ body {
         #blog_article {
             // margin-left: $sidebarWidth;
             padding: $xl 0;
-            grid-column-start: 2;
-            grid-column-end: 3;
+            grid-column: 2/3;
         }
         #toggleButton {
             display: none; /*hide toggle button */
+        }
+        #blog_default {
+            .flex-item {
+                min-width: 300px;
+            }
         }
     } 
     
@@ -129,12 +129,17 @@ body {
         }
         #blog_article {
             /*full width for article*/
-            grid-column-start: 1;
-            grid-column-end: 3;
+            grid-column: 1/3;
         }
         #toggleButton {
             display: block; /*show toggle button*/
         }
+        #blog_default {
+            .flex-item {
+                min-width: 200px;
+            }
+        }
+
     } 
 
 }

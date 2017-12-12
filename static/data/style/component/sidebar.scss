@@ -4,7 +4,10 @@
     grid-column: 1/2;
     grid-row: 1/4;
 
-    position: sticky;
+    position: fixed;
+    width: $sidebarWidth;
+    height: 100vh;
+    // position: sticky;
     background-image: linear-gradient(180deg, #29323c 0%, #485563 100%);
     color: #fff;
     transition: all 0.3s; 

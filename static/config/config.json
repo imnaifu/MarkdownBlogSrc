@@ -1,9 +1,9 @@
 {
 	"page_title": "Title",
-    "enable_resume": true,
+    "enable_resume": false,
     "nav_text": ["Me", "Resume", "Blog"],
 
-    "me_animation": false,
+    "me_animation": true,
     "me_img": "avatar.jpg",
     "me_text": "Hello, world"
 }
