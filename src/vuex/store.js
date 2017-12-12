@@ -61,53 +61,40 @@ const getters = {
     }
 };
 
+
+//use closure as Factory function for setting only
+function setterFactory(stateValue){
+    return function (state, value){
+        state[stateValue] = value;
+    };
+};
+
 const mutations = {
 
-    //search
-    setSearch(state, value){
-        state.search = value;
-    },
-    setSearchResults(state, value){
-        state.searchResults = value;
-    },
+    setSearch: setterFactory('search'),
+    setSearchResults: setterFactory('searchResults'),
+    setResume: setterFactory('enableResume'),
+    setSidebar: setterFactory('sidebarStatus'),
+    setNavText: setterFactory('navText'),
+    setShowImg: setterFactory('meImg'),
+    setMeAnimation: setterFactory('meAnimation'),
+    setMeText: setterFactory('meText'),
+    setResumeData: setterFactory('resumeData'),
+    setMeAnimation: setterFactory('meAnimation'),
+    setAllArticlesFetched: setterFactory('allArticlesFetched'),
+    // same as written as below
+    // setAllArticlesFetched (state, value){
+    //     state.allArticlesFetched = value;
+    // }
+
+
     setShowSearch(state, value){
         state.searchResults.showSearch = value;
-    },
-
-    setSidebar(state, value){
-        state.sidebarStatus = value;
-    },
-    setResume (state, value){
-        state.enableResume = value;
-    },
-
-    setNavText (state, value){
-        state.navText = value;
     },
 
     setPageTitle(state, value){
         state.pageTitle = value;
         document.title = value; //set title
-    },
-
-    setShowImg(state, value){
-        state.showImg = value;
-    },
-
-    setMeImg(state, value){
-        state.meImg = value;
-    },
-
-    setMeAnimation(state, value){
-        state.meAnimation = value;
-    },
-
-    setMeText (state, value){
-        state.meText = value;
-    },
-
-    setResumeData (state, value){
-        state.resumeData = value;
     },
 
     setAllDetails (state, value){
@@ -126,9 +113,6 @@ const mutations = {
         state.allArticleTitle.push(value);
     },
 
-    setAllArticlesFetched (state, value){
-        state.allArticlesFetched = value;
-    }, 
 
 }
 
