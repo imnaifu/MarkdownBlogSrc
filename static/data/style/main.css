@@ -156,7 +156,8 @@ body {
     border-radius: 50%; }
   #me p {
     font-size: 3rem;
-    margin: 10px 0; }
+    margin: 10px 0;
+    text-align: center; }
   #me .scene {
     position: relative;
     display: block;
