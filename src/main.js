@@ -17,7 +17,7 @@ const vm = new Vue({
     components: { 
         App
     },
-    mounted: function() {
+    created: function() {
        this.$store.dispatch('actionFetch');
     }
 });

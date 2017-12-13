@@ -16,9 +16,21 @@ flex布局适合小规模布局，是一维的，要么水平方向，要么垂�
 网格布局适合整体的大规模布局，很像以前的table布局（事物真是螺旋上升）。
 与flex只能操作一个方向不同，grid可以操作两个方向，还可以覆盖。
 
+## 啊我又回来了
+为什么回来了，因为之前只是停留在理论，终于去把flex和grid实践了一下，也就是重写了这个框架的布局。
+与其说重写布局，或者叫原来根本没有布局。有了grid，css才第一次有了整体的布局系统吧，以前都是div加position强行布局，一团乱。
+gird的出现说明终于有人意识到了，我们并不需要精确到pixel的定位系统，把页面分成等分的块更为实用。
+一层grid确实是二维的，但是grid允许嵌套，多层grid就是三维立体的布局了啊，真是太好用了。
+以前写CSS真是头昏眼胀，自从用了grid,那种流畅的感觉还是很爽的。
+
+## 详细介绍下grid
+grid就是个网格系统，分为两个part，container和item,每个里面可以设置很多属性。
+有个很好用的点就是他可以覆盖，并且可以嵌套。网格本身只是把某个部分分成网格，但你的div想要占用哪些网格是可以自己定义的(好用在这)
+![grid_sample.png](grid_sample.png)
 
 
 ## Reference
+- [https://css-tricks.com/snippets/css/complete-guide-grid/](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - [https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 - [https://zhuanlan.zhihu.com/p/25303493](https://zhuanlan.zhihu.com/p/25303493)
 - [http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
