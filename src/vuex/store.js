@@ -221,6 +221,10 @@ const actions = {
                     console.log(error1);
                 });
             }
+            //actually this is wrong way to get all article at same time 
+            //[todo] could do it more promise way by using pass an array and using fetch all
+            // use axios.all([])
+
         }, (error) => {
             console.log(error)
         });
@@ -330,7 +334,7 @@ function getSubstring(fullString, returnLength, targetStringStart, targetStringL
         //normal situation
         let singleSideLength = Math.ceil((returnLength - targetStringLength)/2);
 
-        //hadle border issue
+        //handle border issue
         let leftSide = targetStringStart - singleSideLength;
         leftSide = (leftSide>0)?leftSide:0;
         let rightSide = targetStringStart + targetStringLength + singleSideLength;
