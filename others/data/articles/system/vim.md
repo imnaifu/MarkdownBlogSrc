@@ -1,0 +1,2 @@
+- `-o` open two file in up and down
+- `-O` open two file in left and right
