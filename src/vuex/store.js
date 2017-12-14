@@ -83,7 +83,7 @@ const mutations = {
     setResumeData: setterFactory('resumeData'),
     setMeAnimation: setterFactory('meAnimation'),
     setAllArticlesFetched: setterFactory('allArticlesFetched'),
-    // same as written as below
+    // above created function same as below
     // setAllArticlesFetched (state, value){
     //     state.allArticlesFetched = value;
     // }
@@ -113,7 +113,9 @@ const mutations = {
     setAllArticleTitle (state, value){
         state.allArticleTitle.push(value);
     },
-
+    setNewestArticle (state, value){
+        state.allDetails[value]['is_newest'] = true;
+    }
 
 }
 
@@ -121,7 +123,7 @@ const actions = {
     actionFetch (store){
 
         //getting all settings
-        axios.get('../../static/config/config.json').then( (response) => {
+        axios.get('../../static/data/config.json').then( (response) => {
 
             let error_info = '';
 
@@ -197,6 +199,7 @@ const actions = {
 
             for (let i=0; i<len; i++){
                 let article = articles[i]
+    
                 store.commit('setAllDetails', article);
                 store.commit('setAllTypes', article.type);
                 store.commit('setAllArticleTitle', article.title);
@@ -207,6 +210,8 @@ const actions = {
                         "content":response1.data
                     });
                     if (i == len-1){
+                        //set last article the nest article
+                        store.commit('setNewestArticle', article.title);
                         //set it true when complete getting the last one
                         store.commit('setAllArticlesFetched', true);
                     }
