@@ -123,7 +123,7 @@ const actions = {
     actionFetch (store){
 
         //getting all settings
-        axios.get('../../static/data/config.json').then( (response) => {
+        axios.get('../../static/data/config.json').then((response) => {
 
             let error_info = '';
 
@@ -196,6 +196,40 @@ const actions = {
         axios.get('../../static/data/article_info.json').then((response) => {
             let articles = Object.values(response.data.articles);
             let len = articles.length;
+            let all_files = [];
+
+            console.log(articles);
+            for (let index in articles){
+                console.log(articles[index]);
+                all_files.push()
+
+
+            }
+
+
+            axios.all(all_files).then();
+
+            // function getUserAccount() {
+            //     return axios.get('/user/12345');
+            // }
+
+            // function getUserPermissions() {
+            //     return axios.get('/user/12345/permissions');
+            // }
+
+            // axios.all([getUserAccount(), getUserPermissions()])
+            //     .then(axios.spread(function (acct, perms) {
+            //     // Both requests are now complete
+            // }));
+
+
+
+
+
+
+
+
+
 
             for (let i=0; i<len; i++){
                 let article = articles[i]

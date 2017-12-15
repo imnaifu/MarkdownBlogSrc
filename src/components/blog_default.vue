@@ -6,9 +6,9 @@
                 <ul>
                     <li v-for="(val2, key2) in val">
                         <router-link v-bind:to="{name: 'blog_title', params: {title: val2.title}}">
-                            {{val2.title}} 
-                            <span class='blog_date'>{{val2.date ? '(' + val2.date + ')' : '' }}</span>
+                            {{val2.title}}
                         </router-link>
+                        <span class='blog_date'>{{val2.date ? '(' + val2.date + ')' : '' }}</span>
                         &nbsp;
                         <span v-if="val2.is_newest" class='label'>New</span>
                     </li>
