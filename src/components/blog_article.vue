@@ -47,9 +47,12 @@
     });
 
     export default {
-        props: [
-            'title',
-        ],
+        props:{
+            title: {
+                type: String, //type checking here
+                required: true //must have 
+            }
+        },
         data: function (){
             return {
                 allArticles: this.$store.state.allArticles
