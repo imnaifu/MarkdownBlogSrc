@@ -38,6 +38,7 @@
         data: function(){
             return {
                 // search:''
+                title: this.$route.params.title
             }
         },
         methods: {
@@ -50,15 +51,12 @@
                 this.$store.commit('setShowSearch', false);
             }
         },
-        props:[
-            'title'
-        ],
         watch: {},
         computed: {
-            getAllArticleInfos: function (){
+            getAllArticleInfos(){
                 return this.$store.getters.getAllArticleInfos;
             },   
-            sidebarStatus: function (){
+            sidebarStatus(){
                 return this.$store.state.sidebarStatus;
             },
             getActiveTitle(){

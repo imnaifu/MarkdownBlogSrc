@@ -27,6 +27,7 @@
 <script type="text/javascript">
     import showdown from 'showdown';
     import showdownHighlight from 'showdown-highlight';
+    import axios from 'axios';
 
     // showdown.setFlavor('github'); //set global falvor
     const converter = new showdown.Converter({
@@ -48,14 +49,15 @@
 
     export default {
         props:{
-            title: {
-                type: String, //type checking here
-                required: true //must have 
-            }
+            // title: {
+            //     type: String, //type checking here
+            //     required: true //must have 
+            // }
         },
-        data: function (){
+        data() {
             return {
-                allArticles: this.$store.state.allArticles
+                allArticles: this.$store.state.allArticles,
+                title: this.$route.params.title
             }
         },
         methods: {
@@ -115,7 +117,26 @@
                 return this.$store.state.searchResults.results
             }
         },
-        mounted() {
+        created() {
+            // //get article 
+            
+            axios.get(state.articlePath +　article.filename).then((response1) => {
+                store.commit('setAllArticles',  {
+                    "title": article.title,    
+                    "content":response1.data
+                });
+                if (i == len-1){
+                    //set last article the nest article
+                    store.commit('setNewestArticle', article.title);
+                    //set it true when complete getting the last one
+                    store.commit('setAllArticlesFetched', true);
+                }
+            }, (error1) => {
+                alert("Error getting " + article.filename 
+                      + "\nPlease check article_info.json" );
+                console.log(error1);
+            });
+
         }
     }
 </script>

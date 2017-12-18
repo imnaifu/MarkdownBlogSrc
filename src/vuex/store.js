@@ -1,18 +1,25 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios';
+import funcs from '../general_funcs.js';
 
 Vue.use(Vuex);
 
 const state = {
     sidebarStatus: '',
-    allTypes: [],
-    allDetails: {},
-    allArticles: {},
-    allArticleTitle: [],
+
+    // allTypes: [],
+    // allDetails: {},
+    // allArticles: {},
+    // allArticleTitle: [],
+
     articlePath: '../../static/data/articles/',
-    allArticlesFetched: false,
     imgPath: 'static/data/img/',
+
+
+    articleInfo: [],
+    
+    // allArticlesFetched: false,
     resumeData: '',
         
     pageTitle:'',
@@ -82,7 +89,10 @@ const mutations = {
     setMeText: setterFactory('meText'),
     setResumeData: setterFactory('resumeData'),
     setMeAnimation: setterFactory('meAnimation'),
-    setAllArticlesFetched: setterFactory('allArticlesFetched'),
+
+    setArticleInfo: setterFactory('articleInfo'), 
+    // setAllArticlesFetched: setterFactory('allArticlesFetched'),
+
     // above created function same as below
     // setAllArticlesFetched (state, value){
     //     state.allArticlesFetched = value;
@@ -93,26 +103,29 @@ const mutations = {
         state.searchResults.showSearch = value;
     },
 
-    setPageTitle(state, value){
-        state.pageTitle = value;
-        document.title = value; //set title
-    },
+    // setPageTitle(state, value){
+    //     state.pageTitle = value;
+    //     document.title = value; //set title
+    // },
 
-    setAllDetails (state, value){
-        state.allDetails[value.title] = value;
-    },
+    // setAllDetails (state, value){
+    //     state.allDetails[value.title] = value;
+    // },
 
-    setAllTypes (state, value){
-        state.allTypes.push(value);
-    },
+    // setAllTypes (state, value){
+    //     state.allTypes.push(value);
+    // },
 
-    setAllArticles (state, value){
-        state.allArticles[value.title] = value.content;
-    },
+    // setAllArticles (state, value){
+    //     state.allArticles[value.title] = value.content;
+    // },
 
-    setAllArticleTitle (state, value){
-        state.allArticleTitle.push(value);
-    },
+    // setAllArticleTitle (state, value){
+    //     state.allArticleTitle.push(value);
+    // },
+  
+
+
     setNewestArticle (state, value){
         state.allDetails[value]['is_newest'] = true;
     }
@@ -120,8 +133,8 @@ const mutations = {
 }
 
 const actions = {
-    actionFetch (store){
 
+    actionFetch (store){
         //getting all settings
         axios.get('../../static/data/config.json').then((response) => {
 
@@ -188,52 +201,24 @@ const actions = {
                     console.log(error)
                 });                
             }
+
         }, (error) => {
             console.log(error)
         });
-
-        //getting all articles
+        
         axios.get('../../static/data/article_info.json').then((response) => {
+
             let articles = Object.values(response.data.articles);
+            store.commit('setArticleInfo', response.data.articles);
+
+
             let len = articles.length;
             let all_files = [];
-
             console.log(articles);
-            for (let index in articles){
-                console.log(articles[index]);
-                all_files.push()
-
-
-            }
-
-
-            axios.all(all_files).then();
-
-            // function getUserAccount() {
-            //     return axios.get('/user/12345');
-            // }
-
-            // function getUserPermissions() {
-            //     return axios.get('/user/12345/permissions');
-            // }
-
-            // axios.all([getUserAccount(), getUserPermissions()])
-            //     .then(axios.spread(function (acct, perms) {
-            //     // Both requests are now complete
-            // }));
-
-
-
-
-
-
-
-
-
 
             for (let i=0; i<len; i++){
                 let article = articles[i]
-    
+
                 store.commit('setAllDetails', article);
                 store.commit('setAllTypes', article.type);
                 store.commit('setAllArticleTitle', article.title);
@@ -255,9 +240,6 @@ const actions = {
                     console.log(error1);
                 });
             }
-            //actually this is wrong way to get all article at same time 
-            //[todo] could do it more promise way by using pass an array and using fetch all
-            // use axios.all([])
 
         }, (error) => {
             console.log(error)
@@ -293,7 +275,7 @@ const actions = {
                 }
                 //search by content
                 else if (allArticles[title].indexOf(search) !== -1){
-                    let result = getSubstring(
+                    let result = func.getSubstring(
                             allArticles[title], 
                             store.state.maxReturnLength, 
                             allArticles[title].indexOf(search),
@@ -339,54 +321,6 @@ const actions = {
         }
         store.commit('setSearchResults', searchResults);       
     }
-}
-
-/*
-*   naifu
-*   返回一个指定长度的以目标string为中心的左右等长的substring
-*   
-*   input:
-*       fullString: string
-*       returnLength: int
-*       targetStringStart: int
-*       targetStringLength: int
-*   return object
-*/
-function getSubstring(fullString, returnLength, targetStringStart, targetStringLength){
-    let result = {
-        text: null,
-        targetStart: null,
-        targetLength: targetStringLength
-    };
-
-    let fullStringLength = fullString.length;
-    if (fullString.length <= returnLength || targetStringLength >= returnLength){
-        //rare situation
-        result['text'] = fullString;
-        result['targetStart'] = targetStringStart;
-    }else{
-        //normal situation
-        let singleSideLength = Math.ceil((returnLength - targetStringLength)/2);
-
-        //handle border issue
-        let leftSide = targetStringStart - singleSideLength;
-        leftSide = (leftSide>0)?leftSide:0;
-        let rightSide = targetStringStart + targetStringLength + singleSideLength;
-        rightSide = (rightSide>(fullStringLength-1))?(fullStringLength-1):rightSide;
-
-        let targetStart = 0
-        if (leftSide === 0){
-            targetStart = targetStringStart;
-        }else{
-            targetStart = singleSideLength;
-        }
-
-        result['text'] = fullString.substring(leftSide, rightSide);
-        result['targetStart'] = targetStart;
-    }
-
-    return result;
-
 }
 
 export default new Vuex.Store({

@@ -1,7 +1,7 @@
 <template>
     <div id="blog">
         <sidebar v-bind:title="getArticleTitle"></sidebar>
-        <blogarticle v-bind:title="getArticleTitle"></blogarticle>
+        <blogarticle></blogarticle>
     </div>
 </template>
 
