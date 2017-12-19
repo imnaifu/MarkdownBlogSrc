@@ -119,8 +119,6 @@ body {
   #app_nav .nav-link {
     display: block;
     padding: 0.5rem 0.8rem; }
-  #app_nav .router-link-active {
-    text-decoration: underline; }
 
 #blog {
   display: grid;

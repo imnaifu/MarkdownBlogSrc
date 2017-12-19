@@ -29,7 +29,7 @@ const state = {
     meAnimation: false,
     showImg: false,
     meImg: undefined,
-    meText: '',
+    meText: undefined,
     navText: ['Me', 'Resume', 'Blog'],
 
     //search

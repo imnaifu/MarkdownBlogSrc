@@ -7,13 +7,13 @@
                 </a>
             </li>
             <li class='nav-item'>
-                <router-link to="/me" class='nav-link' exact>{{this.$store.state.navText[0]}}</router-link>
+                <router-link to="/me" class='nav-link'>{{this.$store.state.navText[0]}}</router-link>
             </li>
             <li class='nav-item' v-if="this.$store.state.enableResume">
-                <router-link to="/resume" class='nav-link' exact>{{this.$store.state.navText[1]}}</router-link>
+                <router-link to="/resume" class='nav-link'>{{this.$store.state.navText[1]}}</router-link>
             </li>
             <li class='nav-item'>
-                <router-link to="/blog/" class='nav-link' exact>{{this.$store.state.navText[2]}}</router-link>
+                <router-link to="/blog/" class='nav-link'>{{this.$store.state.navText[2]}}</router-link>
             </li>
         </ul>
     </div>

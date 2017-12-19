@@ -4,17 +4,9 @@
 import Vue from 'vue' //import Vue framework
 import App from './App' //import root component
 import router from './router' //import router setting
-import store from './vuex/store.js' 
-import funcs from './general_funcs.js'; //reusable funcs
-
+import store from './vuex/store.js'
 
 Vue.config.productionTip = false;
-
-
-//global registrate filter
-Vue.filter('encodeURI', funcs.encodeURI);
-Vue.filter('decodeURI', funcs.decodeURI);
-Vue.filter('toUpper', funcs.toUpper);
 
 /* eslint-disable no-new */
 const vm = new Vue({
@@ -30,3 +22,12 @@ const vm = new Vue({
        this.$store.dispatch('actionFetch');
     }
 });
+
+Vue.filter('encodeURI', function(value){
+    return encodeURI(value);
+});
+
+Vue.filter('decodeURI', function(value){
+    return decodeURI(value);
+});
+
