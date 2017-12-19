@@ -8,18 +8,20 @@ Vue.use(Vuex);
 const state = {
     sidebarStatus: '',
 
-    // allTypes: [],
-    // allDetails: {},
-    // allArticles: {},
-    // allArticleTitle: [],
+    allTypes: [],
+    allDetails: {},
+    allArticles: {},
+    allArticleTitle: [],
 
     articlePath: '../../static/data/articles/',
     imgPath: 'static/data/img/',
 
 
     articleInfo: [],
-    
-    // allArticlesFetched: false,
+    articleInfoFetched: false,
+    allArticles: {},
+    allArticlesFetched: false,
+
     resumeData: '',
         
     pageTitle:'',
@@ -65,6 +67,21 @@ const getters = {
             }
         }
         return final_directory;
+    },
+
+    /* return article title group by types */
+    getTypeList(state){
+        let types = {};
+        let articleInfo = state.articleInfoFetched?state.articleInfo:[];
+        state.articleInfo.forEach(function(val){
+            if (!(val.type in types)){
+                //if not exist create empty array
+                types[val.type] = [];
+            }
+            types[val.type].push(val.title);
+        })
+        console.log(types);
+        return types;
     }
 };
 
@@ -90,8 +107,15 @@ const mutations = {
     setResumeData: setterFactory('resumeData'),
     setMeAnimation: setterFactory('meAnimation'),
 
-    setArticleInfo: setterFactory('articleInfo'), 
-    // setAllArticlesFetched: setterFactory('allArticlesFetched'),
+    setArticleInfo(state, value){
+        state.articleInfo = value;
+        state.articleInfoFetched = true;
+    },
+
+    pushAllArticles (state, title, content){
+        state.allArticles[title] = content;
+    },
+    setAllArticlesFetched: setterFactory('allArticlesFetched'),
 
     // above created function same as below
     // setAllArticlesFetched (state, value){
@@ -116,9 +140,7 @@ const mutations = {
     //     state.allTypes.push(value);
     // },
 
-    // setAllArticles (state, value){
-    //     state.allArticles[value.title] = value.content;
-    // },
+
 
     // setAllArticleTitle (state, value){
     //     state.allArticleTitle.push(value);
@@ -209,37 +231,66 @@ const actions = {
         axios.get('../../static/data/article_info.json').then((response) => {
 
             let articles = Object.values(response.data.articles);
+            let articles_obj = funcs.arr2obj(articles, 'title');
+            console.log('bb', articles_obj);
+
             store.commit('setArticleInfo', response.data.articles);
 
 
             let len = articles.length;
             let all_files = [];
-            console.log(articles);
+            // console.log(articles);
 
-            for (let i=0; i<len; i++){
-                let article = articles[i]
 
-                store.commit('setAllDetails', article);
-                store.commit('setAllTypes', article.type);
-                store.commit('setAllArticleTitle', article.title);
 
-                axios.get(state.articlePath +　article.filename).then((response1) => {
-                    store.commit('setAllArticles',  {
-                        "title": article.title,    
-                        "content":response1.data
-                    });
-                    if (i == len-1){
-                        //set last article the nest article
-                        store.commit('setNewestArticle', article.title);
-                        //set it true when complete getting the last one
-                        store.commit('setAllArticlesFetched', true);
-                    }
-                }, (error1) => {
-                    alert("Error getting " + article.filename 
-                          + "\nPlease check article_info.json" );
-                    console.log(error1);
-                });
-            }
+            // function getUserAccount() {
+            //   return axios.get('/user/12345');
+            // }
+
+            // function getUserPermissions() {
+            //   return axios.get('/user/12345/permissions');
+            // }
+
+            // let ajax_funcs = [];
+            // articles.forEach(function(val){
+            //     ajax_funcs.push(function(){
+            //         return axios.get(state.articlePath + val.filename);
+            //     }())
+            // });
+
+            // axios.all(ajax_funcs).then(axios.spread(function() {
+            //     console.log(arguments);
+            //     // console.log(perms);
+            //     for (let index in articles){
+            //         articles[index]['content'] = arguments[index]['data'];  
+            //     }
+            // }));
+
+
+            // for (let i=0; i<len; i++){
+            //     let article = articles[i]
+
+            //     store.commit('setAllDetails', article);
+            //     store.commit('setAllTypes', article.type);
+            //     store.commit('setAllArticleTitle', article.title);
+
+            //     axios.get(state.articlePath +　article.filename).then((response1) => {
+            //         store.commit('setAllArticles',  {
+            //             "title": article.title,    
+            //             "content":response1.data
+            //         });
+            //         if (i == len-1){
+            //             //set last article the nest article
+            //             store.commit('setNewestArticle', article.title);
+            //             //set it true when complete getting the last one
+            //             store.commit('setAllArticlesFetched', true);
+            //         }
+            //     }, (error1) => {
+            //         alert("Error getting " + article.filename 
+            //               + "\nPlease check article_info.json" );
+            //         console.log(error1);
+            //     });
+            // }
 
         }, (error) => {
             console.log(error)
