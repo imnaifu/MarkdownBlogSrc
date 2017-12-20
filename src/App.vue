@@ -4,16 +4,16 @@
         <div id='container'>   
             <router-view></router-view>
         </div> 
-        <appFooter>{{addhighlight}}</appFooter>
+        <appFooter></appFooter>
     </div>
 </template>
 
 <script>
-    import $ from "jquery";
-    import Popper from "popper.js";
-    window.Popper = Popper;
-    window.$ = $;
-    require('bootstrap');
+    // import $ from "jquery";
+    // import Popper from "popper.js";
+    // window.Popper = Popper;
+    // window.$ = $;
+    // require('bootstrap');
     import appFooter from './components/app_footer';
     import appNav from './components/app_nav';
 
@@ -24,22 +24,14 @@
             appNav,
             appFooter,    
         },
-        methods: {
-
-        },
-        data(){
-            return {
-            }
-        },
         computed: {
-            addhighlight: function (){
-                if (this.$store.state.allArticlesFetched){
-                    $('pre code').each(function(i, block) {
-                        hljs.highlightBlock(block);
-                    });                    
-                }
-            }
+            // addhighlight: function (){
+            //     if (this.$store.state.allArticlesFetched){
+            //         // $('pre code').each(function(i, block) {
+            //         //     hljs.highlightBlock(block);
+            //         // });                    
+            //     }
+            // }
         },
-        mounted: function(){},
     }
 </script>

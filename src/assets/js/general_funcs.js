@@ -83,6 +83,7 @@ export default {
 
 	/* format markdown text to html */
 	md2html(md, imgPath){
+		// console.log(arguments);
 		let html = converter.makeHtml(md);
         //add path to img using regex
         let myRegex = /<img[^>]+src="?([^"\s]+)"?[^\/]*\/>/g;

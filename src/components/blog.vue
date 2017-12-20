@@ -29,9 +29,10 @@
                 if (this.$route.params.title){
                     title = this.$route.params.title;
                 }else{
+                    //random get one
                     let allArticleTitle = this.$store.state.allArticleTitle
                     if (allArticleTitle){
-                        title = allArticleTitle[Math.floor(Math.random() * allArticleTitle.length)]; //random get one
+                        title = allArticleTitle[Math.floor(Math.random() * allArticleTitle.length)]; 
                         this.$route.params.title = title;
                     }   
                 }

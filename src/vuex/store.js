@@ -1,33 +1,24 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios';
-import funcs from '../general_funcs.js';
+import funcs from '../assets/js/general_funcs.js';
 
 Vue.use(Vuex);
 
 const state = {
     sidebarStatus: '',
-
-    allTypes: [],
-    allDetails: {},
-    allArticles: {},
-    allArticleTitle: [],
-
     articlePath: '../../static/data/articles/',
     imgPath: 'static/data/img/',
-
 
     articleInfo: [],
     articleInfoFetched: false,
     allArticles: {},
     allArticlesFetched: false,
+    articlesContent: {},
 
-    resumeData: '',
-        
+    resumeData: '',        
     pageTitle:'',
-
     enableResume: false,
-
     meAnimation: false,
     showImg: false,
     meImg: undefined,
@@ -43,44 +34,28 @@ const state = {
 };
 
 const getters = {
-    getAllArticleInfos: (state)=>{
-        let final_directory = {}; //whole directory
-        if (state.allArticlesFetched){
-            for (let i of state.allTypes){
-                if (!final_directory[i]){
-                    Object.defineProperty(
-                        final_directory, 
-                        i, 
-                        {
-                            value: [],
-                            writable: true,
-                            enumerable: true,
-                            configurable: true
-                        }
-                    );                            
-                }
-            }
-
-            for (let val of state.allArticleTitle){
-                let articleDetails = state.allDetails[val];
-                final_directory[articleDetails['type']].push(articleDetails); 
-            }
-        }
-        return final_directory;
-    },
-
     /* return article title group by types */
-    getTypeList(state){
+    getArticleInfosGroupByType(state){
         let types = {};
         let articleInfo = state.articleInfoFetched?state.articleInfo:[];
-        state.articleInfo.forEach(function(val){
-            if (!(val.type in types)){
+
+        // below used if articleInfo is array
+        // articleInfo.forEach(function(val){
+        //     if (!(val.type in types)){
+        //         //if not exist create empty array
+        //         types[val.type] = [];
+        //     }
+        //     types[val.type].push(val.title);
+        // })
+
+        //articleInfo is object
+        for (let val in articleInfo){
+            if (!(articleInfo[val]['type'] in types)){
                 //if not exist create empty array
-                types[val.type] = [];
+                types[articleInfo[val]['type']] = [];
             }
-            types[val.type].push(val.title);
-        })
-        console.log(types);
+            types[articleInfo[val]['type']].push(articleInfo[val]);
+        }
         return types;
     }
 };
@@ -106,52 +81,32 @@ const mutations = {
     setMeText: setterFactory('meText'),
     setResumeData: setterFactory('resumeData'),
     setMeAnimation: setterFactory('meAnimation'),
-
-    setArticleInfo(state, value){
-        state.articleInfo = value;
-        state.articleInfoFetched = true;
-    },
-
-    pushAllArticles (state, title, content){
-        state.allArticles[title] = content;
-    },
     setAllArticlesFetched: setterFactory('allArticlesFetched'),
+    setShowSearch: setterFactory('showSearch'),
 
     // above created function same as below
     // setAllArticlesFetched (state, value){
     //     state.allArticlesFetched = value;
     // }
 
+    setArticleInfo(state, value){
+        state.articleInfo = value;
+        state.articleInfoFetched = true;
+    },
+
+
+    pushArticlesContent(state, value){
+        state.articlesContent[value.title] = value.content;        
+    },
 
     setShowSearch(state, value){
         state.searchResults.showSearch = value;
     },
 
-    // setPageTitle(state, value){
-    //     state.pageTitle = value;
-    //     document.title = value; //set title
-    // },
-
-    // setAllDetails (state, value){
-    //     state.allDetails[value.title] = value;
-    // },
-
-    // setAllTypes (state, value){
-    //     state.allTypes.push(value);
-    // },
-
-
-
-    // setAllArticleTitle (state, value){
-    //     state.allArticleTitle.push(value);
-    // },
-  
-
-
-    setNewestArticle (state, value){
-        state.allDetails[value]['is_newest'] = true;
+    setPageTitle(state, value){
+        state.pageTitle = value;
+        document.title = value; //set title
     }
-
 }
 
 const actions = {
@@ -164,7 +119,7 @@ const actions = {
 
             //resume
             let enable_resume = response.data.enable_resume;
-            if ($.type(enable_resume)!=='boolean'){
+            if (funcs.type(enable_resume)!=='boolean'){
                 error_info += "'enable_resume' must be a boolean (without quote) in config.json\n";
             }else{
                 store.commit('setResume', enable_resume);
@@ -172,7 +127,7 @@ const actions = {
 
             //navbar
             let nav_text = response.data.nav_text;            
-            if ($.type(nav_text)!=='array' || nav_text.length !== 3){
+            if (funcs.type(nav_text)!=='array' || nav_text.length !== 3){
                 error_info += "'nav_text' must be a legnth 3 array in config.json\n";
             }else{
                 store.commit('setNavText', nav_text);
@@ -180,7 +135,7 @@ const actions = {
 
             //title
             let page_title = response.data.page_title;
-            if ($.type(page_title)!=='string'){
+            if (funcs.type(page_title)!=='string'){
                 error_info += "'page_title' must be a string in config.json\n";
             }else{
                 store.commit('setPageTitle', page_title);
@@ -188,7 +143,7 @@ const actions = {
 
             //animation
             let me_animation = response.data.me_animation;
-            if ($.type(me_animation)!=='boolean'){
+            if (funcs.type(me_animation)!=='boolean'){
                 error_info += "'me_animation' must be a boolean (without quote) in config.json\n";                
             }else{
                 store.commit('setShowImg', !me_animation);
@@ -197,7 +152,7 @@ const actions = {
 
             //text
             let me_text = response.data.me_text;
-            if ($.type(me_text)!=='string'){
+            if (funcs.type(me_text)!=='string'){
                 error_info += "'me_text' must be a string in config.json\n";                
             }else{
                 store.commit('setMeText', me_text); 
@@ -205,7 +160,7 @@ const actions = {
 
             //image
             let me_img = response.data.me_img;
-            if ($.type(me_img)!=='string'){
+            if (funcs.type(me_img)!=='string'){
                 error_info += "'me_img' must be a string in config.json\n";                
             }else{
                 store.commit('setMeImg', me_img); 
@@ -230,68 +185,37 @@ const actions = {
         
         axios.get('../../static/data/article_info.json').then((response) => {
 
-            let articles = Object.values(response.data.articles);
-            let articles_obj = funcs.arr2obj(articles, 'title');
-            console.log('bb', articles_obj);
+            //get array
+            let articlesArray = Object.values(response.data.articles);
 
-            store.commit('setArticleInfo', response.data.articles);
+            //set last one is_newset prop
+            articlesArray[articlesArray.length-1]['is_newest'] = true;
+            
+            //get object with title as key
+            let articlesObj = funcs.arr2obj(articlesArray, 'title');
+            store.commit('setArticleInfo', articlesObj);
 
+            let ajaxFuncs = [];
+            articlesArray.forEach(function(val){
+                ajaxFuncs.push(function(){
+                    return axios.get(state.articlePath + val.filename);
+                }())
+            });
 
-            let len = articles.length;
-            let all_files = [];
-            // console.log(articles);
-
-
-
-            // function getUserAccount() {
-            //   return axios.get('/user/12345');
-            // }
-
-            // function getUserPermissions() {
-            //   return axios.get('/user/12345/permissions');
-            // }
-
-            // let ajax_funcs = [];
-            // articles.forEach(function(val){
-            //     ajax_funcs.push(function(){
-            //         return axios.get(state.articlePath + val.filename);
-            //     }())
-            // });
-
-            // axios.all(ajax_funcs).then(axios.spread(function() {
-            //     console.log(arguments);
-            //     // console.log(perms);
-            //     for (let index in articles){
-            //         articles[index]['content'] = arguments[index]['data'];  
-            //     }
-            // }));
-
-
-            // for (let i=0; i<len; i++){
-            //     let article = articles[i]
-
-            //     store.commit('setAllDetails', article);
-            //     store.commit('setAllTypes', article.type);
-            //     store.commit('setAllArticleTitle', article.title);
-
-            //     axios.get(state.articlePath +　article.filename).then((response1) => {
-            //         store.commit('setAllArticles',  {
-            //             "title": article.title,    
-            //             "content":response1.data
-            //         });
-            //         if (i == len-1){
-            //             //set last article the nest article
-            //             store.commit('setNewestArticle', article.title);
-            //             //set it true when complete getting the last one
-            //             store.commit('setAllArticlesFetched', true);
-            //         }
-            //     }, (error1) => {
-            //         alert("Error getting " + article.filename 
-            //               + "\nPlease check article_info.json" );
-            //         console.log(error1);
-            //     });
-            // }
-
+            //get all articles
+            axios.all(ajaxFuncs).then(axios.spread(function() {
+                let data = arguments;
+                articlesArray.forEach(function(val, index){
+                    let $payload = {
+                        'title': val.title,
+                        'content': data[index]['data']
+                    };
+                    store.commit('pushArticlesContent', $payload);
+                    store.commit('setAllArticlesFetched', true);
+                })
+            })).catch((err)=>{
+                console.log(err);
+            });
         }, (error) => {
             console.log(error)
         });
@@ -304,7 +228,7 @@ const actions = {
         if (value.value.trim().length > 0){
             //only search when string not empty
             
-            let allArticles = store.state.allArticles;
+            let allArticles = store.state.articlesContent;
             let search = store.state.search.toLowerCase(); //to lowercase for search
             searchResults = {
                 'showSearch': true,
@@ -326,7 +250,7 @@ const actions = {
                 }
                 //search by content
                 else if (allArticles[title].indexOf(search) !== -1){
-                    let result = func.getSubstring(
+                    let result = funcs.getSubstring(
                             allArticles[title], 
                             store.state.maxReturnLength, 
                             allArticles[title].indexOf(search),

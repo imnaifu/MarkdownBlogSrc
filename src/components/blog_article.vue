@@ -14,11 +14,11 @@
                 No results found for '{{this.$store.state.search}}'
             </h2>
         </div>  
-        <div class='article-inner' v-else-if="getOneTitle"><!-- normal article -->
-            <p class='date'>{{getOneDate}}</p>   
-            <h1 id='title'>{{getOneTitle}}</h1>
+        <div class='article-inner' v-else-if="getTitle"><!-- normal article -->
+            <p class='date'>{{getOneArticle.date}}</p>   
+            <h1 id='title'>{{getOneArticle.title}}</h1>
             <div>
-                <p class='article-text' v-html="getOneArticle"></p>
+                <p class='article-text' v-html="$options.filters.md2html(getOneArticle.content, this.$store.state.imgPath)"></p>
             </div>
         </div>        
     </div>
@@ -26,18 +26,6 @@
 
 <script type="text/javascript">
     export default {
-        props:{
-            title: {
-                type: String, //type checking here
-                required: true //must have 
-            }
-        },
-        data() {
-            return {
-                allArticles: this.$store.state.allArticles,
-                title: this.$route.params.title
-            }
-        },
         methods: {
             //control of sidebar [not a good way]
             sidebarDisable(){
@@ -56,21 +44,32 @@
 
         },
         computed: {
-            getOneTitle(){
-                if (this.title){
-                    return this.title;
-                }
-            },
-            getOneDate(){
-                if (this.$store.state.allArticlesFetched){
-                    return this.$store.state.allDetails[this.title].date;
-                }
+            getTitle(){
+                return this.$route.params.title;
             },
             getOneArticle(){
                 if (this.$store.state.allArticlesFetched){
-                   
+                    if (this.$store.state.articlesContent.hasOwnProperty(this.getTitle)){
+                        return {
+                            'title': this.getTitle,
+                            'date': this.$store.state.articleInfo[this.getTitle]['date'],
+                            'content': this.$store.state.articlesContent[this.getTitle]
+                        }
+                    }
+                    else{
+                        return {
+                            'title': `Error 404 - '${this.getTitle}' not found`
+                        }
+                    }
+                }else{
+                     return {
+                        'title': '',
+                        'date': '',
+                        'content': ''
+                    }
                 }
             },
+
             showSearch(){
                 return this.$store.state.searchResults.showSearch;
             },
@@ -80,27 +79,6 @@
             getSearchResult(){
                 return this.$store.state.searchResults.results
             }
-        },
-        created() {
-            // //get article 
-            
-            // axios.get(state.articlePath +　article.filename).then((response1) => {
-            //     store.commit('setAllArticles',  {
-            //         "title": article.title,    
-            //         "content":response1.data
-            //     });
-            //     if (i == len-1){
-            //         //set last article the nest article
-            //         store.commit('setNewestArticle', article.title);
-            //         //set it true when complete getting the last one
-            //         store.commit('setAllArticlesFetched', true);
-            //     }
-            // }, (error1) => {
-            //     alert("Error getting " + article.filename 
-            //           + "\nPlease check article_info.json" );
-            //     console.log(error1);
-            // });
-
         }
     }
 </script>

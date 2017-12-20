@@ -1,7 +1,7 @@
-<template>
+    <template>
     <div id="blog_default">
         <div class="wrapper">
-            <div v-for="(val, key) in getAllArticleInfos" class='flex-item'>
+            <div v-for="(val, key) in articlesList" class='flex-item'>
                 <h1>{{key}}</h1>
                 <ul>
                     <li v-for="(val2, key2) in val">
@@ -20,8 +20,8 @@
 <script type="text/javascript">
     export default {
         computed:{
-            getAllArticleInfos: function (){
-                return this.$store.getters.getAllArticleInfos;
+            articlesList(){
+                return this.$store.getters.getArticleInfosGroupByType;
             }
         }
     }

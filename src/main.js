@@ -1,12 +1,19 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
-import Vue from 'vue' //import Vue framework
-import App from './App' //import root component
-import router from './router' //import router setting
-import store from './vuex/store.js'
+import Vue from 'vue'; //import Vue framework
+import App from './App'; //import root component
+import router from './router'; //import router setting
+import store from './vuex/store.js';
+import funcs from './assets/js/general_funcs.js';
 
 Vue.config.productionTip = false;
+
+Vue.filter('toUpper', funcs.toUpper);
+Vue.filter('toLower', funcs.toLower);
+Vue.filter('encodeURI', funcs.encodeURI);
+Vue.filter('decodeURI', funcs.decodeURI);
+Vue.filter('md2html', funcs.md2html);
 
 /* eslint-disable no-new */
 const vm = new Vue({
@@ -18,16 +25,7 @@ const vm = new Vue({
         App
     },
     //fetch data when instance created and dom still not ready
-    created: function() {
+    created(){
        this.$store.dispatch('actionFetch');
     }
 });
-
-Vue.filter('encodeURI', function(value){
-    return encodeURI(value);
-});
-
-Vue.filter('decodeURI', function(value){
-    return decodeURI(value);
-});
-
