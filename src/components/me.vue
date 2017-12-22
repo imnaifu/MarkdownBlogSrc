@@ -1,6 +1,6 @@
 <template>
     <div id="me">
-		<div class="scene" v-if="this.$store.state.meAnimation">
+		<div class="scene" v-if="!this.$store.state.showImg">
 			<!-- only h5 + css -->
 			<span class="cloud cloud--small"></span>
 			<svg xmlns="http://www.w3.org/2000/svg" id="plane" class="plane" 
@@ -19,21 +19,13 @@
 			<span class="cloud cloud--medium"></span>
 			<span class="cloud cloud--large"></span>
 		</div>
-        <img v-if="this.$store.state.showImg" v-bind:src="'../../static/data/img/' + this.$store.state.meImg" alt="Sorry, image not found" id='avatar'>
+        <img v-if="this.$store.state.showImg" 
+        v-bind:src="'../../static/data/img/' + this.$store.state.meImg" alt="Sorry, image not found" id='avatar'>
         <p>{{this.$store.state.meText}}</p>
     </div>
 </template>
 <script>
 	export default {
-		data(){
-			return {
-			}
-		},
-		mounted(){
 
-		},
-		computed: {
-
-		}
 	}
 </script>

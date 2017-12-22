@@ -6,28 +6,30 @@ import funcs from '../assets/js/general_funcs.js';
 Vue.use(Vuex);
 
 const state = {
-    sidebarStatus: '',
+
+    //constant
     articlePath: '../../static/data/articles/',
     imgPath: 'static/data/img/',
 
-    articleInfo: [],
+    //status
     articleInfoFetched: false,
-    allArticles: {},
     allArticlesFetched: false,
-    articlesContent: {},
+    enableResume: false,
+    showImg: false,
+    sidebarStatus: '',
 
+    //datas
+    articleInfo: [],
+    articlesContent: {},
     resumeData: '',        
     pageTitle:'',
-    enableResume: false,
-    meAnimation: false,
-    showImg: false,
-    meImg: undefined,
-    meText: undefined,
+    meImg: '',
+    meText: '',
     navText: ['Me', 'Resume', 'Blog'],
 
-    //search
+    //search related
     maxReturnLength: 200,
-    search: null,
+    search: '',
     searchResults: {
         showSearch: false
     }
@@ -59,6 +61,7 @@ const getters = {
         return types;
     }
 };
+
 
 
 //use closure as Factory function for setting only
@@ -141,15 +144,6 @@ const actions = {
                 store.commit('setPageTitle', page_title);
             }
 
-            //animation
-            let me_animation = response.data.me_animation;
-            if (funcs.type(me_animation)!=='boolean'){
-                error_info += "'me_animation' must be a boolean (without quote) in config.json\n";                
-            }else{
-                store.commit('setShowImg', !me_animation);
-                store.commit('setMeAnimation', me_animation); 
-            }
-
             //text
             let me_text = response.data.me_text;
             if (funcs.type(me_text)!=='string'){
@@ -163,6 +157,11 @@ const actions = {
             if (funcs.type(me_img)!=='string'){
                 error_info += "'me_img' must be a string in config.json\n";                
             }else{
+                if (me_img.trim() === ''){
+                    store.commit('setShowImg', false);
+                }else{
+                    store.commit('setShowImg', true);
+                }
                 store.commit('setMeImg', me_img); 
             }
 
@@ -216,6 +215,7 @@ const actions = {
             })).catch((err)=>{
                 console.log(err);
             });
+            
         }, (error) => {
             console.log(error)
         });

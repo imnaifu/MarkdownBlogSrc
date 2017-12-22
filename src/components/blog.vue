@@ -9,16 +9,9 @@
     import sidebar from './sidebar';
     import blogarticle from './blog_article';
     export default {
-        data: function (){
-            return {
-            }
-        },
         components: {
             sidebar,
             blogarticle
-        },
-        methods: {
-
         },
         mounted() {
             this.$store.commit('setSidebar', 'disable'); //alway disable sidebar first

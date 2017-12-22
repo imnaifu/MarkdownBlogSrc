@@ -12,7 +12,7 @@
                 </a>
 
                 <ul v-if="(val.length>0)" 
-                    class='list-unstyled collapse' 
+                    class='list-unstyled collapse'
                     v-bind:id="key.trim().replace(/ /g,'')" 
                     v-bind:class="(key==getActiveType)?'show':''">
 
@@ -34,12 +34,9 @@
 </template>
 
 <script type="text/javascript">
+    // import collapse from '../assets/js/collapse.js';
+
     export default {
-        data: function(){
-            return {
-                // search:''
-            }
-        },
         methods: {
             clearResult(){
                 //make sure every time load a new article, go to the top of article
@@ -50,7 +47,6 @@
                 this.$store.commit('setShowSearch', false);
             }
         },
-        watch: {},
         computed: {
             getTitle(){
                 return this.$route.params.title;
@@ -77,12 +73,8 @@
                         value:value
                     });                                
                 }
-
             }
-        },
-        mounted: function(){
-
-        }        
+        }
     }
 </script>
 

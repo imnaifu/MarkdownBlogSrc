@@ -9,11 +9,12 @@
 </template>
 
 <script>
-    // import $ from "jquery";
-    // import Popper from "popper.js";
-    // window.Popper = Popper;
-    // window.$ = $;
-    // require('bootstrap');
+    import $ from "jquery";
+    import Popper from "popper.js";
+    window.Popper = Popper;
+    window.$ = $;
+    require('bootstrap');
+    
     import appFooter from './components/app_footer';
     import appNav from './components/app_nav';
 
@@ -23,15 +24,6 @@
         components: {   
             appNav,
             appFooter,    
-        },
-        computed: {
-            // addhighlight: function (){
-            //     if (this.$store.state.allArticlesFetched){
-            //         // $('pre code').each(function(i, block) {
-            //         //     hljs.highlightBlock(block);
-            //         // });                    
-            //     }
-            // }
-        },
+        }
     }
 </script>

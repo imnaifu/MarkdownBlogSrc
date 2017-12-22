@@ -26,6 +26,7 @@ const vm = new Vue({
     },
     //fetch data when instance created and dom still not ready
     created(){
-       this.$store.dispatch('actionFetch');
+        this.$store.dispatch('actionFetch');
     }
 });
+

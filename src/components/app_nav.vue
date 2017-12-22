@@ -7,13 +7,13 @@
                 </a>
             </li>
             <li class='nav-item'>
-                <router-link to="/me" class='nav-link'>{{this.$store.state.navText[0]}}</router-link>
+                <router-link to="/me" class='nav-link'>{{getNavText[0]}}</router-link>
             </li>
             <li class='nav-item' v-if="this.$store.state.enableResume">
-                <router-link to="/resume" class='nav-link'>{{this.$store.state.navText[1]}}</router-link>
+                <router-link to="/resume" class='nav-link'>{{getNavText[1]}}</router-link>
             </li>
             <li class='nav-item'>
-                <router-link to="/blog/" class='nav-link'>{{this.$store.state.navText[2]}}</router-link>
+                <router-link to="/blog/" class='nav-link'>{{getNavText[2]}}</router-link>
             </li>
         </ul>
     </div>
@@ -21,11 +21,6 @@
 
 <script>
 export default {
-    data () {
-        return {
-
-        }
-    },
     methods: {
         sidebarActive(){
             this.$store.commit('setSidebar', 'active');
@@ -41,10 +36,9 @@ export default {
                 return false;
             }
         },
-    },
-    mounted(){
-
+        getNavText(){
+            return this.$store.state.navText;
+        }
     }
-
 }
 </script>

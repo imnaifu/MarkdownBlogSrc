@@ -1,16 +1,186 @@
-{
+{ 
     "articles": [
         {
-            "filename": "class/first article.md",
-            "title": "First article",
-            "type" : "Type 1",
-            "date": "May 1st, 2017"
+            "filename": "vuejs/vue_basic.md",
+            "title": "Vue Basic",
+            "type" : "Vue",
+            "date": "2017-11-23"
         },
         {
-            "filename": "second article.md",
-            "title": "Second article",
-            "type" : "Type 2",
-            "date": "1970-01-01"
+            "filename": "markdown/markdown.md",
+            "title": "Markdown Basic",
+            "type" : "Markdown",
+            "date": "2017-11-23"
+        },     
+        {
+            "filename": "javascript/js_often_used.md",
+            "title": "JavaScript常用方法",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "javascript/es6.md",
+            "title": "ECMAScript 6 syntax",
+            "type" : "Javascript",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "js_basic/js_primitive.md",
+            "title": "JS Primitive",
+            "type" : "Javascript Basic",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "js_basic/js_construct_function.md",
+            "title": "Construct function & Prototype",
+            "type" : "Javascript Basic",
+            "date": "2017-11-23"
+        },
+
+        {
+            "filename": "js_basic/js_scope.md",
+            "title": "JS Scope",
+            "type" : "Javascript Basic",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "js_basic/js_this.md",
+            "title": "JS 'this'",
+            "type" : "Javascript Basic",
+            "date": "2017-11-23"
+        },
+        {
+            "filename": "concept/rest.md",
+            "title": "REST API",
+            "type" : "Concept",
+            "date": "2017-11-23"
+        },
+        {
+           "filename": "js_basic/event_loop.md",
+            "title": "Event Loop",
+            "type" : "Javascript Basic",
+            "date": "2017-11-29"
+        },
+        {
+           "filename": "js_basic/hoisting.md",
+            "title": "JavaScript Hoisting",
+            "type" : "Javascript Basic",
+            "date": "2017-12-01"
+        },
+        {
+           "filename": "js_basic/prototype_chain.md",
+            "title": "原型链与继承",
+            "type" : "Javascript Basic",
+            "date": "2017-12-01"
+        },
+        {
+           "filename": "js_basic/prototype_constructor_instance.md",
+            "title": "原型，实例，构造函数",
+            "type" : "Javascript Basic",
+            "date": "2017-12-01"
+        },
+        {
+           "filename": "js_basic/js_execution.md",
+            "title": "JavsScript 执行",
+            "type" : "Javascript Basic",
+            "date": "2017-12-01"
+        },
+        {
+            "filename": "javascript/apply_call.md",
+            "title": "Apply & Call",
+            "type" : "Javascript",
+            "date": "2017-12-04"
+        },
+        {
+            "filename": "js_basic/js_closure.md",
+            "title": "JavaScript 闭包",
+            "type" : "Javascript Basic",
+            "date": "2017-12-04"
+        },
+        {
+            "filename": "front_end/webpack.md",
+            "title": "Webpack是啥",
+            "type" : "Front-end",
+            "date": "2017-12-06"
+        },
+        {
+            "filename": "css/sass.md",
+            "title": "Sass",
+            "type" : "CSS",
+            "date": "2017-12-06"
+        },
+        {
+            "filename": "css/flex_grid.md",
+            "title": "Flex & Grid",
+            "type" : "CSS",
+            "date": "2017-12-10"
+        },
+        {
+            "filename": "vuejs/ref.md",
+            "title": "Vue API - ref",
+            "type" : "Vue",
+            "date": "Dec 13, 2017"            
+        },
+        {
+            "filename": "vuejs/life_cycle.md",
+            "title": "Vue Life Cycle",
+            "type" : "Vue",
+            "date": "Dec 13, 2017"            
+        },
+        {
+            "filename": "vuejs/prop.md",
+            "title": "prop的使用",
+            "type" : "Vue",
+            "date": "Dec 14, 2017"                   
+        },
+        {
+            "filename": "vuejs/event.md",
+            "title": "Event in Vue",
+            "type" : "Vue",
+            "date": "Dec 14, 2017"                   
+        },
+        {
+            "filename": "vuejs/slot.md",
+            "title": "Vue slot",
+            "type" : "Vue",
+            "date": "Dec 15, 2017"                   
+        },
+        {
+            "filename": "vuejs/dynamic_component.md",
+            "title": "Vue Dynamic Component",
+            "type" : "Vue",
+            "date": "Dec 15, 2017"                   
+        },
+        {
+            "filename": "vuejs/form_in_vue.md",
+            "title": "Vue Form",
+            "type" : "Vue",
+            "date": "Dec 15, 2017"             
+        },
+        {
+            "filename": "vuejs/custom_directive&filter.md",
+            "title": "Custom Directive & Filter",
+            "type" : "Vue",
+            "date": "Dec 16, 2017"             
+        },
+        {
+            "filename": "vuejs/mixin.md",
+            "title": "Mixin",
+            "type" : "Vue",
+            "date": "Dec 16, 2017"             
+        },
+        {
+            "filename": "vuejs/router.md",
+            "title": "Vue Router",
+            "type" : "Vue",
+            "date": "Dec 17, 2017"             
+        },
+        {
+            "filename": "vuejs/vuex.md",
+            "title": "Vuex",
+            "type" : "Vue",
+            "date": "Dec 18, 2017"             
         }
-    ]
+
+    ] 
 }
