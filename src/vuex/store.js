@@ -260,7 +260,11 @@ const actions = {
                     //add span to target string for color control
                     let spanOpen = "<span class='search_value'>";
                     let spanClose = "</span>";
+
+                    //2018-04-13 encode to html entities to prevent from injection
+                    // let content = funcs.htmlEntityEncode(result['text']);
                     let content = result['text'];
+
                     content = content.slice(0, result['targetStart']) 
                                 + spanOpen 
                                 + content.slice(
@@ -274,9 +278,7 @@ const actions = {
                                     + result['targetLength']
                                 );
 
-                    //2018-04-13 encode to html entities to prevent from injection
-                    article['content'] = funcs.htmlEntityEncode(content);
-                    // article['content'] = content;
+                    article['content'] = content;
                     
                     // article['resultStart'] = result['targetStart'];
                     // article['resultLength'] = result['targetLength'];
