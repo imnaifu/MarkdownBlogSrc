@@ -274,8 +274,10 @@ const actions = {
                                     + result['targetLength']
                                 );
 
-
-                    article['content'] = content;
+                    //2018-04-13 encode to html entities to prevent from injection
+                    article['content'] = funcs.htmlEntityEncode(content);
+                    // article['content'] = content;
+                    
                     // article['resultStart'] = result['targetStart'];
                     // article['resultLength'] = result['targetLength'];
                     searchResults['results'][title] = article;

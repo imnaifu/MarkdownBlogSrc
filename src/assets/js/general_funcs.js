@@ -103,8 +103,7 @@ export default {
 		naifu 2017-12-19
 		transfer an array to object 
 		if input is array of object, then can use 2nd parameter as the key of the returned object.
-		e.g: let arr = 
-						[
+		e.g: let arr =  [
 							{'id': '31', 'name': 'abc'},
 							{'id': '42', 'name': 'bcd'}	
 						];
@@ -166,5 +165,30 @@ export default {
 		return typeof obj === "object" || typeof obj === "function" ?
 			class2type[ toString.call( obj ) ] || "object" :
 			typeof obj;
+	},
+
+	/**
+	 * Converts a string to its html characters completely.
+	 *
+	 * @param {String} str String with unescaped HTML characters
+	 **/
+	htmlEntityEncode(str) {
+		var buf = [];
+		
+		for (var i=str.length-1;i>=0;i--) {
+			buf.unshift(['&#', str[i].charCodeAt(), ';'].join(''));
+		}
+		
+		return buf.join('');
+	},
+	/**
+	 * Converts an html characterSet into its original character.
+	 *
+	 * @param {String} str htmlSet entities
+	 **/
+	htmlEntityDecode(str) {
+		return str.replace(/&#(\d+);/g, function(match, dec) {
+			return String.fromCharCode(dec);
+		});
 	}
 }
